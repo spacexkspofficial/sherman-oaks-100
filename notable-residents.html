@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notable Residents Map — Sherman Oaks 100</title>
+  <meta name="description" content="An interactive map of notable Sherman Oaks residents and heritage landmarks — celebrities, public figures, civic anchors, and historic neighborhood places." />
+  <meta name="theme-color" content="#14322a" />
+  <meta property="og:title" content="Notable Residents Map — Sherman Oaks 100" />
+  <meta property="og:description" content="Where celebrities and notable figures lived in Sherman Oaks, plus heritage landmarks across the neighborhood." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2314322a'/><text x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23c9a55a' text-anchor='middle' font-weight='600'>100</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,30..100,0..1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!--
+    Leaflet — free, open-source interactive map library. No API key, no
+    billing, works perfectly on GitHub Pages.
+    Docs: https://leafletjs.com/
+  -->
+  <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin="" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <style>
+    /* ---------------------------------------------------------------------
+       Page-specific styles for the notable residents map.
+       Inline so the page is self-contained — the rest of the site doesn't
+       need this CSS unless a second map page is added.
+       --------------------------------------------------------------------- */
+    .map-page {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: var(--space-5);
+      align-items: stretch;
+    }
+    @media (max-width: 960px) {
+      .map-page { grid-template-columns: 1fr; }
+    }
+
+    .leaflet-map {
+      height: 620px;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--border-strong);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      z-index: 1;
+    }
+    @media (max-width: 600px) {
+      .leaflet-map { height: 480px; }
+    }
+
+    .map-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      max-height: 620px;
+    }
+    @media (max-width: 960px) {
+      .map-sidebar { max-height: none; }
+    }
+
+    .map-sidebar__head {
+      flex-shrink: 0;
+    }
+    .map-sidebar__head h2 {
+      font-size: 1.4rem;
+      margin: 0 0 0.4rem;
+    }
+    .map-sidebar__head p {
+      font-size: 0.88rem;
+      color: var(--fg-muted);
+      margin: 0;
+    }
+
+    .map-sidebar__filters {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-top: var(--space-3);
+    }
+    .map-sidebar__filters .filter-bar__chip {
+      padding: 0.4rem 0.85rem;
+      font-size: 0.78rem;
+    }
+
+    .map-sidebar__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-right: 4px;
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+    .map-sidebar__list::-webkit-scrollbar { width: 8px; }
+    .map-sidebar__list::-webkit-scrollbar-thumb {
+      background: var(--ink-200);
+      border-radius: 4px;
+    }
+    .map-sidebar__list::-webkit-scrollbar-track { background: transparent; }
+
+    .map-sidebar__item {
+      background: var(--cream-50);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: var(--space-3) var(--space-4);
+      cursor: pointer;
+      transition: border-color var(--t-fast), box-shadow var(--t-fast),
+                  background var(--t-fast), transform var(--t-fast);
+      text-align: left;
+      width: 100%;
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+    }
+    .map-sidebar__item:hover {
+      border-color: var(--gold-400);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-1px);
+    }
+    .map-sidebar__item.is-active {
+      border-color: var(--gold-500);
+      background: rgba(184, 146, 63, 0.08);
+      box-shadow: var(--shadow-sm);
+    }
+    .map-sidebar__item-meta {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .map-sidebar__item-meta .placeholder-flag {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--fg-muted);
+      background: var(--cream-200);
+      padding: 0.1rem 0.4rem;
+      border-radius: var(--r-full);
+    }
+    .map-sidebar__item h4 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin: 0;
+      color: var(--primary-deep);
+    }
+    .map-sidebar__item p {
+      margin: 0.35rem 0 0;
+      font-size: 0.85rem;
+      color: var(--ink-700);
+      line-height: 1.5;
+    }
+
+    /* Custom Leaflet markers */
+    .so-marker {
+      width: 30px;
+      height: 30px;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      border: 3px solid var(--cream-50);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.30);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .so-marker__inner {
+      transform: rotate(45deg);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-display);
+      letter-spacing: -0.5px;
+    }
+    .so-marker--resident {
+      background: linear-gradient(135deg, #d4b572, #a0832f);
+    }
+    .so-marker--landmark {
+      background: linear-gradient(135deg, #3d8a6c, #1c4536);
+    }
+    .so-marker.is-active {
+      box-shadow: 0 0 0 3px rgba(184, 146, 63, 0.45),
+                  0 4px 14px rgba(0,0,0,0.40);
+    }
+
+    /* Leaflet popup theming */
+    .leaflet-popup-content-wrapper {
+      border-radius: var(--r-md);
+      font-family: var(--font-body);
+      background: var(--cream-50);
+      box-shadow: 0 10px 30px rgba(20, 50, 42, 0.15);
+      border: 1px solid var(--border);
+    }
+    .leaflet-popup-content {
+      margin: 16px 18px;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--ink-700);
+      min-width: 220px;
+    }
+    .leaflet-popup-tip { background: var(--cream-50); }
+    .leaflet-popup-content h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 0 0 0.35rem;
+      color: var(--primary-deep);
+    }
+    .leaflet-popup-content .pop-meta {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .leaflet-popup-content .pop-meta .pop-flag {
+      font-size: 0.6rem;
+      color: var(--fg-muted);
+      background: var(--cream-200);
+      padding: 0.1rem 0.45rem;
+      border-radius: var(--r-full);
+      letter-spacing: 0.08em;
+    }
+    .leaflet-popup-content .pop-source {
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px dashed var(--border);
+      font-size: 0.74rem;
+      color: var(--fg-muted);
+      font-style: italic;
+    }
+
+    .leaflet-control-attribution {
+      font-size: 10px !important;
+      background: rgba(254, 252, 246, 0.85) !important;
+    }
+
+    /* Disclaimer banner */
+    .map-disclaimer {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-4);
+      padding: var(--space-4) var(--space-5);
+      background: var(--cream-100);
+      border: 1px solid var(--gold-300);
+      border-left: 4px solid var(--gold-500);
+      border-radius: var(--r-md);
+      margin-bottom: var(--space-5);
+    }
+    .map-disclaimer__icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--r-full);
+      background: var(--gold-500);
+      color: var(--oak-900);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .map-disclaimer h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
+    .map-disclaimer p  { margin: 0; font-size: 0.92rem; color: var(--ink-700); }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="index.html" aria-label="Sherman Oaks 100 — home">
+        <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#14322a"/><circle cx="32" cy="32" r="22" fill="none" stroke="#c9a55a" stroke-width="1"/><text x="32" y="40" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="500" fill="#c9a55a">100</text></svg>
+        <span class="brand__text">Sherman Oaks<small>Centennial · 1927–2027</small></span>
+      </a>
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav__menu" id="primary-menu">
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="history.html">History</a></li><li><a href="map.html">Map</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="sponsors.html">Sponsors</a></li><li><a href="get-involved.html">Get Involved</a></li><li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav__cta"><a class="btn btn--accent btn--small" href="get-involved.html">Volunteer</a></div>
+    </nav>
+  </div>
+</header>
+
+
+<main id="main">
+
+<section class="page-header">
+  <div class="container">
+    <p class="page-header__crumbs">
+      <a href="index.html">Home</a> · <a href="map.html">Map</a> · Notable Residents
+    </p>
+    <span class="eyebrow">Who Lived Here</span>
+    <h1 class="page-header__title display">Notable <em>residents</em> &amp; heritage landmarks.</h1>
+    <p class="page-header__sub">
+      An interactive map of celebrities, public figures, and heritage places
+      across Sherman Oaks — a tour of the neighborhood through the people and
+      sites that shaped its character.
+    </p>
+  </div>
+</section>
+
+
+<section class="section section--tight">
+  <div class="container">
+
+    <div class="map-disclaimer">
+      <div class="map-disclaimer__icon">!</div>
+      <div>
+        <h3>A preliminary map — please read.</h3>
+        <p>
+          Resident entries shown here are <strong>placeholders</strong> for the
+          centennial committee to verify and fill in with sourced biographies.
+          Heritage landmark entries are publicly documented. For living
+          people, this map will only ever use approximate (block-level)
+          coordinates — never exact home addresses, and only with consent
+          when applicable. Please be respectful of current residents.
+        </p>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MAP + SIDEBAR
+         ============================================================ -->
+    <div class="map-page">
+
+      <div id="leaflet-map"
+           role="application"
+           aria-label="Interactive map of notable Sherman Oaks residents and landmarks"></div>
+
+      <aside class="map-sidebar" aria-label="List of map entries">
+        <div class="map-sidebar__head">
+          <h2>Places &amp; people</h2>
+          <p>Click any entry to fly the map there. Click a marker to read the bio.</p>
+          <div class="map-sidebar__filters" role="group" aria-label="Filter entries">
+            <button class="filter-bar__chip" data-mapfilter="all"       aria-pressed="true">All</button>
+            <button class="filter-bar__chip" data-mapfilter="resident"  aria-pressed="false">Residents</button>
+            <button class="filter-bar__chip" data-mapfilter="landmark"  aria-pressed="false">Landmarks</button>
+          </div>
+        </div>
+        <ul class="map-sidebar__list" id="map-list"></ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SUGGEST AN ADDITION
+     ============================================================ -->
+<section class="section">
+  <div class="container container--narrow center">
+    <span class="eyebrow eyebrow--center">Help Us Build This</span>
+    <h2>Know a notable Sherman Oaks resident we should include?</h2>
+    <p>
+      We're building this map carefully — sourced biographies, approximate
+      locations, and (for living people) with consent where possible.
+      If you have a verified suggestion, a primary source, or a family
+      connection to share, we'd love to hear from you.
+    </p>
+    <div style="display: inline-flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;">
+      <a class="btn btn--primary btn--icon" href="contact.html">Suggest an addition</a>
+      <a class="btn btn--ghost btn--icon" href="map.html">Back to community map</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     EDITORS' NOTES
+     ============================================================ -->
+<section class="section section--alt">
+  <div class="container container--narrow prose">
+    <span class="eyebrow">Editor Notes</span>
+    <h2>How to add or edit entries</h2>
+    <p>
+      The map data lives in a JavaScript array at the bottom of this
+      <code>notable-residents.html</code> page. Each entry is a small object
+      with name, era, coordinates, bio, and source citation. Adding a new pin
+      is a single edit.
+    </p>
+    <h3>Sourcing &amp; consent policy</h3>
+    <ul>
+      <li><strong>Cite every entry.</strong> Source field should reference a
+        biography, newspaper archive, property record, school record, or
+        family contribution.</li>
+      <li><strong>Living people:</strong> use block-level approximate
+        coordinates only — never exact home addresses. Obtain consent
+        before publishing if practical.</li>
+      <li><strong>Deceased figures:</strong> approximate coordinates are
+        still strongly preferred unless the location is a museum, marker,
+        or otherwise public.</li>
+      <li><strong>Tag placeholders.</strong> Unverified entries should keep
+        the <code>placeholder: true</code> flag so the sidebar shows a
+        "to be verified" badge.</li>
+    </ul>
+    <h3>Getting coordinates</h3>
+    <p>
+      The simplest way: open <a href="https://www.google.com/maps" rel="noopener" target="_blank">Google Maps</a>,
+      right-click on the spot you want, and click the latitude/longitude
+      that appears at the top of the menu. Paste those numbers into the
+      <code>coords: [lat, lng]</code> field. For privacy on living
+      people, drop the pin a block or two off the actual address.
+    </p>
+  </div>
+</section>
+
+</main>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="brand" href="index.html">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1c4536"/><circle cx="32" cy="32" r="22" fill="none" stroke="#c9a55a" stroke-width="1"/><text x="32" y="40" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="500" fill="#c9a55a">100</text></svg>
+          <span class="brand__text" style="color: var(--cream-50);">Sherman Oaks<small style="color: var(--gold-300);">Centennial · 1927–2027</small></span>
+        </a>
+        <p>A community-led celebration of a hundred years of neighborhood life in the heart of the San Fernando Valley.</p>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="history.html">History</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="map.html">Community Map</a></li><li><a href="notable-residents.html">Notable Residents</a></li></ul></div>
+      <div><h4>Join In</h4><ul><li><a href="get-involved.html">Volunteer</a></li><li><a href="sponsors.html">Sponsor</a></li><li><a href="steering-committee.html">Steering Committee</a></li><li><a href="civic-partners.html">Civic Partners</a></li><li><a href="news.html">News</a></li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li><li><a href="mailto:hello@example.com">hello@example.com</a></li><li class="subtle" style="color: rgba(254, 252, 246, 0.55);">Sherman Oaks, California</li></ul></div>
+    </div>
+    <div class="site-footer__bottom">
+      <p>© <span data-year>2027</span> Sherman Oaks 100 Centennial Committee. All rights reserved.</p>
+      <div class="site-footer__legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="copyright.html">Copyright</a><a href="accessibility.html">Accessibility</a></div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+
+<!--
+  ============================================================================
+  MAP DATA — edit these arrays to update what shows up on the map.
+  ============================================================================
+
+  Each entry is an object with:
+
+    name        – Display name. Use "· Placeholder" suffix until verified.
+    category    – Free-text label shown as the chip on each item.
+                  Suggested values: Film · Television · Music · Sports ·
+                  Literary · Civic · Landmark
+    type        – 'resident' or 'landmark'. Controls filter group + marker color.
+    era         – Year range or "present", e.g. "1930s–50s" or "1956–present"
+    coords      – [latitude, longitude]. For living people, use approximate
+                  (block-level) coordinates only — never exact addresses.
+    bio         – Short paragraph (1–3 sentences). Will appear in popup + sidebar.
+    source      – Citation. Where this fact came from. Required for verified
+                  entries — leave as "Citation pending." for placeholders.
+    placeholder – true | false. If true, shows a "TO VERIFY" badge.
+
+  To add an entry: copy any existing object, paste it in the array, edit fields.
+  To remove: delete the object.
+  To reorder: rearrange the objects in the array.
+  ============================================================================
+-->
+<script>
+(function () {
+  'use strict';
+
+  /* -----------------------------------------------------------------------
+     ENTRIES — residents (placeholders) and heritage landmarks (verified).
+     ----------------------------------------------------------------------- */
+  var ENTRIES = [
+
+    // -------------------------------------------------------------------
+    // HERITAGE LANDMARKS — publicly documented Sherman Oaks places.
+    // Coordinates are approximate. Refine with Google Maps as needed.
+    // -------------------------------------------------------------------
+    {
+      name: "Casa Vega",
+      category: "Landmark · Dining",
+      type: "landmark",
+      era: "1956–present",
+      coords: [34.1496, -118.4222],
+      bio: "Family-owned Mexican restaurant opened on Ventura Boulevard in 1956 by Rafael ‘Ray’ Vega. A longtime Sherman Oaks fixture and cultural touchstone of the boulevard's dining history.",
+      source: "Public record · restaurant publicly documented.",
+      placeholder: false
+    },
+    {
+      name: "Sherman Oaks Galleria",
+      category: "Landmark · Commerce",
+      type: "landmark",
+      era: "1980–present",
+      coords: [34.1564, -118.4661],
+      bio: "Opened in 1980 as an enclosed shopping mall — the iconic ‘Valley girl mall’ featured in Fast Times at Ridgemont High (1982) and Valley Girl (1983). Re-opened as an open-air complex in 2002.",
+      source: "Los Angeles Times archives; public record.",
+      placeholder: false
+    },
+    {
+      name: "Notre Dame High School",
+      category: "Landmark · Schools",
+      type: "landmark",
+      era: "1947–present",
+      coords: [34.1602, -118.4225],
+      bio: "Independent Catholic college-preparatory school, a fixture of Sherman Oaks since 1947. Notable alumni span entertainment, sports, and public life.",
+      source: "School records · public record.",
+      placeholder: false
+    },
+    {
+      name: "Van Nuys–Sherman Oaks Recreation Center",
+      category: "Landmark · Parks",
+      type: "landmark",
+      era: "Mid-20th c.–present",
+      coords: [34.1633, -118.4488],
+      bio: "Public park and community center — a longtime gathering spot for sports, picnics, and neighborhood events, expected to host major centennial programming.",
+      source: "Los Angeles Department of Recreation and Parks.",
+      placeholder: false
+    },
+    {
+      name: "Sherman Oaks Castle Park",
+      category: "Landmark · Family",
+      type: "landmark",
+      era: "1978–present",
+      coords: [34.1567, -118.4708],
+      bio: "Family amusement center with mini-golf, arcade, and batting cages. A staple of San Fernando Valley childhoods for generations.",
+      source: "Public record.",
+      placeholder: false
+    },
+    {
+      name: "Original Sherman Oaks Subdivision (1927)",
+      category: "Landmark · Founding",
+      type: "landmark",
+      era: "1927",
+      coords: [34.1510, -118.4500],
+      bio: "Approximate area of the 1927 subdivision that gave Sherman Oaks its name — developed by Moses H. Sherman as orchard land transitioned to home lots.",
+      source: "Sherman Oaks historical record · committee archive (to confirm).",
+      placeholder: true
+    },
+
+    // -------------------------------------------------------------------
+    // NOTABLE RESIDENTS — all entries below are PLACEHOLDERS for the
+    // centennial committee to research, verify, and replace with real
+    // sourced entries. Approximate coordinates intentionally chosen to
+    // illustrate spread across Sherman Oaks; do not interpret as
+    // actual addresses.
+    // -------------------------------------------------------------------
+    {
+      name: "Notable Resident · Golden-Age Studio Star (Placeholder)",
+      category: "Film",
+      type: "resident",
+      era: "1930s–50s",
+      coords: [34.1530, -118.4520],
+      bio: "Placeholder for a Hollywood Golden-Age figure with a documented Sherman Oaks home. Replace with verified entry — source from biography, LA Times archive, or estate record.",
+      source: "Citation pending.",
+      placeholder: true
+    },
+    {
+      name: "Notable Resident · Mid-Century TV Personality (Placeholder)",
+      category: "Television",
+      type: "resident",
+      era: "1950s–70s",
+      coords: [34.1495, -118.4400],
+      bio: "Placeholder for a television performer who lived in Sherman Oaks during the postwar Valley boom. Replace with verified resident and source.",
+      source: "Citation pending.",
+      placeholder: true
+    },
+    {
+      name: "Notable Resident · Musician (Placeholder)",
+      category: "Music",
+      type: "resident",
+      era: "1960s–80s",
+      coords: [34.1565, -118.4555],
+      bio: "Placeholder for a musician or songwriter with documented Sherman Oaks ties — many SoCal music figures called the Valley home through this era.",
+      source: "Citation pending.",
+      placeholder: true
+    },
+    {
+      name: "Notable Resident · Sports Figure (Placeholder)",
+      category: "Sports",
+      type: "resident",
+      era: "1950s–80s",
+      coords: [34.1450, -118.4625],
+      bio: "Placeholder for an LA-area athlete who lived in Sherman Oaks during their playing career. Replace with verified resident and source.",
+      source: "Citation pending.",
+      placeholder: true
+    },
+    {
+      name: "Notable Resident · Author / Screenwriter (Placeholder)",
+      category: "Literary",
+      type: "resident",
+      era: "1940s–70s",
+      coords: [34.1480, -118.4380],
+      bio: "Placeholder for an author, screenwriter, or journalist with a documented Sherman Oaks residency.",
+      source: "Citation pending.",
+      placeholder: true
+    },
+    {
+      name: "Notable Resident · Director / Producer (Placeholder)",
+      category: "Film",
+      type: "resident",
+      era: "1970s–2000s",
+      coords: [34.1525, -118.4475],
+      bio: "Placeholder for a filmmaker who lived in Sherman Oaks. Many directors and producers settled in the south Valley for proximity to studios.",
+      source: "Citation pending.",
+      placeholder: true
+    },
+    {
+      name: "Notable Resident · Modern TV Actor (Placeholder)",
+      category: "Television",
+      type: "resident",
+      era: "1990s–present",
+      coords: [34.1542, -118.4421],
+      bio: "Placeholder for a contemporary television actor who grew up or resides in Sherman Oaks. Reminder: living people get block-level coordinates only.",
+      source: "Citation pending.",
+      placeholder: true
+    },
+    {
+      name: "Notable Resident · Civic Figure (Placeholder)",
+      category: "Civic",
+      type: "resident",
+      era: "1920s–60s",
+      coords: [34.1455, -118.4540],
+      bio: "Placeholder for a person tied to a founding Sherman Oaks business, civic institution, or place name — the kind of figure whose name is on a school, plaque, or street corner.",
+      source: "Citation pending.",
+      placeholder: true
+    }
+  ];
+
+  /* -----------------------------------------------------------------------
+     MAP INIT — Leaflet + CartoDB Voyager tiles.
+     ----------------------------------------------------------------------- */
+  var SO_CENTER = [34.1510, -118.4490];
+  var SO_BOUNDS = L.latLngBounds([34.130, -118.495], [34.180, -118.395]);
+
+  var map = L.map('leaflet-map', {
+    center: SO_CENTER,
+    zoom: 14,
+    minZoom: 12,
+    maxBounds: SO_BOUNDS,
+    maxBoundsViscosity: 0.6,
+    scrollWheelZoom: false  // require click on map to zoom — friendlier scroll
+  });
+
+  // Tap once to enable scroll-wheel zoom; tap outside to disable.
+  map.on('click', function () { map.scrollWheelZoom.enable(); });
+  map.on('mouseout', function () { map.scrollWheelZoom.disable(); });
+
+  // Tile layer — CartoDB Voyager (elegant, free, OpenStreetMap-based)
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors · &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(map);
+
+  /* -----------------------------------------------------------------------
+     MARKERS
+     ----------------------------------------------------------------------- */
+  function buildIcon(entry) {
+    var typeClass = entry.type === 'landmark' ? 'so-marker--landmark' : 'so-marker--resident';
+    var letter = (entry.category || '?').charAt(0).toUpperCase();
+    return L.divIcon({
+      className: '',
+      iconSize:   [30, 30],
+      iconAnchor: [15, 30],
+      popupAnchor:[0, -28],
+      html: '<div class="so-marker ' + typeClass + '"><div class="so-marker__inner">' + letter + '</div></div>'
+    });
+  }
+
+  function buildPopup(entry) {
+    var flag = entry.placeholder
+      ? '<span class="pop-flag">Placeholder · to verify</span>'
+      : '';
+    return ''
+      + '<div class="pop-meta">' + escapeHtml(entry.category) + ' · ' + escapeHtml(entry.era) + flag + '</div>'
+      + '<h4>' + escapeHtml(entry.name) + '</h4>'
+      + '<div>' + escapeHtml(entry.bio) + '</div>'
+      + '<div class="pop-source">' + escapeHtml(entry.source) + '</div>';
+  }
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+
+  var markersById = {};
+  ENTRIES.forEach(function (entry, i) {
+    var m = L.marker(entry.coords, { icon: buildIcon(entry), title: entry.name })
+      .bindPopup(buildPopup(entry))
+      .addTo(map);
+    entry.id = 'e' + i;
+    markersById[entry.id] = m;
+  });
+
+  /* -----------------------------------------------------------------------
+     SIDEBAR LIST
+     ----------------------------------------------------------------------- */
+  var listEl = document.getElementById('map-list');
+  function renderList(filter) {
+    listEl.innerHTML = '';
+    ENTRIES.forEach(function (entry) {
+      if (filter !== 'all' && entry.type !== filter) return;
+      var li = document.createElement('li');
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'map-sidebar__item';
+      btn.setAttribute('data-id', entry.id);
+
+      var flag = entry.placeholder
+        ? '<span class="placeholder-flag">To Verify</span>'
+        : '';
+      btn.innerHTML = ''
+        + '<div class="map-sidebar__item-meta">' + escapeHtml(entry.category) + ' · ' + escapeHtml(entry.era) + flag + '</div>'
+        + '<h4>' + escapeHtml(entry.name) + '</h4>'
+        + '<p>' + escapeHtml(entry.bio.slice(0, 160)) + (entry.bio.length > 160 ? '…' : '') + '</p>';
+
+      btn.addEventListener('click', function () {
+        var m = markersById[entry.id];
+        map.flyTo(entry.coords, 16, { duration: 0.8 });
+        setTimeout(function () { m.openPopup(); }, 700);
+        document.querySelectorAll('.map-sidebar__item').forEach(function (el) {
+          el.classList.remove('is-active');
+        });
+        btn.classList.add('is-active');
+      });
+
+      li.appendChild(btn);
+      listEl.appendChild(li);
+    });
+  }
+
+  renderList('all');
+
+  /* -----------------------------------------------------------------------
+     FILTER CHIPS
+     ----------------------------------------------------------------------- */
+  var chips = document.querySelectorAll('[data-mapfilter]');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var filter = chip.getAttribute('data-mapfilter');
+      chips.forEach(function (c) {
+        c.setAttribute('aria-pressed', String(c.getAttribute('data-mapfilter') === filter));
+      });
+      renderList(filter);
+      // Hide markers that don't match the filter
+      ENTRIES.forEach(function (entry) {
+        var m = markersById[entry.id];
+        if (filter === 'all' || entry.type === filter) {
+          if (!map.hasLayer(m)) m.addTo(map);
+        } else {
+          if (map.hasLayer(m)) map.removeLayer(m);
+        }
+      });
+    });
+  });
+
+  /* -----------------------------------------------------------------------
+     A small fit-to-bounds to start with everything in view
+     ----------------------------------------------------------------------- */
+  var group = L.featureGroup(Object.keys(markersById).map(function (k) { return markersById[k]; }));
+  if (group.getBounds().isValid()) {
+    map.fitBounds(group.getBounds().pad(0.18));
+  }
+
+})();
+</script>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
