@@ -1835,6 +1835,59 @@ ul, ol {
 
 
 /* --------------------------------------------------------------------------
+   Email CTA group
+   -------------------------------------------------------------------------- */
+.email-cta {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 640px;
+}
+
+.email-cta__grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+
+.email-cta__grid .btn,
+.email-cta__primary {
+  min-height: 44px;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.2;
+}
+
+.newsletter__cta {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (max-width: 900px) {
+  .mobile-stack {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (min-width: 561px) {
+  .email-cta__grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .email-cta-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .email-cta__grid .btn,
+  .email-cta__primary,
+  .newsletter__cta {
+    width: 100%;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
    28. Print
    -------------------------------------------------------------------------- */
 @media print {

@@ -131,8 +131,7 @@
   }
 
   /* ---------------------------------------------------------------------
-   * Mock forms — for any form that should never leave the browser
-   * (kept for backward compat; most live forms use the mailto handler).
+   * Mock forms — for any form that should never leave the browser.
    * ------------------------------------------------------------------- */
   function initForms() {
     document.querySelectorAll("[data-mock-form]").forEach(function (form) {
@@ -146,80 +145,6 @@
           status.classList.add("is-visible");
         }
         form.reset();
-      });
-    });
-  }
-
-  /* ---------------------------------------------------------------------
-   * Mailto forms — open the user's email client with a prefilled draft.
-   *
-   * Usage on a <form>:
-   *   data-mailto-form="hello@shermanoaks100.com"     (required: To address)
-   *   data-mailto-subject="Sherman Oaks 100 — Topic"  (optional: base subject)
-   *   data-mailto-subject-field="topic"               (optional: append the
-   *                                                    value of a named field
-   *                                                    to the subject)
-   *   data-success-msg="Opening your email app..."    (optional status text)
-   *
-   * GitHub Pages can't receive form data, so we hand the user's input to
-   * their email client as a prepared draft. Swap this for Formspree/Basin/
-   * Google Forms when ready for direct inbox delivery (see README).
-   * ------------------------------------------------------------------- */
-  function initMailtoForms() {
-    document.querySelectorAll("[data-mailto-form]").forEach(function (form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const to = form.getAttribute("data-mailto-form") || "hello@example.com";
-        let subject = form.getAttribute("data-mailto-subject") ||
-                      "Message from the Sherman Oaks 100 website";
-
-        // Append a dynamic value from a named field (e.g., contact topic)
-        const subjField = form.getAttribute("data-mailto-subject-field");
-        if (subjField) {
-          const subjEl = form.querySelector("[name='" + subjField + "']");
-          if (subjEl && subjEl.value) {
-            subject = subject + ": " + subjEl.value;
-          }
-        }
-
-        // Build a readable body from the form fields
-        const lines = [];
-        const seen = {};
-        const fields = form.querySelectorAll("input, select, textarea");
-        fields.forEach(function (el) {
-          if (!el.name) return;
-          if (el.type === "submit" || el.type === "button") return;
-          if ((el.type === "checkbox" || el.type === "radio") && !el.checked) return;
-          if (el.value === "") return;
-          const label = el.name
-            .replace(/[-_]+/g, " ")
-            .replace(/\b\w/g, function (c) { return c.toUpperCase(); });
-          if (seen[el.name] != null) {
-            lines[seen[el.name]] += ", " + el.value;
-          } else {
-            seen[el.name] = lines.length;
-            lines.push(label + ": " + el.value);
-          }
-        });
-        lines.push("");
-        lines.push("— Sent from the Sherman Oaks 100 website");
-
-        const body = lines.join("\r\n");
-        const mailto = "mailto:" + to +
-                       "?subject=" + encodeURIComponent(subject) +
-                       "&body=" + encodeURIComponent(body);
-
-        const status = form.querySelector(".form__status");
-        if (status) {
-          const msg = form.getAttribute("data-success-msg") ||
-                      "Opening your email app to send your message...";
-          status.textContent = msg;
-          status.classList.add("is-visible");
-        }
-
-        // Hand off to the email client.
-        window.location.href = mailto;
       });
     });
   }
@@ -279,7 +204,6 @@
     initReveal();
     initEventFilters();
     initForms();
-    initMailtoForms();
     initMapPins();
     initAnchorOffset();
   });

@@ -281,7 +281,7 @@
 <!-- ========= ABOUT SUMMARY ========= -->
 <section class="section">
   <div class="container">
-    <div class="grid" style="grid-template-columns: 1fr 1.1fr; gap: clamp(2rem,5vw,5rem); align-items: center;">
+    <div class="grid mobile-stack" style="grid-template-columns: 1fr 1.1fr; gap: clamp(2rem,5vw,5rem); align-items: center;">
       <div class="reveal">
         <div class="media media--wide">
           <div class="placeholder placeholder--photo">
@@ -497,29 +497,10 @@
           <p>One short, friendly email each month with confirmed event dates,
              ways to participate, and stories from a hundred years of Sherman Oaks.</p>
         </div>
-        <!--
-          NEWSLETTER FORM
-          ----------------------------------------------------------------
-          Currently configured to open the user's email client (mailto:).
-          When the user clicks "Subscribe", their email app opens with a
-          pre-written subscribe request that they send to us.
-
-          To switch to a real newsletter service (Mailchimp / Beehiiv /
-          Substack / Buttondown / EmailOctopus), replace the <form> below
-          with their embed code.
-
-          Find-and-replace the placeholder address `hello@shermanoaks100.com`
-          across the site once the real centennial inbox is ready.
-        -->
-        <form data-mailto-form="hello@shermanoaks100.com"
-              data-mailto-subject="Sherman Oaks 100 — Newsletter Subscribe"
-              data-success-msg="Opening your email app to confirm your subscription..."
-              aria-label="Newsletter signup">
-          <label for="newsletter-email" class="sr-only">Email address</label>
-          <input id="newsletter-email" name="email" type="email" required placeholder="you@neighborhood.com" autocomplete="email" />
-          <button class="btn btn--accent" type="submit">Subscribe</button>
-        </form>
-        <p class="form__status" aria-live="polite" style="grid-column: 1 / -1; color: var(--gold-300);"></p>
+        <!-- Newsletter mailto CTA; see README to upgrade to Formspree or Google Forms later. -->
+        <div class="newsletter__cta">
+          <a class="btn btn--accent email-cta__primary" href="mailto:hello@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Newsletter%20Subscribe&amp;body=I%27d%20like%20to%20subscribe%20to%20the%20monthly%20Sherman%20Oaks%20100%20newsletter.%20Thanks%21">Subscribe</a>
+        </div>
       </div>
     </div>
   </div>
@@ -529,7 +510,7 @@
 <!-- ========= GET INVOLVED CTA ========= -->
 <section class="section section--deep">
   <div class="container">
-    <div class="grid" style="grid-template-columns: 1.4fr 1fr; gap: clamp(2rem,5vw,4rem); align-items: center;">
+    <div class="grid mobile-stack" style="grid-template-columns: 1.4fr 1fr; gap: clamp(2rem,5vw,4rem); align-items: center;">
       <div class="reveal">
         <span class="eyebrow" style="color: var(--gold-300);">Join the Centennial</span>
         <h2 style="color:var(--cream-50);">There's a place for everyone in this year.</h2>

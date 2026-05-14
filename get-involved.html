@@ -117,15 +117,15 @@
 </section>
 
 
-<!-- VOLUNTEER FORM -->
+<!-- VOLUNTEER CTA -->
 <section class="section section--alt" id="volunteer-form">
   <div class="container">
-    <div class="grid" style="grid-template-columns: 1fr 1.2fr; gap: clamp(2rem,5vw,4rem); align-items: start;">
+    <div class="grid email-cta-layout" style="grid-template-columns: 1fr 1.2fr; gap: clamp(2rem,5vw,4rem); align-items: start;">
       <div class="reveal">
         <span class="eyebrow">Volunteer Signup</span>
         <h2>Tell us how you'd like to help.</h2>
         <p class="lede">
-          One short form. We'll reach out as the volunteer plan firms up.
+          One short email. We'll reach out as the volunteer plan firms up.
         </p>
         <p>
           You can sign up for a specific event later — for now, this just lets
@@ -142,71 +142,16 @@
         </div>
       </div>
 
-      <!--
-        VOLUNTEER SIGNUP FORM
-        ------------------------------------------------------------------
-        Currently configured to open the user's email client (mailto:)
-        with a prefilled draft containing every form field, including
-        any interest checkboxes the user selected.
-
-        To upgrade to direct inbox delivery, swap to Formspree / Basin /
-        Google Forms — see README. To change recipient, edit
-        data-mailto-form below or find-and-replace site-wide.
-      -->
-      <form class="form reveal"
-            data-mailto-form="hello@shermanoaks100.com"
-            data-mailto-subject="Sherman Oaks 100 — Volunteer Signup"
-            data-success-msg="Opening your email app to send your signup..."
-            aria-label="Volunteer signup form">
-        <div class="form__row form__row--2">
-          <div class="field">
-            <label for="v-name">Your name</label>
-            <input id="v-name" name="name" type="text" required autocomplete="name" />
-          </div>
-          <div class="field">
-            <label for="v-email">Email</label>
-            <input id="v-email" name="email" type="email" required autocomplete="email" />
-          </div>
-        </div>
-        <div class="form__row form__row--2">
-          <div class="field">
-            <label for="v-phone">Phone (optional)</label>
-            <input id="v-phone" name="phone" type="tel" autocomplete="tel" />
-          </div>
-          <div class="field">
-            <label for="v-neighborhood">Connection to Sherman Oaks</label>
-            <select id="v-neighborhood" name="connection">
-              <option>Resident</option>
-              <option>Business owner</option>
-              <option>Work in the neighborhood</option>
-              <option>Family roots here</option>
-              <option>Student / parent</option>
-              <option>Other / interested supporter</option>
-            </select>
-          </div>
-        </div>
-        <div class="field">
-          <label for="v-interests">What you're open to (check all that apply)</label>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem; margin-top: 0.4rem;">
-            <label class="subtle" style="display:flex; gap:0.5rem;"><input type="checkbox" name="interest" value="events"/> Event-day volunteering</label>
-            <label class="subtle" style="display:flex; gap:0.5rem;"><input type="checkbox" name="interest" value="planning"/> Planning &amp; logistics</label>
-            <label class="subtle" style="display:flex; gap:0.5rem;"><input type="checkbox" name="interest" value="media"/> Photo / video / design</label>
-            <label class="subtle" style="display:flex; gap:0.5rem;"><input type="checkbox" name="interest" value="history"/> Historical research</label>
-            <label class="subtle" style="display:flex; gap:0.5rem;"><input type="checkbox" name="interest" value="outreach"/> Community outreach</label>
-            <label class="subtle" style="display:flex; gap:0.5rem;"><input type="checkbox" name="interest" value="youth"/> Youth / school programs</label>
-          </div>
-        </div>
-        <div class="field">
-          <label for="v-msg">Anything else you'd like to add?</label>
-          <textarea id="v-msg" name="message" placeholder="Skills, availability, a specific event you'd like to help with, etc."></textarea>
-        </div>
-        <div class="field field--check">
-          <input id="v-newsletter" type="checkbox" name="newsletter" />
-          <label for="v-newsletter">Also subscribe me to the monthly centennial newsletter.</label>
-        </div>
-        <button class="btn btn--primary" type="submit">Sign me up</button>
-        <p class="form__status" aria-live="polite"></p>
-      </form>
+      <!-- Volunteer mailto CTA; see README to upgrade to Formspree or Google Forms later. -->
+      <div class="email-cta reveal">
+        <span class="eyebrow">Email Us To Volunteer</span>
+        <h2 style="font-size: var(--step-3);">Send a quick note.</h2>
+        <p>
+          Include your name and how you'd like to help: events, planning,
+          photography, history, outreach, youth programs, or wherever you need me.
+        </p>
+        <a class="btn btn--primary btn--icon email-cta__primary" href="mailto:hello@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Volunteer%20Signup">Email us to volunteer</a>
+      </div>
     </div>
   </div>
 </section>

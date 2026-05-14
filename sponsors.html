@@ -237,15 +237,15 @@
 </section>
 
 
-<!-- INTEREST FORM -->
+<!-- INTEREST CTA -->
 <section class="section section--deep" id="interest-form">
   <div class="container">
-    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,4rem); align-items: start;">
+    <div class="grid email-cta-layout" style="grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,4rem); align-items: start;">
       <div class="reveal">
         <span class="eyebrow" style="color: var(--gold-300);">Become a Sponsor</span>
         <h2 style="color: var(--cream-50);">Tell us a little about your interest.</h2>
         <p style="color: rgba(254, 252, 246, 0.85); max-width: 56ch;">
-          Fill out this short form and a member of the centennial committee will
+          Send a short email and a member of the centennial committee will
           follow up with the formal sponsorship package and a short call.
         </p>
         <p style="color: rgba(254, 252, 246, 0.65); font-size: 0.92rem;">
@@ -255,61 +255,22 @@
         </p>
       </div>
 
-      <!--
-        SPONSORSHIP INTEREST FORM
-        ------------------------------------------------------------------
-        Currently configured to open the user's email client (mailto:)
-        with a prefilled draft. The subject line auto-appends the chosen
-        tier (Presenting / Community / Supporting / In-Kind / Not sure).
-
-        To upgrade to direct inbox delivery, swap to Formspree / Basin /
-        Google Forms — see README. To change recipient, edit
-        data-mailto-form below or find-and-replace site-wide.
-      -->
-      <form class="form reveal"
-            data-mailto-form="hello@shermanoaks100.com"
-            data-mailto-subject="Sherman Oaks 100 — Sponsorship Inquiry"
-            data-mailto-subject-field="tier"
-            data-success-msg="Opening your email app to send your sponsor inquiry..."
-            aria-label="Sponsorship interest form"
-            style="background: rgba(254, 252, 246, 0.06); padding: var(--space-5); border-radius: var(--r-lg); border: 1px solid rgba(254, 252, 246, 0.14);">
-        <div class="form__row form__row--2">
-          <div class="field">
-            <label for="sp-name">Your name</label>
-            <input id="sp-name" name="name" type="text" required autocomplete="name" />
-          </div>
-          <div class="field">
-            <label for="sp-org">Organization / Business</label>
-            <input id="sp-org" name="org" type="text" autocomplete="organization" />
-          </div>
+      <!-- Sponsorship mailto CTAs; see README to upgrade to Formspree or Google Forms later. -->
+      <div class="email-cta reveal"
+           style="background: rgba(254, 252, 246, 0.06); padding: var(--space-5); border-radius: var(--r-lg); border: 1px solid rgba(254, 252, 246, 0.14);">
+        <span class="eyebrow" style="color: var(--gold-300);">Sponsor Inquiry</span>
+        <h2 style="color: var(--cream-50); font-size: var(--step-3);">Start with the tier that fits.</h2>
+        <p style="color: rgba(254, 252, 246, 0.85);">
+          Choose the closest sponsorship path and write a note in your own words.
+        </p>
+        <div class="email-cta__grid" aria-label="Sponsorship inquiry topics">
+          <a class="btn btn--accent" href="mailto:hello@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20%28Presenting%29">Presenting Sponsor</a>
+          <a class="btn btn--ghost-light" href="mailto:hello@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20%28Community%29">Community Sponsor</a>
+          <a class="btn btn--ghost-light" href="mailto:hello@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20%28Supporting%29">Supporting Sponsor</a>
+          <a class="btn btn--ghost-light" href="mailto:hello@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20%28In-Kind%29">In-Kind Partner</a>
+          <a class="btn btn--ghost-light" href="mailto:hello@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20Inquiry">Not sure yet &mdash; start a conversation</a>
         </div>
-        <div class="form__row form__row--2">
-          <div class="field">
-            <label for="sp-email">Email</label>
-            <input id="sp-email" name="email" type="email" required autocomplete="email" />
-          </div>
-          <div class="field">
-            <label for="sp-phone">Phone (optional)</label>
-            <input id="sp-phone" name="phone" type="tel" autocomplete="tel" />
-          </div>
-        </div>
-        <div class="field">
-          <label for="sp-tier">Tier you're considering</label>
-          <select id="sp-tier" name="tier">
-            <option>Not sure yet</option>
-            <option>Presenting Sponsor</option>
-            <option>Community Sponsor</option>
-            <option>Supporting Sponsor</option>
-            <option>In-Kind Partner</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="sp-msg">Anything you'd like us to know?</label>
-          <textarea id="sp-msg" name="message" placeholder="Tell us a bit about your interest, ideas, or questions."></textarea>
-        </div>
-        <button class="btn btn--accent" type="submit">Send sponsor inquiry</button>
-        <p class="form__status" aria-live="polite" style="color: var(--gold-300);"></p>
-      </form>
+      </div>
     </div>
   </div>
 </section>
