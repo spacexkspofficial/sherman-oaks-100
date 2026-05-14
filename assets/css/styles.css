@@ -1868,6 +1868,159 @@ ul, ol {
   }
 }
 
+@media (max-width: 640px) {
+  .container {
+    padding-inline: 1rem;
+  }
+
+  .section {
+    padding: 2.75rem 0;
+  }
+
+  .section--tight {
+    padding: 2rem 0;
+  }
+
+  .section--hero,
+  .hero {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .grid,
+  .hero__inner,
+  .newsletter__inner,
+  .site-footer__top {
+    gap: var(--space-4);
+  }
+
+  .page-header {
+    padding: 2.4rem 0 1.9rem;
+  }
+
+  .page-header__crumbs {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header__title,
+  .hero__title {
+    font-size: clamp(2.25rem, 12vw, 3rem);
+    line-height: 1.04;
+  }
+
+  .page-header__sub,
+  .hero__sub,
+  .section-head__sub {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .hero__sub {
+    margin-bottom: var(--space-5);
+    max-width: none;
+  }
+
+  .hero__meta {
+    margin-top: var(--space-5);
+    gap: var(--space-4);
+  }
+
+  .section-head {
+    margin-bottom: var(--space-5);
+  }
+
+  .section-head__title {
+    font-size: clamp(1.9rem, 9vw, 2.35rem);
+  }
+
+  .lede {
+    font-size: clamp(1.2rem, 6vw, 1.35rem);
+    line-height: 1.42;
+  }
+
+  .eyebrow {
+    gap: 0.45rem;
+    letter-spacing: 0.12em;
+    margin-bottom: var(--space-2);
+  }
+
+  .eyebrow::before,
+  .eyebrow--center::before,
+  .eyebrow--center::after {
+    width: 18px;
+  }
+
+  .btn {
+    min-height: 44px;
+    padding: 0.8rem 1.1rem;
+    line-height: 1.2;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .hero__cta .btn,
+  .section--deep .grid > .reveal .btn {
+    width: 100%;
+  }
+
+  .card,
+  .event-card,
+  .callout {
+    padding: var(--space-5);
+    border-radius: var(--r-md);
+  }
+
+  .card {
+    gap: var(--space-2);
+  }
+
+  .card__title {
+    font-size: clamp(1.25rem, 6vw, 1.45rem);
+  }
+
+  .card__body,
+  .event-card__meta,
+  .faq__body,
+  .callout p {
+    font-size: 0.94rem;
+  }
+
+  .newsletter {
+    padding: var(--space-5);
+    border-radius: var(--r-lg);
+  }
+
+  .newsletter h2 {
+    font-size: clamp(1.9rem, 9vw, 2.35rem);
+  }
+
+  .newsletter p {
+    max-width: none;
+  }
+
+  .pullquote {
+    margin: var(--space-5) 0;
+    padding: var(--space-5);
+    font-size: clamp(1.25rem, 6vw, 1.5rem);
+  }
+
+  .callout {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .faq__item summary {
+    padding: var(--space-4);
+    font-size: 1.08rem;
+  }
+
+  h1, h2, h3, h4, p, li, a, dd, dt,
+  .brand__text,
+  .placeholder__label,
+  .sponsor__name {
+    overflow-wrap: break-word;
+  }
+}
+
 @media (min-width: 561px) {
   .email-cta__grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1877,6 +2030,10 @@ ul, ol {
 @media (max-width: 560px) {
   .email-cta-layout {
     grid-template-columns: 1fr !important;
+  }
+
+  .contact-cta {
+    order: -1;
   }
 
   .email-cta__grid .btn,
