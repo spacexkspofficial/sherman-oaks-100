@@ -7,6 +7,72 @@
 (function () {
   "use strict";
 
+  const SITE_PASSWORD = "SO100-preview-4729";
+  const AUTH_STORAGE_KEY = "shermanOaks100PreviewAccess";
+
+  /* ---------------------------------------------------------------------
+   * Preview password gate
+   * ------------------------------------------------------------------- */
+  function initAuthGate() {
+    const root = document.documentElement;
+    if (!root.classList.contains("auth-required")) return;
+
+    if (localStorage.getItem(AUTH_STORAGE_KEY) === "granted") {
+      root.classList.remove("auth-required");
+      return;
+    }
+
+    const gate = document.createElement("section");
+    gate.className = "auth-gate";
+    gate.setAttribute("aria-labelledby", "auth-gate-title");
+    gate.innerHTML =
+      "<div class=\"auth-gate__panel\">" +
+        "<a class=\"auth-gate__brand\" href=\"index.html\" aria-label=\"Sherman Oaks 100 home\">" +
+          "<span class=\"auth-gate__mark\">100</span>" +
+          "<span>Sherman Oaks<small>Centennial · 1927-2027</small></span>" +
+        "</a>" +
+        "<span class=\"eyebrow\">Preview Access</span>" +
+        "<h1 id=\"auth-gate-title\">This website is currently being developed.</h1>" +
+        "<p>For questions about Sherman Oaks 100, contact <a href=\"mailto:info@shermanoaks100.com\">info@shermanoaks100.com</a>.</p>" +
+        "<form class=\"auth-gate__form\" autocomplete=\"off\">" +
+          "<label for=\"auth-password\">Password</label>" +
+          "<div class=\"auth-gate__row\">" +
+            "<input id=\"auth-password\" name=\"password\" type=\"password\" required />" +
+            "<button class=\"btn btn--accent\" type=\"submit\">Enter site</button>" +
+          "</div>" +
+          "<p class=\"auth-gate__status\" aria-live=\"polite\"></p>" +
+        "</form>" +
+      "</div>";
+
+    document.body.prepend(gate);
+    document.body.style.overflow = "hidden";
+
+    const form = gate.querySelector(".auth-gate__form");
+    const input = gate.querySelector("#auth-password");
+    const status = gate.querySelector(".auth-gate__status");
+
+    window.setTimeout(function () {
+      input.focus();
+    }, 0);
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (input.value === SITE_PASSWORD) {
+        localStorage.setItem(AUTH_STORAGE_KEY, "granted");
+        document.body.style.overflow = "";
+        root.classList.remove("auth-required");
+        gate.remove();
+        document.querySelectorAll(".reveal").forEach(function (el) {
+          el.classList.add("is-revealed");
+        });
+        return;
+      }
+
+      status.textContent = "That password did not work. Please try again.";
+      input.select();
+    });
+  }
+
   /* ---------------------------------------------------------------------
    * Mobile navigation toggle
    * ------------------------------------------------------------------- */
@@ -197,6 +263,7 @@
   }
 
   ready(function () {
+    initAuthGate();
     initNavToggle();
     initHeaderScroll();
     initActiveNav();
