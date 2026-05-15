@@ -7,7 +7,7 @@
 (function () {
   "use strict";
 
-  const SITE_PASSWORD = "SO100-preview-4729";
+  const SITE_PASSWORD = "SO100-earlyaccess";
   const AUTH_STORAGE_KEY = "shermanOaks100PreviewAccess";
 
   /* ---------------------------------------------------------------------
