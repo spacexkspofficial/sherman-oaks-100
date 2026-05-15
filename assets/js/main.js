@@ -37,9 +37,13 @@
         "<form class=\"auth-gate__form\" autocomplete=\"off\">" +
           "<label for=\"auth-password\">Password</label>" +
           "<div class=\"auth-gate__row\">" +
-            "<input id=\"auth-password\" name=\"password\" type=\"password\" required />" +
+            "<div class=\"auth-gate__password\">" +
+              "<input id=\"auth-password\" name=\"password\" type=\"password\" required autocapitalize=\"none\" spellcheck=\"false\" />" +
+              "<button class=\"auth-gate__toggle\" type=\"button\" aria-label=\"Show password\" aria-pressed=\"false\">Show</button>" +
+            "</div>" +
             "<button class=\"btn btn--accent\" type=\"submit\">Enter site</button>" +
           "</div>" +
+          "<p class=\"auth-gate__caps\" aria-live=\"polite\"><span class=\"auth-gate__caps-icon\" aria-hidden=\"true\">!</span> Caps Lock is on</p>" +
           "<p class=\"auth-gate__status\" aria-live=\"polite\"></p>" +
         "</form>" +
       "</div>";
@@ -49,15 +53,40 @@
 
     const form = gate.querySelector(".auth-gate__form");
     const input = gate.querySelector("#auth-password");
+    const toggle = gate.querySelector(".auth-gate__toggle");
+    const caps = gate.querySelector(".auth-gate__caps");
     const status = gate.querySelector(".auth-gate__status");
 
     window.setTimeout(function () {
       input.focus();
     }, 0);
 
+    toggle.addEventListener("click", function () {
+      const show = input.type === "password";
+      input.type = show ? "text" : "password";
+      toggle.textContent = show ? "Hide" : "Show";
+      toggle.setAttribute("aria-label", show ? "Hide password" : "Show password");
+      toggle.setAttribute("aria-pressed", String(show));
+      input.focus();
+    });
+
+    function updateCapsLock(e) {
+      if (!e.getModifierState) return;
+      caps.classList.toggle("is-visible", e.getModifierState("CapsLock"));
+    }
+
+    input.addEventListener("keydown", updateCapsLock);
+    input.addEventListener("keyup", updateCapsLock);
+    input.addEventListener("blur", function () {
+      caps.classList.remove("is-visible");
+    });
+    input.addEventListener("input", function () {
+      status.textContent = "";
+    });
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (input.value === SITE_PASSWORD) {
+      if (input.value.trim() === SITE_PASSWORD) {
         localStorage.setItem(AUTH_STORAGE_KEY, "granted");
         document.body.style.overflow = "";
         root.classList.remove("auth-required");
