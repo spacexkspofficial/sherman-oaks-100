@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact — Sherman Oaks 100</title>
   <meta name="description" content="Get in touch with the Sherman Oaks 100 Centennial Committee. Press inquiries, partnership questions, story submissions, and general community correspondence." />
-  <meta name="theme-color" content="#14322a" />
+  <meta name="theme-color" content="#fffdf8" />
   <meta property="og:title" content="Contact — Sherman Oaks 100" />
   <meta property="og:description" content="Reach the Sherman Oaks Centennial team — press, partnerships, story submissions, or general questions." />
   <meta property="og:type" content="website" />
@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,30..100,0..1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260515" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260912" />
 </head>
 <body>
 
@@ -29,9 +29,7 @@
       <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      <ul class="nav__menu" id="primary-menu">
-        <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="history.html">History</a></li><li><a href="map.html">Map</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="sponsors.html">Sponsors</a></li><li><a href="get-involved.html">Get Involved</a></li><li><a href="contact.html">Contact</a></li>
-      </ul>
+      <ul class="nav__menu" id="primary-menu"><li><a href="index.html" data-page="index.html">Home</a></li><li><a href="index.html#events" data-page="events.html">Events</a></li><li><a href="index.html#history" data-page="history.html">History</a></li><li><a href="index.html#stories" data-page="gallery.html">Stories</a></li><li><a href="index.html#sponsors" data-page="sponsors.html">Sponsors</a></li><li><a href="index.html#get-involved" data-page="get-involved.html">Get involved</a></li><li><a href="contact.html" data-page="contact.html">Contact</a></li></ul>
       <div class="nav__cta"><a class="btn btn--accent btn--small" href="get-involved.html">Volunteer</a></div>
     </nav>
   </div>
@@ -39,109 +37,30 @@
 
 
 <main id="main">
-
 <section class="page-header">
-  <div class="container">
-    <p class="page-header__crumbs"><a href="index.html">Home</a> · Contact</p>
-    <span class="eyebrow">Reach Us</span>
-    <h1 class="page-header__title display">Let's <em>talk</em>.</h1>
-    <p class="page-header__sub">
-      Got a question, an event idea, a piece of Sherman Oaks history, a partner
-      offer, or just want to say hello? This is the right place.
-    </p>
-  </div>
+<div class="container">
+<p class="page-header__crumbs"><a href="index.html">Home</a> · Contact</p>
+<span class="eyebrow">Contact</span>
+<h1 class="page-header__title display">Let’s <em>talk.</em></h1>
+<p class="page-header__sub">Questions, ideas or a way you’d like to help? Get in touch with the Sherman Oaks 100 committee.</p>
+</div>
 </section>
-
-
-<!-- CONTACT GRID -->
 <section class="section">
-  <div class="container">
-    <div class="grid email-cta-layout" style="grid-template-columns: 1fr 1.2fr; gap: clamp(2rem,5vw,4rem); align-items: start;">
-
-      <!-- Direct contact info -->
-      <div class="reveal flow-lg contact-info">
-        <div>
-          <span class="eyebrow">By Email</span>
-          <h2 style="font-size: var(--step-3);">General inbox</h2>
-          <p style="margin: 0;"><a href="mailto:hello@example.com">hello@example.com</a></p>
-          <p class="subtle" style="margin-top: .35rem;">
-            Replace with the official centennial email once the project domain is set up.
-          </p>
-        </div>
-
-        <div>
-          <h3 style="font-size: var(--step-2);">Common email routes</h3>
-          <ul style="margin: 0; padding-left: 1.2rem; line-height: 1.9;">
-            <li><strong>Events &amp; partnerships:</strong> <a href="mailto:events@example.com">events@example.com</a></li>
-            <li><strong>Sponsorship:</strong> <a href="mailto:sponsors@example.com">sponsors@example.com</a></li>
-            <li><strong>Volunteers:</strong> <a href="mailto:volunteer@example.com">volunteer@example.com</a></li>
-            <li><strong>Press:</strong> <a href="mailto:press@example.com">press@example.com</a></li>
-            <li><strong>History &amp; archives:</strong> <a href="mailto:history@example.com">history@example.com</a></li>
-          </ul>
-          <p class="subtle" style="margin-top: var(--space-3);">
-            These are placeholder addresses. Once the centennial domain is
-            registered, set up these mailbox aliases (Cloudflare Email Routing,
-            Google Workspace, or Zoho Mail all work) and update this list.
-          </p>
-        </div>
-
-        <div>
-          <span class="eyebrow">Mail</span>
-          <p style="margin: 0; line-height: 1.6;">
-            Sherman Oaks 100 Centennial Committee<br/>
-            <span class="subtle">c/o partner organization — to be confirmed</span><br/>
-            Sherman Oaks, California
-          </p>
-        </div>
-
-        <div class="callout">
-          <div class="callout__icon">!</div>
-          <div>
-            <h3>Heads up on timing</h3>
-            <p>
-              This is a volunteer committee, not a staffed office. Most messages
-              get a reply within a week — and personal answers always come from
-              a real human in the neighborhood.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Contact email CTAs; see README to upgrade to Formspree or Google Forms later. -->
-      <div class="reveal contact-cta">
-        <div class="email-cta">
-          <span class="eyebrow">Send Us An Email</span>
-          <h2 style="font-size: var(--step-3);">Pick the closest topic.</h2>
-          <p>
-            Choose the subject that fits best and write to us in your own words.
-            The message opens in your email app so the conversation starts naturally.
-          </p>
-          <div class="email-cta__grid" aria-label="Email topics">
-            <a class="btn btn--primary" href="mailto:hello@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20General%20Question">General question</a>
-            <a class="btn btn--primary" href="mailto:hello@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Event%20Pitch">Pitch an event</a>
-            <a class="btn btn--primary" href="mailto:hello@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship">Sponsorship</a>
-            <a class="btn btn--primary" href="mailto:hello@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Volunteer">Volunteer interest</a>
-            <a class="btn btn--primary" href="mailto:hello@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20History%20%2F%20Archive">Historical contribution</a>
-            <a class="btn btn--primary" href="mailto:hello@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Press">Press</a>
-            <a class="btn btn--ghost" href="mailto:hello@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Hello">Just say hello</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="contact-panel"><span class="eyebrow">The committee inbox</span>
+<h2><a class="contact-address" href="mailto:info@shermanoaks100.com">info@shermanoaks100.com</a></h2>
+<p>Choose a topic below to open a new message in your email app, or copy the address above.</p>
+<div class="email-cta__grid"><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20General%20question">General question</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Event%20inquiry">Events</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Volunteer%20interest">Volunteer</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20inquiry">Sponsorship</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Historical%20contribution">Story or photographs</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Partnership%20or%20press%20inquiry">Partnerships &amp; press</a></div>
+</div>
+</div>
 </section>
-
-
-<!-- FAQ TEASER -->
 <section class="section section--alt">
-  <div class="container container--narrow center">
-    <span class="eyebrow eyebrow--center">Before You Write</span>
-    <h2>Have a quick question?</h2>
-    <p>Most quick questions are answered on the FAQ — events, sponsorship, volunteering, dates, accessibility, and the rest.</p>
-    <a class="btn btn--ghost btn--icon" href="faq.html">Browse the FAQ</a>
-  </div>
+<div class="container">
+<h2>Looking for a quick answer?</h2>
+<p>See the current event plans and answers to common questions.</p>
+<div class="hero__cta"><a class="btn btn--primary" href="events.html">View event plans</a><a class="btn btn--ghost" href="faq.html">Read the FAQ</a></div>
+</div>
 </section>
-
 </main>
 
 
@@ -154,15 +73,11 @@
           <span class="brand__text" style="color: var(--cream-50);">Sherman Oaks<small style="color: var(--gold-300);">Centennial · 1927–2027</small></span>
         </a>
         <p>A community-led celebration of a hundred years of neighborhood life in the heart of the San Fernando Valley.</p>
-        <div class="socials" aria-label="Social media">
-          <a href="#" aria-label="Instagram" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="#" aria-label="Facebook" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.1.4-2 2-2h2V2.1C16.6 2 15.4 2 14.5 2 11.9 2 10 3.6 10 6.7V10H7v4h3v8h3z"/></svg></a>
-          <a href="#" aria-label="YouTube" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></a>
-        </div>
+
       </div>
       <div><h4>Explore</h4><ul><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="history.html">History</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="map.html">Community Map</a></li></ul></div>
       <div><h4>Join In</h4><ul><li><a href="get-involved.html">Volunteer</a></li><li><a href="sponsors.html">Sponsor</a></li><li><a href="steering-committee.html">Steering Committee</a></li><li><a href="civic-partners.html">Civic Partners</a></li><li><a href="news.html">News</a></li></ul></div>
-      <div><h4>Connect</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li><li><a href="mailto:hello@example.com">hello@example.com</a></li><li class="subtle" style="color: rgba(254, 252, 246, 0.55);">Sherman Oaks, California</li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li><li><a href="mailto:info@shermanoaks100.com">info@shermanoaks100.com</a></li><li class="subtle" style="color: rgba(254, 252, 246, 0.55);">Sherman Oaks, California</li></ul></div>
     </div>
     <div class="site-footer__bottom">
       <p>© <span data-year>2027</span> Sherman Oaks 100 Centennial Committee. All rights reserved.</p>
@@ -171,6 +86,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20260515" defer></script>
+<script src="assets/js/main.js?v=20260912" defer></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Community Map — Sherman Oaks 100</title>
   <meta name="description" content="An interactive map of Sherman Oaks Centennial places — landmarks, event venues, heritage sites, and public art. Currently a placeholder, to be replaced with a live Google Map." />
-  <meta name="theme-color" content="#14322a" />
+  <meta name="theme-color" content="#fffdf8" />
   <meta property="og:title" content="Community Map — Sherman Oaks 100" />
   <meta property="og:description" content="Centennial landmarks, event venues, heritage sites, and public art across Sherman Oaks." />
   <meta property="og:type" content="website" />
@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,30..100,0..1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260515" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260912" />
 </head>
 <body>
 
@@ -29,9 +29,7 @@
       <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      <ul class="nav__menu" id="primary-menu">
-        <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="history.html">History</a></li><li><a href="map.html">Map</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="sponsors.html">Sponsors</a></li><li><a href="get-involved.html">Get Involved</a></li><li><a href="contact.html">Contact</a></li>
-      </ul>
+      <ul class="nav__menu" id="primary-menu"><li><a href="index.html" data-page="index.html">Home</a></li><li><a href="index.html#events" data-page="events.html">Events</a></li><li><a href="index.html#history" data-page="history.html">History</a></li><li><a href="index.html#stories" data-page="gallery.html">Stories</a></li><li><a href="index.html#sponsors" data-page="sponsors.html">Sponsors</a></li><li><a href="index.html#get-involved" data-page="get-involved.html">Get involved</a></li><li><a href="contact.html" data-page="contact.html">Contact</a></li></ul>
       <div class="nav__cta"><a class="btn btn--accent btn--small" href="get-involved.html">Volunteer</a></div>
     </nav>
   </div>
@@ -255,15 +253,11 @@
           <span class="brand__text" style="color: var(--cream-50);">Sherman Oaks<small style="color: var(--gold-300);">Centennial · 1927–2027</small></span>
         </a>
         <p>A community-led celebration of a hundred years of neighborhood life in the heart of the San Fernando Valley.</p>
-        <div class="socials" aria-label="Social media">
-          <a href="#" aria-label="Instagram" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-          <a href="#" aria-label="Facebook" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.1.4-2 2-2h2V2.1C16.6 2 15.4 2 14.5 2 11.9 2 10 3.6 10 6.7V10H7v4h3v8h3z"/></svg></a>
-          <a href="#" aria-label="YouTube" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></a>
-        </div>
+
       </div>
       <div><h4>Explore</h4><ul><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="history.html">History</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="map.html">Community Map</a></li></ul></div>
       <div><h4>Join In</h4><ul><li><a href="get-involved.html">Volunteer</a></li><li><a href="sponsors.html">Sponsor</a></li><li><a href="steering-committee.html">Steering Committee</a></li><li><a href="civic-partners.html">Civic Partners</a></li><li><a href="news.html">News</a></li></ul></div>
-      <div><h4>Connect</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li><li><a href="mailto:hello@example.com">hello@example.com</a></li><li class="subtle" style="color: rgba(254, 252, 246, 0.55);">Sherman Oaks, California</li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li><li><a href="mailto:info@shermanoaks100.com">info@shermanoaks100.com</a></li><li class="subtle" style="color: rgba(254, 252, 246, 0.55);">Sherman Oaks, California</li></ul></div>
     </div>
     <div class="site-footer__bottom">
       <p>© <span data-year>2027</span> Sherman Oaks 100 Centennial Committee. All rights reserved.</p>
@@ -272,6 +266,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20260515" defer></script>
+<script src="assets/js/main.js?v=20260912" defer></script>
 </body>
 </html>

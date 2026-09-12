@@ -17,7 +17,9 @@
     const root = document.documentElement;
     if (!root.classList.contains("auth-required")) return;
 
-    if (localStorage.getItem(AUTH_STORAGE_KEY) === "granted") {
+    let hasAccess = false;
+    try { hasAccess = localStorage.getItem(AUTH_STORAGE_KEY) === "granted"; } catch (_) { /* Storage may be disabled. */ }
+    if (hasAccess) {
       root.classList.remove("auth-required");
       return;
     }
@@ -87,7 +89,7 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (input.value.trim() === SITE_PASSWORD) {
-        localStorage.setItem(AUTH_STORAGE_KEY, "granted");
+        try { localStorage.setItem(AUTH_STORAGE_KEY, "granted"); } catch (_) { /* Access still works for this page. */ }
         document.body.style.overflow = "";
         root.classList.remove("auth-required");
         gate.remove();
@@ -154,7 +156,7 @@
   function initActiveNav() {
     const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
     document.querySelectorAll(".nav__menu a").forEach(function (link) {
-      const href = (link.getAttribute("href") || "").toLowerCase();
+      const href = (link.getAttribute("data-page") || link.getAttribute("href") || "").toLowerCase();
       if (!href) return;
       const isHome = (path === "" || path === "index.html") &&
                      (href === "index.html" || href === "/" || href === "./");
@@ -226,22 +228,29 @@
   }
 
   /* ---------------------------------------------------------------------
-   * Mock forms — for any form that should never leave the browser.
+   * Founders' Day countdown. No date is assumed while confirmation is pending.
    * ------------------------------------------------------------------- */
-  function initForms() {
-    document.querySelectorAll("[data-mock-form]").forEach(function (form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const status = form.querySelector(".form__status");
-        if (status) {
-          const msg = form.getAttribute("data-success-msg") ||
-                      "Thank you — we'll be in touch soon.";
-          status.textContent = msg;
-          status.classList.add("is-visible");
-        }
-        form.reset();
+  function initCountdown() {
+    const panel = document.querySelector("[data-countdown]");
+    if (!panel || typeof window.centennialTimeRemaining !== "function") return;
+    const target = (window.SHERMAN_OAKS_100 || {}).foundersDay;
+    const values = panel.querySelector("[data-countdown-values]");
+    const message = panel.querySelector("[data-countdown-message]");
+    const initial = window.centennialTimeRemaining(target, Date.now());
+    if (!initial) return;
+    let timer;
+    function render() {
+      const result = window.centennialTimeRemaining(target, Date.now());
+      ["days", "hours", "minutes", "seconds"].forEach(function (unit) {
+        panel.querySelector('[data-unit="' + unit + '"]').textContent = String(result[unit]).padStart(2, "0");
       });
-    });
+      values.hidden = false;
+      message.textContent = result.complete ? "Founders’ Day has arrived. Celebrate with your neighbors!" :
+        "Join us on " + new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeZone: "America/Los_Angeles" }).format(new Date(target)) + ".";
+      if (result.complete && timer) window.clearInterval(timer);
+    }
+    render();
+    if (!initial.complete) timer = window.setInterval(render, 1000);
   }
 
   /* ---------------------------------------------------------------------
@@ -271,13 +280,17 @@
       link.addEventListener("click", function (e) {
         const id = link.getAttribute("href");
         if (!id || id === "#" || id.length < 2) return;
-        const target = document.querySelector(id);
+        const target = document.getElementById(id.slice(1));
         if (!target) return;
         e.preventDefault();
         const offset = 80;
         const rect = target.getBoundingClientRect();
         const y = rect.top + window.scrollY - offset;
-        window.scrollTo({ top: y, behavior: "smooth" });
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: y, behavior: reducedMotion ? "auto" : "smooth" });
+        // Move keyboard focus with the viewport, including the skip link.
+        if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+        target.focus({ preventScroll: true });
         history.pushState(null, "", id);
       });
     });
@@ -299,7 +312,7 @@
     initYear();
     initReveal();
     initEventFilters();
-    initForms();
+    initCountdown();
     initMapPins();
     initAnchorOffset();
   });

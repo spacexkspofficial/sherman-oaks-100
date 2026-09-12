@@ -554,7 +554,7 @@ ul, ol {
 }
 .nav__toggle svg { width: 22px; height: 22px; display: block; }
 
-@media (max-width: 960px) {
+@media (max-width: 1100px) {
   .nav__menu, .nav__cta { display: none; }
   .nav__toggle { display: inline-flex; }
 
@@ -605,6 +605,9 @@ ul, ol {
     radial-gradient(at 5% 100%, rgba(38, 90, 71, 0.10) 0%, transparent 55%),
     linear-gradient(180deg, var(--cream-50) 0%, var(--cream-100) 100%);
 }
+
+/* September 2026: a brighter centennial homepage, with editorial space for
+   approved history and photographs when those materials are ready. */
 .hero__pattern {
   position: absolute;
   inset: 0;
@@ -2256,6 +2259,81 @@ html.auth-required body > :not(.auth-gate) {
   }
 }
 
+
+/* --------------------------------------------------------------------------
+   Centennial refresh — September 2026
+   -------------------------------------------------------------------------- */
+:root {
+  --bg: #fffdf8;
+  --bg-alt: #f4f7f0;
+}
+body { background: var(--bg); }
+[hidden] { display: none !important; }
+main [id] { scroll-margin-top: 100px; }
+.hero--centennial { padding-block: clamp(3rem, 7vw, 6.5rem); }
+.hero--centennial .hero__bg {
+  background: radial-gradient(ellipse at 85% 40%, #eef3e5, transparent 60%), #fffdf8;
+}
+.hero--centennial .hero__title { font-size: clamp(2.8rem, 5.3vw, 4.9rem); }
+.hero--centennial .hero__title em { color: var(--oak-700); }
+.hero--centennial .hero__sub { font-family: var(--font-body); font-size: 1.1rem; line-height: 1.65; max-width: 44ch; }
+.hero--centennial .hero__seal { max-width: 350px; animation: none; filter: drop-shadow(0 15px 22px rgba(20, 50, 42, .10)); }
+.hero__signature { margin-top: 1.8rem; color: var(--fg-muted); font-size: .85rem; }
+.hero__signature span { padding-inline: .5rem; }
+.centennial-strip { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+.centennial-strip p { margin-bottom: 0; }
+.centennial-strip > p { font-family: var(--font-display); font-size: clamp(1.2rem, 2.2vw, 1.6rem); }
+.centennial-strip > a:not(.btn) { font-weight: 600; }
+.section-action { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; }
+.section-note { max-width: 76ch; margin: 1.8rem auto 0; text-align: center; color: var(--fg-muted); font-size: .9rem; }
+.event-card { background: #fff; }
+.event-card__date strong { font-size: 1.9rem; }
+.event-card__tag { white-space: normal; }
+.event-card__meta { margin-block: .35rem; }
+.event-card__cta { margin-top: .5rem; }
+.founders-day { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem; padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--border); border-radius: var(--r-lg); background: #fff; }
+.founders-day > div { flex: 1 1 300px; }
+.founders-day h2 { font-size: var(--step-3); }
+.founders-day p { margin-bottom: 0; max-width: 52ch; }
+.countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(.4rem, 2vw, 1rem); margin: 0; }
+.countdown > div { display: flex; flex-direction: column-reverse; align-items: center; padding: .75rem; background: var(--bg-alt); border-radius: var(--r-sm); }
+.countdown dt { font-size: .72rem; color: var(--fg-muted); }
+.countdown dd { margin: 0; font-size: clamp(1.35rem, 3vw, 2rem); font-variant-numeric: tabular-nums; color: var(--primary-deep); }
+.story-intro { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+.year-mark { font-family: var(--font-display); text-align: center; font-size: clamp(4rem, 9vw, 7rem); line-height: 1.05; color: var(--oak-700); }
+.year-mark span { display: block; font-size: 1.3rem; font-style: italic; color: var(--accent); padding: .8rem; }
+.memory-invitation { display: flex; gap: 2rem; max-width: 850px; margin-inline: auto; padding: clamp(1.5rem, 4vw, 3rem); background: #fff8e9; border-radius: var(--r-lg); }
+.memory-invitation__mark { color: var(--gold-700); font-family: var(--font-display); font-size: 7rem; line-height: 1; }
+.memory-invitation h3 { font-size: var(--step-3); }
+.support-levels .card { box-shadow: none; background: #fff; }
+.support-levels .card__title { font-size: var(--step-4); font-variant-numeric: tabular-nums; }
+.contact-panel { max-width: 800px; margin-inline: auto; }
+.contact-panel .email-cta__grid { margin-top: 1.5rem; }
+.contact-panel > .subtle { margin-top: 1.5rem; }
+.contact-address { overflow-wrap: anywhere; font-size: clamp(1.3rem, 4vw, 2.4rem); }
+.grid > *, .hero__inner > * { min-width: 0; }
+@media (max-width: 1100px) {
+  .nav--open .nav__cta { display: none; }
+}
+@media (min-width: 701px) and (max-width: 900px) {
+  .hero--centennial .hero__inner { grid-template-columns: 1.3fr .7fr; gap: 1.5rem; }
+}
+@media (max-width: 700px) {
+  .hero--centennial .hero__seal { max-width: 210px; }
+  .hero--centennial .hero__inner { gap: 2rem; }
+  .story-intro { grid-template-columns: 1fr; }
+  .year-mark { display: flex; align-items: center; justify-content: center; gap: .75rem; font-size: 3.2rem; }
+  .year-mark span { padding: 0; }
+  .memory-invitation { gap: .7rem; }
+  .memory-invitation__mark { font-size: 4rem; }
+}
+@media (max-width: 560px) {
+  .hero--centennial .hero__title { font-size: clamp(2.5rem, 10.5vw, 3rem); }
+  .hero--centennial .hero__sub { font-size: 1rem; }
+  .countdown { width: 100%; gap: .35rem; }
+  .countdown > div { padding: .5rem .2rem; }
+  .memory-invitation__mark { display: none; }
+}
 
 /* --------------------------------------------------------------------------
    28. Print

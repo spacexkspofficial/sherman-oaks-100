@@ -5,16 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sherman Oaks 100 — Celebrating a Century of Community</title>
   <meta name="description" content="Sherman Oaks turns 100. Join us in 2027 for a year of events, exhibits, and community celebrations honoring a century of neighborhood life in the San Fernando Valley." />
-  <meta name="theme-color" content="#14322a" />
-  <link rel="canonical" href="https://shermanoaks100.example/" />
+  <meta name="theme-color" content="#fffdf8" />
+  <link rel="canonical" href="https://shermanoaks100.com/" />
 
   <!-- Open Graph / social -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Sherman Oaks 100 — Celebrating a Century of Community" />
   <meta property="og:description" content="A year-long celebration of Sherman Oaks' 100th anniversary (1927–2027). Events, history, sponsors, and ways to get involved." />
-  <meta property="og:url" content="https://shermanoaks100.example/" />
-  <meta property="og:image" content="https://shermanoaks100.example/assets/img/og-cover.png" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:url" content="https://shermanoaks100.com/" />
+  <meta name="twitter:card" content="summary" />
 
   <!-- Favicon (inline SVG, replace with proper file once final brand is approved) -->
   <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2314322a'/><text x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23c9a55a' text-anchor='middle' font-weight='600'>100</text></svg>" />
@@ -24,35 +23,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,30..100,0..1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260515" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260912" />
 
   <!-- JSON-LD: light schema so search engines know what this is -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    "name": "Sherman Oaks 100 Centennial",
-    "description": "Year-long celebration marking 100 years of the Sherman Oaks community (1927–2027).",
-    "startDate": "2027-01-01",
-    "endDate": "2027-12-31",
-    "eventStatus": "https://schema.org/EventScheduled",
-    "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
-    "location": {
-      "@type": "Place",
-      "name": "Sherman Oaks, California",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Sherman Oaks",
-        "addressRegion": "CA",
-        "addressCountry": "US"
-      }
-    },
-    "organizer": {
-      "@type": "Organization",
-      "name": "Sherman Oaks 100 Centennial Committee"
-    }
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Sherman Oaks 100","url":"https://shermanoaks100.com/","description":"A community centennial celebration planned for 2027."}</script>
 </head>
 <body>
 
@@ -92,17 +66,7 @@
         </svg>
       </button>
 
-      <ul class="nav__menu" id="primary-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="history.html">History</a></li>
-        <li><a href="map.html">Map</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="sponsors.html">Sponsors</a></li>
-        <li><a href="get-involved.html">Get Involved</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <ul class="nav__menu" id="primary-menu"><li><a href="index.html" data-page="index.html">Home</a></li><li><a href="#events" data-page="events.html">Events</a></li><li><a href="#history" data-page="history.html">History</a></li><li><a href="#stories" data-page="gallery.html">Stories</a></li><li><a href="#sponsors" data-page="sponsors.html">Sponsors</a></li><li><a href="#get-involved" data-page="get-involved.html">Get involved</a></li><li><a href="contact.html" data-page="contact.html">Contact</a></li></ul>
 
       <div class="nav__cta">
         <a class="btn btn--accent btn--small" href="get-involved.html">Volunteer</a>
@@ -113,39 +77,17 @@
 
 
 <main id="main">
-
-<!-- ========= HERO ========= -->
-<section class="hero">
-  <div class="hero__bg"></div>
-  <div class="hero__pattern" aria-hidden="true"></div>
-  <div class="container">
-    <div class="hero__inner">
-      <div class="reveal">
-        <span class="eyebrow">A Centennial Celebration · 1927–2027</span>
-        <h1 class="hero__title display">
-          Celebrating a Century of <em>Sherman Oaks</em>
-        </h1>
-        <p class="hero__sub">
-          One hundred years of orange groves, oak-lined streets, neighborhood pride,
-          and quiet California ambition. Join us for a year of events, exhibits,
-          and community gatherings honoring our shared story.
-        </p>
-        <div class="hero__cta">
-          <a class="btn btn--primary btn--icon" href="events.html">Explore the Events</a>
-          <a class="btn btn--ghost" href="about.html">Our Story</a>
-        </div>
-
-        <dl class="hero__meta">
-          <div><dt>Founded</dt><dd>1927</dd></div>
-          <div><dt>Centennial</dt><dd>2027</dd></div>
-          <div><dt>Neighborhood</dt><dd>San Fernando Valley</dd></div>
-          <div><dt>Spirit</dt><dd>Local. Civic. Welcoming.</dd></div>
-        </dl>
-      </div>
-
-      <!-- Centennial seal: large decorative SVG -->
-      <div class="hero__seal-wrap reveal">
-        <svg class="hero__seal" viewBox="0 0 400 400" role="img"
+<section class="hero hero--centennial">
+<div class="hero__bg"></div>
+<div class="container">
+<div class="hero__inner">
+  <div><span class="eyebrow">Our neighborhood. Our centennial.</span>
+<h1 class="hero__title display">A century together.<br><em>A year to celebrate.</em></h1>
+  <p class="hero__sub">Sherman Oaks turns 100 in 2027. Join your neighbors for a year of art, community, history and celebration.</p>
+  <div class="hero__cta"><a class="btn btn--primary" href="#events">Explore the 2027 events</a><a class="btn btn--ghost" href="#get-involved">Be part of it</a></div>
+  <p class="hero__signature">Sherman Oaks, California <span aria-hidden="true">·</span> 1927–2027</p>
+</div>
+  <div class="hero__seal-wrap"><svg class="hero__seal" viewBox="0 0 400 400" role="img"
              aria-label="Sherman Oaks Centennial seal, 1927 to 2027">
           <defs>
             <radialGradient id="sealCore" cx="50%" cy="50%" r="50%">
@@ -246,290 +188,197 @@
             <circle cx="100" cy="200" r="2.5"/>
             <circle cx="300" cy="200" r="2.5"/>
           </g>
-        </svg>
-      </div>
-    </div>
-  </div>
+        </svg></div>
+</div>
+</div>
 </section>
-
-
-<!-- ========= STATS BAND ========= -->
-<section class="section section--tight">
-  <div class="container">
-    <div class="stats reveal">
-      <div class="stat">
-        <span class="stat__num"><em>100</em></span>
-        <span class="stat__label">Years of Community</span>
-      </div>
-      <div class="stat">
-        <span class="stat__num">30+</span>
-        <span class="stat__label">Centennial Events</span>
-      </div>
-      <div class="stat">
-        <span class="stat__num">50+</span>
-        <span class="stat__label">Civic Partners</span>
-      </div>
-      <div class="stat">
-        <span class="stat__num">1</span>
-        <span class="stat__label">Beloved Neighborhood</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ========= ABOUT SUMMARY ========= -->
 <section class="section">
-  <div class="container">
-    <div class="grid mobile-stack" style="grid-template-columns: 1fr 1.1fr; gap: clamp(2rem,5vw,5rem); align-items: center;">
-      <div class="reveal">
-        <div class="media media--wide">
-          <div class="placeholder placeholder--photo">
-            <span class="placeholder__label">
-              <small>Historic Photo</small>
-              Ventura Boulevard, mid-20th century
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="reveal">
-        <span class="eyebrow">About the Centennial</span>
-        <h2>A neighborhood worth celebrating.</h2>
-        <p class="lede">
-          From the orchards of the 1920s to the bustling boulevards of today,
-          Sherman Oaks has always been a place where neighbors know each other,
-          local businesses anchor the corner, and shade trees outlast every fad.
-        </p>
-        <p>
-          The Sherman Oaks 100 initiative brings together residents, schools,
-          houses of worship, civic groups, and local businesses for a year of
-          shared events — from heritage walks and concerts to youth programs,
-          public art, and a community-wide birthday weekend.
-        </p>
-        <a class="btn btn--ghost btn--icon" href="about.html">Learn the full story</a>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="centennial-strip">
+<p><strong>One neighborhood.</strong> A whole year of possibilities.</p>
+<a href="about.html">Meet Sherman Oaks 100 →</a></div>
+</div>
 </section>
-
-
-<!-- ========= FEATURED EVENTS ========= -->
-<section class="section section--alt">
-  <div class="container">
-    <header class="section-head">
-      <span class="eyebrow eyebrow--center">Featured Centennial Events</span>
-      <h2 class="section-head__title">Mark your calendar.</h2>
-      <p class="section-head__sub">
-        A preview of the marquee gatherings planned for the year. Dates and
-        venues are tentative — confirmed details will be published as partners
-        finalize their plans.
-      </p>
-    </header>
-
-    <div class="grid grid--3">
-      <article class="event-card reveal">
-        <div class="event-card__date">
-          <strong>FEB</strong><span>14 · 2027</span>
-        </div>
-        <div class="event-card__body">
-          <span class="event-card__tag">Community</span>
-          <h3 class="event-card__title">Founders' Day Kickoff</h3>
-          <div class="event-card__meta">
-            <span>Van Nuys-Sherman Oaks Park</span><span>10 AM</span>
-          </div>
-          <p class="card__body">
-            A morning of speakers, vintage photo displays, and a procession
-            down Ventura Boulevard to open the centennial year.
-          </p>
-          <a class="event-card__cta" href="events.html#founders-day">Event details</a>
-        </div>
-      </article>
-
-      <article class="event-card reveal">
-        <div class="event-card__date">
-          <strong>MAY</strong><span>22 · 2027</span>
-        </div>
-        <div class="event-card__body">
-          <span class="event-card__tag">Arts</span>
-          <h3 class="event-card__title">Centennial Mural Unveiling</h3>
-          <div class="event-card__meta">
-            <span>TBA — public wall</span><span>6 PM</span>
-          </div>
-          <p class="card__body">
-            A new commemorative mural by a local artist, celebrating the
-            people and places that have defined a century of neighborhood life.
-          </p>
-          <a class="event-card__cta" href="events.html#mural">Event details</a>
-        </div>
-      </article>
-
-      <article class="event-card reveal">
-        <div class="event-card__date">
-          <strong>OCT</strong><span>16 · 2027</span>
-        </div>
-        <div class="event-card__body">
-          <span class="event-card__tag">Family</span>
-          <h3 class="event-card__title">100th Birthday Block Party</h3>
-          <div class="event-card__meta">
-            <span>Ventura Blvd., closed street</span><span>Noon–8 PM</span>
-          </div>
-          <p class="card__body">
-            The headline celebration — food vendors, music stages, kids' zones,
-            community organizations, and a community-wide candle-lighting.
-          </p>
-          <a class="event-card__cta" href="events.html#block-party">Event details</a>
-        </div>
-      </article>
-    </div>
-
-    <div class="center" style="margin-top: var(--space-6);">
-      <a class="btn btn--accent btn--icon" href="events.html">See the full calendar</a>
-    </div>
-  </div>
+<section class="section section--alt" id="events">
+<div class="container">
+<div class="section-head"><span class="eyebrow eyebrow--center">The 2027 celebration</span>
+<h2 class="section-head__title">Four seasons. Plenty to look forward to.</h2>
+<p class="section-head__sub">Four community events are being planned for the centennial year. Dates and venues will be shared as plans are confirmed.</p>
+</div>
+<div class="grid grid--2">
+<article class="event-card"  data-category="arts">
+          <div class="event-card__date"><strong>Q1</strong><span>2027</span></div>
+          <div class="event-card__body"><span class="event-card__tag">January–March</span>
+<h3 class="event-card__title">Centennial mural unveiling &amp; reception</h3>
+          <p class="event-card__meta">Come together around a new centennial mural and a community reception.</p>
+<p class="event-card__meta">Exact date, time and location to be confirmed.</p>
+          <a class="event-card__cta" href="events.html#mural">View event plans</a></div>
+</article>
+<article class="event-card"  data-category="community">
+          <div class="event-card__date"><strong>Q2</strong><span>2027</span></div>
+          <div class="event-card__body"><span class="event-card__tag">April–June</span>
+<h3 class="event-card__title">Shine Sherman Oaks</h3>
+          <p class="event-card__meta">A neighborhood cleanup and tree planting to care for the place we call home.</p>
+<p class="event-card__meta">Exact date, time and location to be confirmed.</p>
+          <a class="event-card__cta" href="events.html#shine">View event plans</a></div>
+</article>
+<article class="event-card"  data-category="arts">
+          <div class="event-card__date"><strong>Q3</strong><span>2027</span></div>
+          <div class="event-card__body"><span class="event-card__tag">August · planned</span>
+<h3 class="event-card__title">Pop-up museum &amp; student art</h3>
+          <p class="event-card__meta">Explore neighborhood history and the next generation’s creativity in a planned August event.</p>
+<p class="event-card__meta">Exact date, time and location to be confirmed.</p>
+          <a class="event-card__cta" href="events.html#museum">View event plans</a></div>
+</article>
+<article class="event-card"  data-category="community">
+          <div class="event-card__date"><strong>Q4</strong><span>2027</span></div>
+          <div class="event-card__body"><span class="event-card__tag">October–December</span>
+<h3 class="event-card__title">Sherman Oaks Street Fair</h3>
+          <p class="event-card__meta">A centennial celebration as part of the Sherman Oaks Street Fair.</p>
+<p class="event-card__meta">Exact date, time and location to be confirmed.</p>
+          <a class="event-card__cta" href="events.html#street-fair">View event plans</a></div>
+</article>
+</div>
+<div class="section-action"><a class="btn btn--ghost" href="events.html">Explore the event calendar</a></div>
+</div>
 </section>
-
-
-<!-- ========= HISTORY PREVIEW ========= -->
+<section class="section" id="founders-day">
+<div class="container">
+<div class="founders-day" data-countdown>
+<div><span class="eyebrow">Looking ahead</span>
+<h2>Counting down to Founders’ Day.</h2>
+<p data-countdown-message>The official Founders’ Day date will be announced here once confirmed.</p>
+</div>
+<dl class="countdown" data-countdown-values hidden>
+<div><dt>Days</dt><dd data-unit="days">0</dd></div>
+<div><dt>Hours</dt><dd data-unit="hours">0</dd></div>
+<div><dt>Minutes</dt><dd data-unit="minutes">0</dd></div>
+<div><dt>Seconds</dt><dd data-unit="seconds">0</dd></div>
+</dl>
+</div>
+</div>
+</section>
+<section class="section section--alt" id="history">
+<div class="container">
+<div class="story-intro">
+<div class="year-mark" aria-hidden="true">1927<span>to</span>2027</div>
+<div><span class="eyebrow">Our history</span>
+<h2>A hundred years of stories.</h2>
+<p class="lede">The places we remember. The people who shaped them. The neighborhood we share.</p>
+<p>We’re preparing a history of Sherman Oaks with local historians and contributors. Historical photographs, dates and stories are being reviewed before they are added.</p>
+<a class="btn btn--ghost" href="get-involved.html#share-story">Have a memory to share?</a></div>
+</div>
+</div>
+</section>
+<section class="section" id="stories">
+<div class="container">
+<div class="section-head"><span class="eyebrow eyebrow--center">Community stories</span>
+<h2 class="section-head__title">The Sherman Oaks Memory Wall.</h2>
+<p class="section-head__sub">A place for the community’s memories, told by the people who lived them.</p>
+</div>
+<div class="memory-invitation"><span class="memory-invitation__mark" aria-hidden="true">“</span>
+<div>
+<h3>Every neighbor has a story.</h3>
+<p>A favorite storefront. A school-day memory. A family photo with a story behind it. We’d love to hear yours.</p>
+<p>Stories, photographs and videos will appear here after contributor permission and committee review.</p>
+<a class="btn btn--primary" href="get-involved.html#share-story">Share a memory</a></div>
+</div>
+<!-- Add only committee-approved entries here, with contributor permission and credits. --></div>
+</section>
+<section class="section section--alt" id="sponsors">
+<div class="container">
+<div class="section-head"><span class="eyebrow eyebrow--center">Support the centennial</span>
+<h2 class="section-head__title">Help bring the year to life.</h2>
+<p class="section-head__sub">Proposed sponsorship levels are shown below. Final benefits and program details are still being confirmed.</p>
+</div>
+<div class="grid grid--4 support-levels">
+<article class="card"><span class="card__eyebrow">Proposed level</span>
+<h3 class="card__title">$100</h3>
+<p class="card__body">Benefits to be confirmed.</p>
+<a class="card__link" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20interest%20%E2%80%94%20%24100">Ask about this level →</a></article>
+<article class="card"><span class="card__eyebrow">Proposed level</span>
+<h3 class="card__title">$1,000</h3>
+<p class="card__body">Benefits to be confirmed.</p>
+<a class="card__link" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20interest%20%E2%80%94%20%241%2C000">Ask about this level →</a></article>
+<article class="card"><span class="card__eyebrow">Proposed level</span>
+<h3 class="card__title">$5,000</h3>
+<p class="card__body">Benefits to be confirmed.</p>
+<a class="card__link" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20interest%20%E2%80%94%20%245%2C000">Ask about this level →</a></article>
+<article class="card"><span class="card__eyebrow">Proposed level</span>
+<h3 class="card__title">$10,000+</h3>
+<p class="card__body">Benefits to be confirmed.</p>
+<a class="card__link" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20interest%20%E2%80%94%20%2410%2C000%2B">Ask about this level →</a></article>
+</div>
+<div class="section-action"><a class="btn btn--ghost" href="sponsors.html">Talk with us about sponsorship</a></div>
+</div>
+</section>
+<section class="section" id="legacy">
+<div class="container">
+<div class="section-head"><span class="eyebrow eyebrow--center">Centennial Legacy</span>
+<h2 class="section-head__title">Celebrate today. Invest in tomorrow.</h2>
+<p class="section-head__sub">The committee’s long-term vision includes projects that could continue beyond 2027.</p>
+</div>
+<div class="grid grid--3">
+<article class="card"><span class="card__eyebrow">A greener neighborhood</span>
+<h3 class="card__title">More trees, lasting shade</h3>
+<p class="card__body">Explore opportunities for tree planting and long-term care.</p>
+</article>
+<article class="card"><span class="card__eyebrow">A thriving local economy</span>
+<h3 class="card__title">Small-business support</h3>
+<p class="card__body">Consider grants that could help neighborhood businesses grow.</p>
+</article>
+<article class="card"><span class="card__eyebrow">The next generation</span>
+<h3 class="card__title">Student scholarships</h3>
+<p class="card__body">Explore ways to support local students and their future.</p>
+</article>
+</div>
+<p class="section-note">These are ideas under consideration. Program details, funding and the organization responsible for managing them are still to be confirmed.</p>
+</div>
+</section>
+<section class="section section--alt" id="get-involved">
+<div class="container">
+<div class="section-head"><span class="eyebrow eyebrow--center">Be part of it</span>
+<h2 class="section-head__title">A little time. A story. A big difference.</h2>
+<p class="section-head__sub">Choose how you’d like to take part in Sherman Oaks 100.</p>
+</div>
+<div class="grid grid--3">
+<article class="card"><span class="card__eyebrow">Give your time</span>
+<h3 class="card__title">Volunteer</h3>
+<p class="card__body">Help with events, planning or a skill you’d like to share.</p>
+<a class="card__link" href="get-involved.html#volunteer-form">Find your role →</a></article>
+<article class="card"><span class="card__eyebrow">Share a memory</span>
+<h3 class="card__title">Tell your story</h3>
+<p class="card__body">Tell us about a person, place or moment that means Sherman Oaks to you.</p>
+<a class="card__link" href="get-involved.html#share-story">Share a story →</a></article>
+<article class="card"><span class="card__eyebrow">Open your photo album</span>
+<h3 class="card__title">Contribute photographs</h3>
+<p class="card__body">Start a conversation with the committee about photos you’d like to share.</p>
+<a class="card__link" href="get-involved.html#contribute-photos">Offer photographs →</a></article>
+<article class="card"><span class="card__eyebrow">Support the celebration</span>
+<h3 class="card__title">Become a sponsor</h3>
+<p class="card__body">Explore the proposed sponsorship levels and talk with the committee.</p>
+<a class="card__link" href="sponsors.html">Explore sponsorship →</a></article>
+<article class="card"><span class="card__eyebrow">Bring people together</span>
+<h3 class="card__title">Partner with us</h3>
+<p class="card__body">Connect your business, school or community organization with the centennial.</p>
+<a class="card__link" href="civic-partners.html">Get involved as a partner →</a></article>
+<article class="card"><span class="card__eyebrow">Start a conversation</span>
+<h3 class="card__title">Contact the committee</h3>
+<p class="card__body">Have an idea or a question? We’d like to hear from you.</p>
+<a class="card__link" href="contact.html">Get in touch →</a></article>
+</div>
+</div>
+</section>
 <section class="section">
-  <div class="container">
-    <header class="section-head">
-      <span class="eyebrow eyebrow--center">A Century In Brief</span>
-      <h2 class="section-head__title">From orchards to oak-lined streets.</h2>
-      <p class="section-head__sub">
-        A few milestones from a hundred years of Sherman Oaks history.
-        See the full timeline for the deeper story.
-      </p>
-    </header>
-
-    <ol class="timeline">
-      <li class="timeline__item reveal">
-        <span class="timeline__year">1927</span>
-        <h3 class="timeline__title">A Neighborhood Is Named</h3>
-        <p class="timeline__body">
-          Real-estate developer Moses Sherman lends his name to a new subdivision
-          of fruit groves and home lots on the south side of the San Fernando Valley.
-        </p>
-      </li>
-      <li class="timeline__item reveal">
-        <span class="timeline__year">1934</span>
-        <h3 class="timeline__title">Ventura Boulevard Takes Shape</h3>
-        <p class="timeline__body">
-          Roadside cafés, gas stations, and family-run shops begin to give the
-          boulevard its still-recognizable Main Street character.
-        </p>
-      </li>
-      <li class="timeline__item reveal">
-        <span class="timeline__year">1960s</span>
-        <h3 class="timeline__title">Suburban Growth</h3>
-        <p class="timeline__body">
-          Postwar families fill new neighborhoods. Schools, parks, libraries, and
-          houses of worship anchor a fast-growing community identity.
-        </p>
-      </li>
-      <li class="timeline__item reveal">
-        <span class="timeline__year">2027</span>
-        <h3 class="timeline__title">Centennial Year</h3>
-        <p class="timeline__body">
-          A year of public celebration, community storytelling, and gathering —
-          honoring the past and writing the next chapter together.
-        </p>
-      </li>
-    </ol>
-
-    <div class="center">
-      <a class="btn btn--ghost btn--icon" href="history.html">Explore the full timeline</a>
-    </div>
-  </div>
+<div class="container">
+<div class="centennial-strip">
+<div><span class="eyebrow">Stay connected</span>
+<h2>Follow the celebration as it takes shape.</h2>
+<p>Contact the committee to ask about updates, events and ways to join in.</p>
+</div>
+<a class="btn btn--primary" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Centennial%20updates">Ask for centennial updates</a></div>
+</div>
 </section>
-
-
-<!-- ========= PULL QUOTE ========= -->
-<section class="section section--tight">
-  <div class="container container--narrow">
-    <blockquote class="pullquote reveal">
-      "Sherman Oaks has always been the kind of place where the dry cleaner knows
-      your name, the school principal waves on the corner, and the trees keep
-      growing long after the people who planted them. A hundred years in,
-      that's still the whole point."
-      <cite>— Centennial Steering Committee</cite>
-    </blockquote>
-  </div>
-</section>
-
-
-<!-- ========= SPONSORS PREVIEW ========= -->
-<section class="section section--alt">
-  <div class="container">
-    <header class="section-head">
-      <span class="eyebrow eyebrow--center">Made Possible By</span>
-      <h2 class="section-head__title">Our community partners.</h2>
-      <p class="section-head__sub">
-        The Sherman Oaks 100 celebration is powered by local businesses, civic
-        groups, schools, and houses of worship. We are grateful for every
-        partner who steps forward.
-      </p>
-    </header>
-
-    <div class="tier__grid">
-      <div class="sponsor"><div class="sponsor__name"><small>Presenting</small>Sponsor Logo Placeholder</div></div>
-      <div class="sponsor"><div class="sponsor__name"><small>Community</small>Local Business Placeholder</div></div>
-      <div class="sponsor"><div class="sponsor__name"><small>Community</small>Civic Group Placeholder</div></div>
-      <div class="sponsor"><div class="sponsor__name"><small>Supporting</small>Neighbor Placeholder</div></div>
-      <div class="sponsor"><div class="sponsor__name"><small>In-Kind</small>In-Kind Partner Placeholder</div></div>
-      <div class="sponsor"><div class="sponsor__name"><small>Supporting</small>Local Family Placeholder</div></div>
-    </div>
-
-    <div class="center" style="margin-top: var(--space-6);">
-      <a class="btn btn--ghost btn--icon" href="sponsors.html">See all sponsors &amp; tiers</a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ========= NEWSLETTER ========= -->
-<section class="section">
-  <div class="container">
-    <div class="newsletter reveal">
-      <div class="newsletter__inner">
-        <div>
-          <span class="eyebrow" style="color: var(--gold-300);">Stay Connected</span>
-          <h2>Get centennial updates in your inbox.</h2>
-          <p>One short, friendly email each month with confirmed event dates,
-             ways to participate, and stories from a hundred years of Sherman Oaks.</p>
-        </div>
-        <!-- Newsletter mailto CTA; see README to upgrade to Formspree or Google Forms later. -->
-        <div class="newsletter__cta">
-          <a class="btn btn--accent email-cta__primary" href="mailto:hello@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Newsletter%20Subscribe&amp;body=I%27d%20like%20to%20subscribe%20to%20the%20monthly%20Sherman%20Oaks%20100%20newsletter.%20Thanks%21">Subscribe</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ========= GET INVOLVED CTA ========= -->
-<section class="section section--deep">
-  <div class="container">
-    <div class="grid mobile-stack" style="grid-template-columns: 1.4fr 1fr; gap: clamp(2rem,5vw,4rem); align-items: center;">
-      <div class="reveal">
-        <span class="eyebrow" style="color: var(--gold-300);">Join the Centennial</span>
-        <h2 style="color:var(--cream-50);">There's a place for everyone in this year.</h2>
-        <p style="color: rgba(254, 252, 246, 0.85); max-width: 56ch;">
-          Whether you have an hour, a skill, a story, or a venue, we'd love to
-          welcome you in. The centennial is built by neighbors — that's not a
-          slogan, it's how this works.
-        </p>
-      </div>
-      <div class="reveal" style="display:flex; flex-direction:column; gap:0.75rem;">
-        <a class="btn btn--accent btn--icon" href="get-involved.html">Volunteer with us</a>
-        <a class="btn btn--ghost-light btn--icon" href="sponsors.html">Become a sponsor</a>
-        <a class="btn btn--ghost-light btn--icon" href="contact.html">Share an event idea</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 </main>
 
 
@@ -551,26 +400,7 @@
           </span>
         </a>
         <p>A community-led celebration of a hundred years of neighborhood life in the heart of the San Fernando Valley.</p>
-        <div class="socials" aria-label="Social media">
-          <a href="#" aria-label="Instagram" rel="noopener">
-            <!-- IG icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="3" width="18" height="18" rx="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-            </svg>
-          </a>
-          <a href="#" aria-label="Facebook" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M13 22v-8h3l1-4h-4V7.5c0-1.1.4-2 2-2h2V2.1C16.6 2 15.4 2 14.5 2 11.9 2 10 3.6 10 6.7V10H7v4h3v8h3z"/>
-            </svg>
-          </a>
-          <a href="#" aria-label="YouTube" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/>
-            </svg>
-          </a>
-        </div>
+
       </div>
 
       <div>
@@ -600,7 +430,7 @@
         <ul>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+          <li><a href="mailto:info@shermanoaks100.com">info@shermanoaks100.com</a></li>
           <li class="subtle" style="color: rgba(254, 252, 246, 0.55);">Sherman Oaks, California</li>
         </ul>
       </div>
@@ -618,6 +448,8 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20260515" defer></script>
+<script src="assets/js/site-config.js?v=20260912" defer></script>
+<script src="assets/js/countdown.js?v=20260912" defer></script>
+<script src="assets/js/main.js?v=20260912" defer></script>
 </body>
 </html>
