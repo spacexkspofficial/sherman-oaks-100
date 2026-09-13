@@ -60,7 +60,7 @@ After the committee confirms the date and time, set an ISO 8601 timestamp with t
 - Confirm sponsorship benefits, program URL, contribution wording and any tax language before publishing final offers. The site only directs inquiries; it cannot process payments or administer a fund.
 - Public media uploads require an approved external submission and storage service. Current contribution links open the visitor's email app.
 - Confirm committee roster, partner participation, social links, policy wording and inbox operation before launch. Do not restore placeholder names or endorsements.
-- Visual browser testing at phone, tablet and desktop widths remains outstanding: browser approval review declined access to the local preview during this update. Local link/content and JavaScript checks were performed separately.
+- Browser verification is complete for the refreshed build: all 10 refreshed pages were checked at 320, 768 and 1440 pixels, with additional visual checks at 390 pixels. Login, event filters, navigation, keyboard access, FAQ expansion, the pending countdown and email-link destinations were checked. Browser review corrected event-card columns, obscured seal lettering and a mobile-menu resize scroll lock. Inbox delivery and actual event/sponsorship details still require confirmation.
 - Remove the preview screen and deploy only as part of an authorized public launch. Pushes to the publishing branch can update GitHub Pages; no push was made for this update.
 
 ## Local verification

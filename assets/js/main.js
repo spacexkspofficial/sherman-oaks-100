@@ -112,6 +112,12 @@
     const toggle = document.querySelector(".nav__toggle");
     if (!nav || !toggle) return;
 
+    function closeNav() {
+      nav.classList.remove("nav--open");
+      toggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+
     toggle.addEventListener("click", function () {
       const isOpen = nav.classList.toggle("nav--open");
       toggle.setAttribute("aria-expanded", String(isOpen));
@@ -120,20 +126,20 @@
 
     // Close on link click (mobile)
     nav.querySelectorAll(".nav__menu a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        nav.classList.remove("nav--open");
-        toggle.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
-      });
+      link.addEventListener("click", closeNav);
     });
 
     // Close on Escape
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && nav.classList.contains("nav--open")) {
-        nav.classList.remove("nav--open");
-        toggle.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
+        closeNav();
+        toggle.focus();
       }
+    });
+
+    // A menu opened on a phone must not leave desktop scrolling locked.
+    window.matchMedia("(max-width: 1100px)").addEventListener("change", function (event) {
+      if (!event.matches && nav.classList.contains("nav--open")) closeNav();
     });
   }
 
