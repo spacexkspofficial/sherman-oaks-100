@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Community Map — Sherman Oaks 100</title>
-  <meta name="description" content="An interactive map of Sherman Oaks Centennial places — landmarks, event venues, heritage sites, and public art. Currently a placeholder, to be replaced with a live Google Map." />
+  <meta name="description" content="Explore the Sherman Oaks community map. Find centennial gathering places, heritage sites and public art as locations are confirmed." />
+  <link rel="canonical" href="https://shermanoaks100.com/map.html" />
   <meta name="theme-color" content="#fffdf8" />
   <meta property="og:title" content="Community Map — Sherman Oaks 100" />
   <meta property="og:description" content="Centennial landmarks, event venues, heritage sites, and public art across Sherman Oaks." />
@@ -13,7 +14,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,30..100,0..1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css" />
   <link rel="stylesheet" href="assets/css/styles.css?v=20260912b" />
+  <link rel="stylesheet" href="assets/css/community-map.css?v=20260913a" />
 </head>
 <body>
 
@@ -36,211 +39,81 @@
 </header>
 
 
-<main id="main">
-
+<main id="main" class="community-map-page">
 <section class="page-header">
   <div class="container">
     <p class="page-header__crumbs"><a href="index.html">Home</a> · Community Map</p>
-    <span class="eyebrow">Find Your Way Around</span>
-    <h1 class="page-header__title display">The Sherman Oaks <em>community map</em>.</h1>
-    <p class="page-header__sub">
-      Centennial event venues, heritage sites, public art, and partner
-      organizations across the neighborhood — gathered in one place.
-    </p>
+    <span class="eyebrow">Around the neighborhood</span>
+    <h1 class="page-header__title display">A neighborhood of <em>discoveries.</em></h1>
+    <p class="page-header__sub">Explore Sherman Oaks, from gathering places to the corners that hold our stories.</p>
+    <p class="map-intro-note">Centennial locations are being confirmed. New places will be added as they’re ready to share.</p>
   </div>
 </section>
 
-
-<!--
-  ============================================================================
-  MAP SECTION
-  ============================================================================
-  This is a placeholder map.
-
-  To replace with a real map, use ONE of the following (all free,
-  static-site friendly, no backend required):
-
-  OPTION A — Google My Maps embed (easiest, best for a curated set of pins)
-    1. Go to https://mymaps.google.com and sign in with the project Google
-       account.
-    2. Create a new map, add layers, drop pins for each landmark/venue/etc.
-    3. Click "Share" → make it "Anyone with the link can view".
-    4. Click the three-dot menu → "Embed on my site".
-    5. Replace the .map-wrap block below with the <iframe> Google gives you.
-
-  OPTION B — Google Maps directions/single embed
-    1. Open https://maps.google.com, search for the location.
-    2. Click "Share" → "Embed a map" → copy the <iframe> snippet.
-    3. Drop the <iframe> in place of .map-wrap.
-
-  OPTION C — OpenStreetMap embed (no Google account required)
-    1. Go to https://www.openstreetmap.org/export.
-    2. Pan/zoom to Sherman Oaks, click "Share" → "HTML".
-    3. Paste the <iframe> in place of .map-wrap.
-
-  OPTION D — Leaflet.js (fully interactive, free, no API key)
-    1. Add Leaflet's CSS + JS from a CDN in the <head>.
-    2. Replace the .map-wrap inner content with a <div id="leaflet-map">.
-    3. Initialize L.map('leaflet-map') with center [34.1508, -118.4489]
-       (Sherman Oaks center) and add markers.
-    See https://leafletjs.com/examples/quick-start/ for a copy-pasteable
-    starter — works perfectly on GitHub Pages.
-
-  Make sure to keep the .map-legend section below regardless of which
-  option you choose, so the page still reads clearly.
-  ============================================================================
--->
-<section class="section section--tight">
+<section class="section map-explorer" data-community-map data-locations-src="assets/data/locations.json?v=20260913a" aria-label="Explore the community map">
   <div class="container">
+    <form class="map-toolbar" id="map-controls" role="search" aria-label="Find a place">
+      <div class="map-field map-field--search">
+        <label for="map-search">Search places</label>
+        <input type="search" id="map-search" placeholder="Name, street or keyword" autocomplete="off" aria-controls="map-locations" disabled />
+      </div>
+      <div class="map-field">
+        <label for="map-category">Explore by category</label>
+        <select id="map-category" aria-controls="map-locations" disabled>
+          <option value="all">All places</option>
+          <option value="events">Event venues</option>
+          <option value="heritage">Heritage sites</option>
+          <option value="art">Public art</option>
+          <option value="community">Community places</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn--small" id="map-reset" hidden>Clear filters</button>
+    </form>
 
-    <div class="map-wrap reveal" role="img" aria-label="Map of Sherman Oaks centennial sites (placeholder)">
-      <!-- Placeholder pins (positioned absolutely as a preview) -->
-      <button class="map-wrap__pin" style="top: 28%; left: 24%;"
-              data-name="Sherman Oaks Park" aria-label="Sherman Oaks Park"></button>
-      <button class="map-wrap__pin" style="top: 42%; left: 50%;"
-              data-name="Ventura Blvd. Block Party Site" aria-label="Ventura Blvd. Block Party Site"></button>
-      <button class="map-wrap__pin" style="top: 60%; left: 35%;"
-              data-name="Centennial Mural Wall (TBA)" aria-label="Centennial Mural Wall placeholder"></button>
-      <button class="map-wrap__pin" style="top: 36%; left: 70%;"
-              data-name="Heritage Walk Start" aria-label="Heritage Walk Start"></button>
-      <button class="map-wrap__pin" style="top: 70%; left: 65%;"
-              data-name="Community Library" aria-label="Community Library"></button>
-      <button class="map-wrap__pin" style="top: 22%; left: 78%;"
-              data-name="Local School Partner" aria-label="Local School Partner"></button>
-
-      <div class="map-wrap__overlay">
-        <div class="map-wrap__msg">
-          <h3 style="margin:0 0 .5rem; font-family: var(--font-display); font-size: 1.25rem; color: var(--primary-deep);">
-            Interactive map placeholder
-          </h3>
-          <p style="margin: 0; font-size: .9rem; color: var(--ink-700);">
-            This area will host a live Google My Maps embed (or Leaflet map)
-            once the centennial committee finalizes locations. Click a pin
-            preview to see what selection behavior will look like.
-          </p>
+    <div class="map-layout">
+      <div class="map-results" aria-labelledby="map-list-heading">
+        <div class="map-results__header">
+          <h2 id="map-list-heading">Places to explore</h2>
+          <p class="map-count" id="map-count" role="status" aria-live="polite" aria-atomic="true">Confirmed places will appear here.</p>
         </div>
-      </div>
-    </div>
-
-    <!-- Legend -->
-    <div class="map-legend">
-      <div class="map-legend__item">
-        <span class="map-legend__swatch" style="background: #c9a55a;"></span>
-        <span><strong>Event venues</strong> — kickoff, block party, concerts.</span>
-      </div>
-      <div class="map-legend__item">
-        <span class="map-legend__swatch" style="background: #3d8a6c;"></span>
-        <span><strong>Heritage sites</strong> — historic buildings &amp; corners.</span>
-      </div>
-      <div class="map-legend__item">
-        <span class="map-legend__swatch" style="background: #b8923f;"></span>
-        <span><strong>Public art</strong> — murals, plaques, installations.</span>
-      </div>
-      <div class="map-legend__item">
-        <span class="map-legend__swatch" style="background: #265a47;"></span>
-        <span><strong>Civic partners</strong> — schools, libraries, houses of worship.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- LOCATION LIST (also functions as a sitemap of pinned spots) -->
-<section class="section">
-  <div class="container">
-    <header class="section-head section-head--left">
-      <span class="eyebrow">Locations</span>
-      <h2 class="section-head__title">Places on the map.</h2>
-      <p class="section-head__sub">
-        A working list of the places the centennial will touch. As venues
-        confirm, this list will gain addresses, parking notes, and links.
-      </p>
-    </header>
-
-    <div class="grid grid--3">
-      <article class="card reveal">
-        <span class="card__eyebrow">Event Venue</span>
-        <h3 class="card__title">Sherman Oaks Park</h3>
-        <p class="card__body">The community's flagship park — likely host to picnics, family events, and outdoor performances during the centennial year.</p>
-      </article>
-      <article class="card reveal">
-        <span class="card__eyebrow">Event Venue</span>
-        <h3 class="card__title">Ventura Blvd. Block Party Site</h3>
-        <p class="card__body">A closed-street section of Ventura Boulevard, intended for the headline October birthday party.</p>
-      </article>
-      <article class="card reveal">
-        <span class="card__eyebrow">Heritage Site</span>
-        <h3 class="card__title">Boulevard Storefront Row</h3>
-        <p class="card__body">A walkable stretch of long-tenured storefronts — anchors of the Heritage Walk and oral-history project.</p>
-      </article>
-      <article class="card reveal">
-        <span class="card__eyebrow">Public Art</span>
-        <h3 class="card__title">Centennial Mural Wall (TBA)</h3>
-        <p class="card__body">Site of the commemorative centennial mural, to be unveiled in late spring.</p>
-      </article>
-      <article class="card reveal">
-        <span class="card__eyebrow">Civic Partner</span>
-        <h3 class="card__title">Community Library</h3>
-        <p class="card__body">Host for oral-history evenings, exhibit hosting, and curriculum partnerships with local schools.</p>
-      </article>
-      <article class="card reveal">
-        <span class="card__eyebrow">Civic Partner</span>
-        <h3 class="card__title">Local School Partner</h3>
-        <p class="card__body">Centennial curriculum, art contests, and youth-led history projects coordinated with local schools.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-<!-- NOTABLE RESIDENTS TEASER -->
-<section class="section section--alt">
-  <div class="container">
-    <div class="grid mobile-stack" style="grid-template-columns: 1.1fr 1fr; gap: clamp(2rem,5vw,4rem); align-items: center;">
-      <div class="reveal">
-        <span class="eyebrow">A Second Map</span>
-        <h2>Where the famous lived in Sherman Oaks.</h2>
-        <p class="lede">
-          A separate interactive map plots notable residents — celebrities,
-          public figures, civic anchors — alongside heritage landmarks across
-          the neighborhood.
-        </p>
-        <p>
-          Resident entries start as placeholders and get filled in with
-          sourced biographies during the centennial year. For living people
-          we use block-level approximate coordinates only.
-        </p>
-        <a class="btn btn--primary btn--icon" href="notable-residents.html">Open the Notable Residents map</a>
-      </div>
-      <div class="reveal">
-        <div class="media media--wide">
-          <div class="placeholder placeholder--map">
-            <span class="placeholder__label">
-              <small>Interactive Map</small>
-              Notable Residents &amp; Heritage Landmarks
-            </span>
+        <ul class="map-locations" id="map-locations" aria-label="Matching places"></ul>
+        <div class="map-empty" id="map-empty">
+          <div class="map-empty__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
           </div>
+          <h3 id="map-empty-title">Places are on the way.</h3>
+          <p id="map-empty-text">Confirmed centennial locations will appear here. For now, explore the neighborhood on the map.</p>
+          <button type="button" class="btn btn--small" id="map-retry" hidden>Try loading places again</button>
+          <a href="contact.html">Have a place in mind? Let us know →</a>
+        </div>
+      </div>
+      <div class="map-visual">
+        <div class="map-visual__bar">
+          <p>Sherman Oaks, California</p>
+          <button type="button" class="btn btn--small" id="map-reset-view" disabled>Reset map view</button>
+        </div>
+        <div id="community-map" class="community-map-canvas" role="region" aria-label="Interactive street map of Sherman Oaks" aria-describedby="map-instructions" tabindex="0"></div>
+        <div class="map-notice" id="map-notice" role="status" hidden>
+          <p id="map-notice-text"></p>
+          <button type="button" class="btn btn--small" id="map-tiles-retry" hidden>Retry map</button>
         </div>
       </div>
     </div>
+    <div class="map-help">
+      <p id="map-instructions">Drag to explore. Use + / − to zoom, or focus the map and use the arrow keys. Places also appear in the list.</p>
+      <a href="https://www.openstreetmap.org/fixthemap" target="_blank" rel="noopener noreferrer">Report a street-map issue <span class="sr-only">(opens in a new tab)</span></a>
+    </div>
+    <noscript><p>Enable JavaScript to use the interactive map. You can also <a href="https://www.openstreetmap.org/#map=14/34.151/-118.449">view Sherman Oaks on OpenStreetMap</a> or <a href="contact.html">contact the committee</a> for location information.</p></noscript>
+
+    <div class="map-contribute">
+      <div>
+        <h2>Every place has a story.</h2>
+        <p>Suggest a public place for the centennial map. Share its name, location and what makes it part of Sherman Oaks.</p>
+      </div>
+      <a class="btn btn--primary" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Suggest%20a%20map%20location&amp;body=Place%20name%3A%0D%0AAddress%20or%20intersection%3A%0D%0AWhy%20include%20it%3F%0D%0ASource%20or%20website%3A%0D%0AYour%20name%3A">Suggest a place</a>
+    </div>
   </div>
 </section>
-
-
-<!-- CTA -->
-<section class="section section--deep">
-  <div class="container center">
-    <span class="eyebrow eyebrow--center" style="color: var(--gold-300);">Add Your Place</span>
-    <h2 style="color: var(--cream-50);">Have a location to include?</h2>
-    <p style="color: rgba(254, 252, 246, 0.85); max-width: 56ch; margin: 0 auto var(--space-5);">
-      If your business, organization, school, or house of worship would like to
-      be part of the centennial map — as a host, partner, or just a place worth
-      marking — let us know.
-    </p>
-    <a class="btn btn--accent btn--icon" href="contact.html">Suggest a location</a>
-  </div>
-</section>
-
 </main>
 
 
@@ -267,5 +140,9 @@
 </footer>
 
 <script src="assets/js/main.js?v=20260912c" defer></script>
+<script src="assets/vendor/leaflet/leaflet.js" defer></script>
+<script src="assets/js/map-config.js?v=20260913a" defer></script>
+<script src="assets/js/map-data.js?v=20260913a" defer></script>
+<script src="assets/js/community-map.js?v=20260913a" defer></script>
 </body>
 </html>
