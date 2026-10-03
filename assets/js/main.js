@@ -138,7 +138,7 @@
     });
 
     // A menu opened on a phone must not leave desktop scrolling locked.
-    window.matchMedia("(max-width: 1100px)").addEventListener("change", function (event) {
+    window.matchMedia("(max-width: 1200px)").addEventListener("change", function (event) {
       if (!event.matches && nav.classList.contains("nav--open")) closeNav();
     });
   }

@@ -518,7 +518,7 @@ ul, ol {
 }
 .nav__menu a {
   display: inline-block;
-  padding: 0.55rem 0.85rem;
+  padding: 0.55rem 0.6rem;
   font-size: 0.94rem;
   font-weight: 500;
   color: var(--ink-700);
@@ -554,7 +554,7 @@ ul, ol {
 }
 .nav__toggle svg { width: 22px; height: 22px; display: block; }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .nav__menu, .nav__cta { display: none; }
   .nav__toggle { display: inline-flex; }
 
@@ -2280,6 +2280,19 @@ main [id] { scroll-margin-top: 100px; }
 .hero--centennial .hero__seal { max-width: 350px; animation: none; filter: drop-shadow(0 15px 22px rgba(20, 50, 42, .10)); }
 .hero__signature { margin-top: 1.8rem; color: var(--fg-muted); font-size: .85rem; }
 .hero__signature span { padding-inline: .5rem; }
+.hero__map-link { margin: 1.3rem 0 0; font-size: .95rem; font-weight: 600; }
+.hero__map-link a { text-underline-offset: 4px; }
+.home-map-feature { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--border-strong); border-radius: var(--r-lg); background: #f1f5ec; }
+.home-map-feature__art { text-align: center; }
+.home-map-feature__art svg { width: 100%; max-width: 330px; }
+.home-map-feature__art > span { display: block; margin-top: .6rem; color: var(--fg-muted); font-size: .8rem; letter-spacing: .06em; }
+.home-map-feature__copy h2 { font-size: clamp(1.9rem, 3vw, 2.8rem); }
+.home-map-feature__copy p { max-width: 52ch; }
+.home-map-feature__copy .btn { margin-top: .5rem; white-space: normal; text-align: center; }
+@media (max-width: 700px) {
+  .home-map-feature { grid-template-columns: 1fr; gap: 1.5rem; }
+  .home-map-feature__art svg { max-width: 220px; }
+}
 .centennial-strip { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
 .centennial-strip p { margin-bottom: 0; }
 .centennial-strip > p { font-family: var(--font-display); font-size: clamp(1.2rem, 2.2vw, 1.6rem); }
@@ -2313,7 +2326,7 @@ main [id] { scroll-margin-top: 100px; }
 .contact-panel > .subtle { margin-top: 1.5rem; }
 .contact-address { overflow-wrap: anywhere; font-size: clamp(1.3rem, 4vw, 2.4rem); }
 .grid > *, .hero__inner > * { min-width: 0; }
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .nav--open .nav__cta { display: none; }
 }
 @media (max-width: 900px) {

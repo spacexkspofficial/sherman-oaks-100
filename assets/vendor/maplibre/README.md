@@ -1,0 +1,1 @@
+MapLibre GL JS 5.24.0 (BSD-3-Clause) and maplibre-gl-leaflet 0.1.3 (ISC), downloaded from the official npm registry. Package tarballs verified against registry SHA-512 integrity. Licenses retained. The site uses an original simplified Shortbread style, not a third-party basemap design.

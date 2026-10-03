@@ -25,7 +25,7 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
         crossorigin="" />
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260912b" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261003a" />
 
   <style>
     /* ---------------------------------------------------------------------
@@ -297,7 +297,7 @@
       <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
-      <ul class="nav__menu" id="primary-menu"><li><a href="index.html" data-page="index.html">Home</a></li><li><a href="index.html#events" data-page="events.html">Events</a></li><li><a href="index.html#history" data-page="history.html">History</a></li><li><a href="index.html#stories" data-page="gallery.html">Stories</a></li><li><a href="index.html#sponsors" data-page="sponsors.html">Sponsors</a></li><li><a href="index.html#get-involved" data-page="get-involved.html">Get involved</a></li><li><a href="contact.html" data-page="contact.html">Contact</a></li></ul>
+      <ul class="nav__menu" id="primary-menu"><li><a href="index.html" data-page="index.html">Home</a></li><li><a href="index.html#events" data-page="events.html">Events</a></li><li><a href="map.html" data-page="map.html">Map</a></li><li><a href="index.html#history" data-page="history.html">History</a></li><li><a href="index.html#stories" data-page="gallery.html">Stories</a></li><li><a href="index.html#sponsors" data-page="sponsors.html">Sponsors</a></li><li><a href="index.html#get-involved" data-page="get-involved.html">Get involved</a></li><li><a href="contact.html" data-page="contact.html">Contact</a></li></ul>
       <div class="nav__cta"><a class="btn btn--accent btn--small" href="get-involved.html">Volunteer</a></div>
     </nav>
   </div>
@@ -659,6 +659,9 @@
     scrollWheelZoom: false  // require click on map to zoom — friendlier scroll
   });
 
+  // Preserve the library credit without the default flag graphic.
+  map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
+
   // Tap once to enable scroll-wheel zoom; tap outside to disable.
   map.on('click', function () { map.scrollWheelZoom.enable(); });
   map.on('mouseout', function () { map.scrollWheelZoom.disable(); });
@@ -784,6 +787,6 @@
 })();
 </script>
 
-<script src="assets/js/main.js?v=20260912c" defer></script>
+<script src="assets/js/main.js?v=20261003a" defer></script>
 </body>
 </html>

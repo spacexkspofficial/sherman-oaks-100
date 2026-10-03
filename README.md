@@ -2,11 +2,11 @@
 
 A static HTML, CSS and JavaScript website for the 2027 centennial, hosted on GitHub Pages at `shermanoaks100.com`. No framework, build step, backend or payment processing.
 
-## Current preview — handoff recorded September 13, 2026
+## Current preview — handoff recorded October 3, 2026
 
 The non-historical changes from the 24-item website proposal have been implemented locally. The preview gate remains in place. This update has not been deployed.
 
-- Brighter homepage with direct links to events, history, community stories, sponsors and participation.
+- Brighter homepage with direct links to events, history, community stories, sponsors and participation. On October 3, added a Map link to all 19 navigation menus, a hero map link and a dedicated homepage map feature.
 - Four planned 2027 events, shown by quarter; Q3 is planned for August. Exact dates, times, venues and admission details remain unconfirmed.
 - Proposed sponsorship levels of $100, $1,000, $5,000 and $10,000+. Benefits and the official external program link remain pending.
 - Centennial Legacy vision for trees, small-business support and student scholarships, clearly described as ideas under consideration.
@@ -29,6 +29,7 @@ The full implementation and approval status is maintained in the workspace's `CH
 - [x] Remove invented listings, sample dates, placeholder contact domains, dead links and misleading form-success behavior from refreshed pages.
 - [x] Complete responsive/browser verification and fix event columns, seal lettering and mobile-menu scrolling on resize.
 - [x] Replace the Community Map mockup with the working map and a single location data file. Remove its pretend pins, unconfirmed venue descriptions and teaser for the separate draft resident map.
+- [x] October 3: make the map easy to find on the homepage and shared navigation; simplify the basemap by omitting buildings, house numbers and POI icons; remove the flag graphic while retaining linked credits on both map pages.
 - [ ] Confirm `info@shermanoaks100.com` receives messages. Email-link destinations were checked; delivery was not.
 - [ ] Enter confirmed event dates, times, venues, admission and accessibility details on both event listings.
 - [ ] Activate the countdown after the exact Founders' Day date and time are confirmed.
@@ -79,7 +80,7 @@ Preserve the current implementation when resuming. The workspace's `tmp/refresh_
 | Frequently asked questions and updates | `faq.html`, `news.html` |
 | Working Community Map and its approved location list | `map.html`, `assets/data/locations.json` |
 | Map behavior, data validation and provider configuration | `assets/js/community-map.js`, `assets/js/map-data.js`, `assets/js/map-config.js` |
-| Map styles and bundled Leaflet library/license | `assets/css/community-map.css`, `assets/vendor/leaflet/` |
+| Map styles and bundled Leaflet library/license | `assets/css/community-map.css`, `assets/vendor/leaflet/`, `assets/vendor/maplibre/` |
 | Held historical drafts | `history.html`, `gallery.html`, `notable-residents.html` |
 | Draft policies requiring review | `privacy.html`, `terms.html`, `copyright.html`, `accessibility.html` |
 | Shared styles and responsive layout | `assets/css/styles.css` |
@@ -117,7 +118,7 @@ After the committee confirms the date and time, set an ISO 8601 timestamp with t
 
 ## Community Map — ready to populate
 
-Open `map.html` from the footer's Community Map link. The map supports dragging, zoom controls, keyboard navigation and reset view. Search and category selection update both the place list and pins. Selecting a list entry opens its pin; selecting a pin highlights its entry. Escape closes a popup and returns focus to the corresponding list button. Directions links use the approved coordinates.
+Open `map.html` from the Map navigation item, the homepage hero/map feature or the footer. The map supports dragging, zoom controls, keyboard navigation and reset view. Search and category selection update both the place list and pins. Selecting a list entry opens its pin; selecting a pin highlights its entry. Escape closes a popup and returns focus to the corresponding list button. Directions links use the approved coordinates.
 
 The location file is currently `{ "version": 1, "locations": [] }`. The empty map is intentional. No archive items, invented venues or test records are included. September 13 validation covered desktop/tablet/phone layouts, filters, accent-insensitive search, list/pin selection, popup sizing and keyboard focus, directions URLs, empty/no-match states, missing library/tiles, and data failure/retry recovery. Temporary browser fixtures were removed after testing. There are 41 local map-data checks in `../tmp/check_map.cjs`.
 
@@ -153,7 +154,11 @@ Unapproved/invalid entries and duplicate IDs are skipped. A malformed file shows
 
 [Leaflet 1.9.4](https://leafletjs.com/download.html) is bundled locally under `assets/vendor/leaflet/`, including its BSD license. Its JS/CSS downloads were checked against the official published SHA-256 hashes. No build step or API key is needed for this implementation. Provider URL, attribution and zoom limits are in `assets/js/map-config.js`.
 
-The working preview uses OpenStreetMap street tiles with visible attribution and normal browser referrer/cache behavior. No tiles are prefetched for offline use. Their service is best-effort; review expected public traffic and the [tile usage policy](https://operations.osmfoundation.org/policies/tiles/) before launch, or configure an appropriate hosted provider. The list remains usable if the map library or tiles fail. The draft privacy page now describes this map's requests; overall policy review remains outstanding. Directions use [Google Maps URLs](https://developers.google.com/maps/documentation/urls/get-started) and open only when a visitor selects the link.
+The default map now uses an original, simplified Shortbread vector style: ivory background, muted green spaces and gold roads, with street and neighborhood labels. Buildings, house numbers, businesses and other POI icons are omitted. Locally bundled MapLibre GL JS 5.24.0 (BSD-3-Clause) and maplibre-gl-leaflet 0.1.3 (ISC) render the basemap beneath existing Leaflet pins; package tarballs were checked against npm SHA-512 integrity and licenses are in `assets/vendor/maplibre/`. Style, source and font URLs are in `assets/js/map-config.js`. No new account or API key was created.
+
+The working preview uses OpenStreetMap vector tiles and label fonts, with standard raster tiles as a fallback if WebGL or the vector libraries are unavailable. All linked credits remain; the default Leaflet flag graphic is replaced with text-only attribution on both map pages. Normal browser referrer/cache behavior is retained and no tiles are prefetched for offline use. The services are best-effort; review expected traffic and the [vector usage policy](https://operations.osmfoundation.org/policies/vector/) and [raster tile usage policy](https://operations.osmfoundation.org/policies/tiles/) before launch, or configure an appropriate hosted provider. The list remains usable if the map library or tiles fail. The draft privacy page now describes this map's requests; overall policy review remains outstanding. Directions use [Google Maps URLs](https://developers.google.com/maps/documentation/urls/get-started) and open only when a visitor selects the link.
+
+October 3 checks covered the homepage links, 19 navigation links, desktop navigation at 1201 pixels, mobile navigation, the simplified map at phone/tablet/desktop sizes, pins and popup focus with temporary fixtures, text-only attribution and the raster fallback. The separate Notable Residents page received navigation and attribution presentation changes only; its historical content remains held.
 
 ## Local verification
 

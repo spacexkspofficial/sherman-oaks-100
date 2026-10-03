@@ -160,18 +160,11 @@
       scrollWheelZoom: false, zoomAnimation: !reducedMotion, fadeAnimation: !reducedMotion,
       markerZoomAnimation: !reducedMotion
     });
+    // Keep linked library credits, without Leaflet's default flag graphic.
+    map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
+    map.attributionControl.addAttribution(config.attribution);
     layer = window.L.layerGroup().addTo(map);
-    tiles = window.L.tileLayer(config.tileUrl, {
-      attribution: config.attribution, maxZoom: config.maxZoom,
-      updateWhenIdle: true, keepBuffer: 1
-    });
-    tiles.on("loading", () => { tileFailed = false; });
-    tiles.on("tileerror", function () {
-      tileFailed = true; notice.hidden = false; tilesRetry.hidden = false;
-      noticeText.textContent = "Some map details couldn’t load. Retry the map or use the place list and directions.";
-    });
-    tiles.on("load", function () { if (!tileFailed) notice.hidden = true; });
-    tiles.addTo(map);
+    addBasemap();
     resetView.disabled = false;
     map.on("popupclose", () => markSelected(null));
     canvas.addEventListener("keydown", function (event) {
@@ -183,6 +176,57 @@
       }
     }, true);
     if ("ResizeObserver" in window) new ResizeObserver(() => map.invalidateSize({ pan: false })).observe(canvas);
+  }
+  function addBasemap() {
+    if (tiles) { map.removeLayer(tiles); tiles = null; }
+    if (window.L.maplibreGL && window.communityMapStyle && supportsVectorMap()) {
+      try {
+        tiles = window.L.maplibreGL({ style: window.communityMapStyle(), attribution: config.attribution,
+          attributionControl: false, interactive: false, padding: 0, fadeDuration: 0 });
+        tiles.addTo(map);
+        map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a> · <a href="https://maplibre.org">MapLibre</a>');
+        const vector = tiles.getMaplibreMap();
+        let vectorFailed = false;
+        vector.on("error", function () {
+          vectorFailed = true;
+          notice.hidden = false; tilesRetry.hidden = false;
+          noticeText.textContent = "Some map details couldn’t load. Retry the map or use the place list and directions.";
+        });
+        vector.on("idle", function () { if (!vectorFailed && vector.isStyleLoaded() && vector.areTilesLoaded()) notice.hidden = true; });
+        canvas.dataset.mapStyle = "simplified";
+        return;
+      } catch (_) {
+        if (tiles && map.hasLayer(tiles)) {
+          // A failed WebGL constructor has no MapLibre instance to dispose.
+          if (!tiles.getMaplibreMap()) tiles.onRemove = function () { this.getContainer()?.remove(); };
+          map.removeLayer(tiles);
+        }
+        tiles = null;
+      }
+    }
+    // Keep a working map on browsers that cannot render the vector layer.
+    canvas.dataset.mapStyle = "standard-fallback";
+    map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
+    tiles = window.L.tileLayer(config.tileUrl, {
+      attribution: config.attribution, maxZoom: config.maxZoom,
+      updateWhenIdle: true, keepBuffer: 1
+    });
+    tiles.on("loading", () => { tileFailed = false; });
+    tiles.on("tileerror", function () {
+      tileFailed = true; notice.hidden = false; tilesRetry.hidden = false;
+      noticeText.textContent = "Some map details couldn’t load. Retry the map or use the place list and directions.";
+    });
+    tiles.on("load", function () { if (!tileFailed) notice.hidden = true; });
+    tiles.addTo(map);
+  }
+  function supportsVectorMap() {
+    try {
+      const probe = document.createElement("canvas");
+      const gl = probe.getContext("webgl2");
+      if (!gl) return false;
+      gl.getExtension("WEBGL_lose_context")?.loseContext();
+      return true;
+    } catch (_) { return false; }
   }
   function start() {
     if (!data) {
@@ -198,7 +242,7 @@
     reset.addEventListener("click", function () { search.value = ""; category.value = "all"; render(); search.focus(); });
     resetView.addEventListener("click", fitPlaces);
     retry.addEventListener("click", loadPlaces);
-    tilesRetry.addEventListener("click", function () { tileFailed = false; tiles.redraw(); });
+    tilesRetry.addEventListener("click", function () { tileFailed = false; notice.hidden = true; addBasemap(); });
     loadPlaces();
   }
   // The existing preview gate hides the main page. Start after it opens so
