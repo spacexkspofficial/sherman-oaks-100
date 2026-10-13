@@ -4,11 +4,11 @@
  * announcement message. The October 18, 2026 website launch target is NOT
  * the 2027 event date.
  *
- * gaMeasurementId: the Google Analytics 4 measurement ID ("G-XXXXXXXXXX").
- * Keep null until the privacy policy is approved and the GA property is set
- * up as described in the workspace's legal/LAUNCH-COMPLIANCE-CHECKLIST.md.
- * While it is null, no analytics loads and no cookie banner appears. When it
- * is set, assets/js/consent.js asks each visitor first and loads Google
- * Analytics only after "Allow analytics".
+ * gaMeasurementId: the Google Analytics 4 measurement ID (property
+ * "shermanoaks100.com", owned by the info@shermanoaks100.com Google account).
+ * assets/js/consent.js asks each visitor first and loads Google Analytics only
+ * after "Allow analytics". Set it to null to turn analytics and the banner off.
+ * After changing this file, bump its ?v= query on all 8 pages that load it
+ * (see the workspace's legal/LAUNCH-COMPLIANCE-CHECKLIST.md, section C).
  */
-window.SHERMAN_OAKS_100 = Object.freeze({ foundersDay: null, gaMeasurementId: null });
+window.SHERMAN_OAKS_100 = Object.freeze({ foundersDay: null, gaMeasurementId: "G-PXPTZCRR28" });
