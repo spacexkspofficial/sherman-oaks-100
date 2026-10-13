@@ -48,6 +48,7 @@ The full implementation and approval status is maintained in the workspace's `CH
 - [x] October 12: steering committee roster, special thanks and working committees from Vickie's list.
 - [x] October 12: Alex confirmed `info@shermanoaks100.com` as the website's point of contact, including for joining a working committee.
 - [x] October 12: WCAG 2.1 AA accessibility fixes, rewritten Accessibility Statement, Privacy Policy and Terms of Use, and an opt-in analytics consent banner (off until a GA ID is set). Lawyer review and the launch checklist are in the workspace `legal/` folder.
+- [x] October 12 (evening): phone layout in `assets/css/mobile.css`. Desktop and tablet rendering is unchanged (verified at 700, 768 and 1440 px). Uncommitted local work.
 - [ ] Complete partner listings, policy review and final metadata/social assets, including the centennial logo Vickie will send, then carry out the authorized launch. Keep the preview gate until that launch.
 
 ### Work that needs content, decisions or outside help
@@ -96,6 +97,7 @@ Preserve the current implementation when resuming. The workspace's `tmp/refresh_
 | Draft policies requiring legal review (rewritten October 12; see the workspace `legal/` folder) | `privacy.html`, `terms.html`, `copyright.html`, `accessibility.html` |
 | Analytics consent banner and Google Analytics loader (off while `gaMeasurementId` is `null`) | `assets/js/consent.js`, `assets/js/site-config.js` |
 | Shared styles and responsive layout | `assets/css/styles.css` |
+| Phone layout (applies only at 699 px and below; linked last on all 8 full pages with `media="(max-width: 699px)"`). Restyle only: never hide content or change reading order there. | `assets/css/mobile.css` |
 | Preview access, section tracking nav, in-page links, countdown display, then-and-now tabs and slider, photo lightbox | `assets/js/main.js` |
 | Countdown configuration and date calculation | `assets/js/site-config.js`, `assets/js/countdown.js` |
 
