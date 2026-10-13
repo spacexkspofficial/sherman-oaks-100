@@ -2,9 +2,19 @@
 
 A static HTML, CSS and JavaScript website for the 2027 centennial, hosted on GitHub Pages at `shermanoaks100.com`. No framework, build step, backend or payment processing.
 
-## Current preview — handoff recorded October 3, 2026
+## Current preview — handoff recorded October 11, 2026
 
-The non-historical changes from the 24-item website proposal have been implemented locally. The preview gate remains in place. This update has not been deployed.
+The non-historical changes from the 24-item website proposal have been implemented. The October 3 work is on `origin/main`. **The October 11 photo, map and one-page work is uncommitted local work, not pushed or deployed.** The preview gate remains in place.
+
+- **One-page site (October 11, round 2).** `index.html` is the whole site:
+  - **Order:** welcome (with the 1928 horizon) → About → Events → History → Map → Stories → Support → Get involved → FAQ → Contact.
+  - **History:** a then-and-now viewer (five pairs), "More views in the works" and the archive.
+  - **Nav:** marks the section in view and shows scroll progress. Below 1200 px it is a swipeable row of section chips.
+  - **Redirects:** the eleven retired pages are redirect stubs that keep `#section`/`#place=` links.
+  - **Standalone pages:** `privacy`, `terms`, `copyright`, `accessibility`, `404` and the held drafts `history.html` (timeline) and `notable-residents.html`.
+  - **Editing:** edit `index.html` directly. The workspace's `historical-data/cesar-2026-10-11/review/build_onepage.py` was a one-time builder; do not rerun it.
+- **Steering committee (October 12).** Vickie's confirmed roster replaces the placeholder: two co-chairs, nine members and a special-thanks list. A working-committees panel follows it. Its button emails `info@shermanoaks100.com`, which Alex confirmed as the website's point of contact, with the subject "Centennial Committee". Also uncommitted local work.
+- **Photos (October 11).** The agreed set plus Cesar's 2026 photos. The Ventura & Sepulveda 1960s, La Reina 1945 and marquee images are glare-restored from archive photos of framed prints. Credits/permissions are still to confirm; see the workspace changelog.
 
 - Brighter homepage with direct links to events, history, community stories, sponsors and participation. On October 3, added a Map link to all 19 navigation menus, a hero map link and a dedicated homepage map feature.
 - Four planned 2027 events, shown by quarter; Q3 is planned for August. Exact dates, times, venues and admission details remain unconfirmed.
@@ -12,8 +22,8 @@ The non-historical changes from the 24-item website proposal have been implement
 - Centennial Legacy vision for trees, small-business support and student scholarships, clearly described as ideas under consideration.
 - Memory Wall introduction awaiting approved entries. Volunteer, story, photo, sponsorship and contact actions open an email draft addressed to `info@shermanoaks100.com`, the address already used by the preview gate. No message is sent automatically.
 - Sample event dates, sponsor benefits, committee identities, partner endorsements and dated news announcements removed from the refreshed pages. No newsletter subscription is represented as completed.
-- The Community Map framework was authorized and built on September 13: a working street map, search/category filters, synchronized pins/list, directions and data-loading fallbacks. Its location file is empty pending approval.
-- History, gallery and Notable Residents page bodies remain existing drafts on hold. No historical archive photos or facts were imported.
+- Community Map (built September 13, redesigned October 11): seven then-and-now photo spots with photo pins, then/now popups, a side list or phone card row, directions and data-loading fallbacks.
+- History (timeline text) and Notable Residents page bodies remain existing drafts on hold.
 
 The full implementation and approval status is maintained in the workspace's `CHANGELOG-PENDING-APPROVAL.md`, outside the deployed folder. Read this handoff first in future sessions; check the current files and Git/deployment state before continuing. Completed implementation does not mean pending content has been approved or the update published.
 
@@ -35,20 +45,26 @@ The full implementation and approval status is maintained in the workspace's `CH
 - [ ] Activate the countdown after the exact Founders' Day date and time are confirmed.
 - [ ] Finalize sponsorship amounts, benefits, recognition wording and the official program URL.
 - [ ] Confirm Legacy program wording, funding and the responsible organization.
-- [ ] Complete committee/partner listings, policy review and final metadata/social assets, then carry out the authorized launch. Keep the preview gate until that launch.
+- [x] October 12: steering committee roster, special thanks and working committees from Vickie's list.
+- [x] October 12: Alex confirmed `info@shermanoaks100.com` as the website's point of contact, including for joining a working committee.
+- [x] October 12: WCAG 2.1 AA accessibility fixes, rewritten Accessibility Statement, Privacy Policy and Terms of Use, and an opt-in analytics consent banner (off until a GA ID is set). Lawyer review and the launch checklist are in the workspace `legal/` folder.
+- [ ] Complete partner listings, policy review and final metadata/social assets, including the centennial logo Vickie will send, then carry out the authorized launch. Keep the preview gate until that launch.
 
 ### Work that needs content, decisions or outside help
 
 - [ ] **HOLD — history:** verified pre-1927 introduction, founding entry and timeline milestones; keep existing historical page bodies as drafts meanwhile.
-- [ ] **HOLD — photographs:** final selections, suitable originals, accurate captions/dates, credits and website permissions before any historical banner or gallery import.
-- [ ] **HOLD — then-and-now:** confirm locations/viewpoints and obtain matching current photographs.
+- [x] October 11: agreed photographs added (homepage banner, gallery archive grid, 2017 street-fair photo) as metadata-free web exports.
+- [ ] **Photo credits and permissions:** photographer/collection credit and web permission for each image before launch. The **Getty Images** Ventura & Van Nuys postcard needs a license. See `../historical-data/cesar-2026-10-11/review/photo-approvals.json`. Better originals are wanted for Sherman Oaks Circle (450 px) and the Fashion Square postcard (640 px).
+- [x] October 11: then-and-now feature with four complete pairs.
+- [ ] **Then-and-now remaining:** release/license of the two "Wait to publish" historic views (Mobil/405, Casa Vega 1970); a present-day Ventura & Van Nuys photo; Sherman Oaks Circle location and matching photo.
 - [ ] **HOLD — Memory Wall content:** approved stories/media, contributor permission and credits. The section itself is built.
-- [ ] **HOLD — map content:** approve places, exact public coordinates, descriptions and sources before populating the completed Community Map. Confirm the production tile provider before launch. The separate Notable Residents draft is still on hold.
+- [x] October 11: seven approved then-and-now map locations.
+- [ ] **Map remaining:** further centennial places as approved; confirm the production tile provider before launch. The separate Notable Residents draft is still on hold.
 - [ ] **HOLD — trivia:** decide scope and approve verified content before implementation.
 - [ ] **HOLD — video:** arrange recording/editing, captions, approval and hosting before adding the resident-story video.
 - [ ] Set a realistic launch schedule once dependencies are resolved. October 18, 2026 was an earlier website launch target, not the confirmed 2027 Founders' Day date or a launch guarantee.
 
-Alex explicitly paused photographs and Cesar-dependent material. Do not treat archive receipt, review, a shortlist or a prior proposal as permission to publish. Resume held content only after Alex releases the hold and the relevant material is approved.
+On October 11 Alex released the photo hold for the agreed selection only. Other archive material is still not approved for publication: receipt, review or a shortlist is not permission. Never publish files Cesar labels "Wait to publish."
 
 ### Functions the static site cannot provide by itself
 
@@ -70,24 +86,20 @@ Preserve the current implementation when resuming. The workspace's `tmp/refresh_
 
 | Content | File |
 | --- | --- |
-| Homepage sections, Memory Wall | `index.html` |
-| Event calendar and filtering | `events.html` |
-| Sponsorship proposals and inquiry links | `sponsors.html` |
-| Participation and contribution instructions | `get-involved.html` |
-| Contact options | `contact.html` |
-| Mission and Legacy vision | `about.html` |
-| Committee and partner listings awaiting confirmation | `steering-committee.html`, `civic-partners.html` |
-| Frequently asked questions and updates | `faq.html`, `news.html` |
-| Working Community Map and its approved location list | `map.html`, `assets/data/locations.json` |
-| Map behavior, data validation and provider configuration | `assets/js/community-map.js`, `assets/js/map-data.js`, `assets/js/map-config.js` |
+| The whole one-page site: all sections, then-and-now viewer, archive, map section, Memory Wall | `index.html` |
+| Redirect stubs for retired pages (no content) | `about`, `events`, `gallery`, `map`, `sponsors`, `get-involved`, `contact`, `faq`, `news`, `steering-committee`, `civic-partners` `.html` |
+| Community Map approved location list | `assets/data/locations.json` |
+| Map behavior, data validation, basemap style/provider, lazy loader | `assets/js/community-map.js`, `assets/js/map-data.js`, `assets/js/map-config.js`, `assets/js/map-loader.js` |
 | Map styles and bundled Leaflet library/license | `assets/css/community-map.css`, `assets/vendor/leaflet/`, `assets/vendor/maplibre/` |
-| Held historical drafts | `history.html`, `gallery.html`, `notable-residents.html` |
-| Draft policies requiring review | `privacy.html`, `terms.html`, `copyright.html`, `accessibility.html` |
+| History photos (1600/800 px, 480 px map thumbs, metadata-free) | `assets/images/history/` |
+| Held historical drafts | `history.html`, `notable-residents.html` |
+| Draft policies requiring legal review (rewritten October 12; see the workspace `legal/` folder) | `privacy.html`, `terms.html`, `copyright.html`, `accessibility.html` |
+| Analytics consent banner and Google Analytics loader (off while `gaMeasurementId` is `null`) | `assets/js/consent.js`, `assets/js/site-config.js` |
 | Shared styles and responsive layout | `assets/css/styles.css` |
-| Navigation, preview access, filters and countdown display | `assets/js/main.js` |
+| Preview access, section tracking nav, in-page links, countdown display, then-and-now tabs and slider, photo lightbox | `assets/js/main.js` |
 | Countdown configuration and date calculation | `assets/js/site-config.js`, `assets/js/countdown.js` |
 
-Header and footer markup are duplicated across all 19 HTML pages. Update them consistently. Homepage section links use `index.html#section-id` from other pages; 404 links use root-relative paths so nested missing URLs work.
+Header and footer markup is duplicated in `index.html` and the 7 standalone pages; update them consistently. On `index.html` nav links are `#section`; on standalone pages they are `index.html#section`; 404 links use root-relative paths so nested missing URLs work.
 
 ## Local preview
 
@@ -107,27 +119,28 @@ After the committee confirms the date and time, set an ISO 8601 timestamp with t
 
 ## Content holds and launch work
 
-- Keep historical photographs, timeline revisions, then-and-now comparisons, trivia, map content and video on hold until Alex releases the hold and the relevant content is approved. Alex authorized building the Community Map framework on September 13; its content hold remains.
+- Photographs, then-and-now comparisons and then-and-now map locations were released on October 11 for the agreed selection. Timeline revisions, trivia, video, other map content and other archive images stay on hold until Alex releases them and the content is approved. Confirm credits and web permissions for the published photos before launch.
 - Approved Memory Wall entries can be added manually to the marked section of `index.html`, with contributor permission, captions and credits.
 - Update event cards on both `index.html` and `events.html` when plans are confirmed.
 - Confirm sponsorship benefits, program URL, contribution wording and any tax language before publishing final offers. The site only directs inquiries; it cannot process payments or administer a fund.
 - Public media uploads require an approved external submission and storage service. Current contribution links open the visitor's email app.
-- Confirm committee roster, partner participation, social links, policy wording and inbox operation before launch. Do not restore placeholder names or endorsements.
+- Vickie confirmed the steering committee roster on October 12. Confirm partner participation, social links, policy wording and inbox operation before launch. Committee members' affiliations are not partner endorsements. Do not restore placeholder names or endorsements.
 - Browser verification is complete for the refreshed build: all 10 refreshed pages were checked at 320, 768 and 1440 pixels, with additional visual checks at 390 pixels. Login, event filters, navigation, keyboard access, FAQ expansion, the pending countdown and email-link destinations were checked. Browser review corrected event-card columns, obscured seal lettering and a mobile-menu resize scroll lock. Inbox delivery and actual event/sponsorship details still require confirmation.
-- Remove the preview screen and deploy only as part of an authorized public launch. Pushes to the publishing branch can update GitHub Pages; no push was made for this update.
+- Remove the preview screen and deploy only as part of an authorized public launch. Pushes to the publishing branch can update GitHub Pages. The preview gate is client-side only, so anything pushed, including photo files, is publicly fetchable. No push was made for the October 11 update.
 
-## Community Map — ready to populate
+## Community Map
 
-Open `map.html` from the Map navigation item, the homepage hero/map feature or the footer. The map supports dragging, zoom controls, keyboard navigation and reset view. Search and category selection update both the place list and pins. Selecting a list entry opens its pin; selecting a pin highlights its entry. Escape closes a popup and returns focus to the corresponding list button. Directions links use the approved coordinates.
+The map is the `#map` section of `index.html`; `map.html` redirects there. `#place=<id>` opens a place directly. The map supports dragging, zoom controls, keyboard navigation and reset view. Search and category selection update both the place list and pins. Selecting a list entry opens its pin; selecting a pin highlights its entry. Escape closes a popup and returns focus to the corresponding list button. Directions links use the approved coordinates.
 
-The location file is currently `{ "version": 1, "locations": [] }`. The empty map is intentional. No archive items, invented venues or test records are included. September 13 validation covered desktop/tablet/phone layouts, filters, accent-insensitive search, list/pin selection, popup sizing and keyboard focus, directions URLs, empty/no-match states, missing library/tiles, and data failure/retry recovery. Temporary browser fixtures were removed after testing. There are 41 local map-data checks in `../tmp/check_map.cjs`.
+Since October 11 the location file holds **seven approved then-and-now photo spots** in the `then-now` category, ordered west to east: Sepulveda Tunnel, Sepulveda and the 405, La Reina Theatre, Ventura and Van Nuys, Casa de Cadillac, Fashion Square and Casa Vega. Coordinates come from OpenStreetMap: the tunnel way, intersection nodes and address points. Pins mark the subject, not the camera position. Sherman Oaks Circle is not mapped until its location is confirmed. Each record shows then/now thumbnails (or a "Photo coming soon" placeholder) and links to its comparison on `gallery.html`. `map.html#place=<id>` opens a place directly. September 13 validation covered layouts, filters, search, list/pin selection, popups, directions, empty/no-match states, missing library/tiles and data retry. October 11 added popup photos, deep links and the new category. There are 64 local map-data checks in `../tmp/check_map.cjs`, including checks of the live file.
 
 ### Adding a place after approval
 
 1. Keep the approval record and any private review notes outside the public website folder. Confirm the public location/coordinates, description, source and visiting information with the committee; historical content still needs Cesar's review.
 2. Add one record per approved place to `assets/data/locations.json`. A record needs a unique lowercase hyphenated `id`, `approved: true`, `name`, `category`, `address`, `description`, and numeric `lat`/`lng`. The file order sets the list/pin order.
-3. Categories are `events`, `heritage`, `art` or `community`. Optional fields are `accessibility` (visiting/access notes), `url`, `sourceUrl` and `sourceLabel`. URLs must use HTTPS. Text is rendered as plain text, not HTML.
-4. Check the map on a phone and desktop, including the pin and Directions destination. Update this README, the changelog and the empty-dataset hold assertions in the local checkers when Alex releases that hold.
+3. Categories are `then-now`, `events`, `heritage`, `art` or `community`. Optional fields are `accessibility` (visiting/access notes), `url`, `sourceUrl` and `sourceLabel`. These URLs must use HTTPS. Text is rendered as plain text, not HTML.
+4. Optional photo fields: `thenImage`/`thenAlt`/`thenLabel` and `nowImage`/`nowAlt`/`nowLabel`. Images must be `assets/images/history/<slug>.jpg`; use the 480×360 `-thumb.jpg` exports. A label without an image shows a "Photo coming soon" placeholder. A photo without alt text is not shown. `storyUrl` must be a site page such as `gallery.html#then-now-la-reina`, and `storyLabel` sets its link text.
+5. Check the map on a phone and desktop, including the pin, popup photos and Directions destination. Update this README and the changelog.
 
 Record template for planning only; do not add this unfinished example to the live file:
 
@@ -148,7 +161,7 @@ Record template for planning only; do not add this unfinished example to the liv
 }
 ```
 
-Unapproved/invalid entries and duplicate IDs are skipped. A malformed file shows a retry message instead of pretending the list is empty. The approval flag is a display guard: keep all drafts and private records outside this public JSON file. The map has no contributor/admin account or upload interface; adding locations is a file edit. Photos and resident biographies are not part of this framework.
+Unapproved/invalid entries and duplicate IDs are skipped. A malformed file shows a retry message instead of pretending the list is empty. The approval flag is a display guard: keep all drafts and private records outside this public JSON file. The map has no contributor/admin account or upload interface; adding locations is a file edit. Resident biographies are not part of this framework.
 
 ### Map provider and dependencies
 
@@ -170,7 +183,7 @@ node ../tmp/check_countdown.cjs
 node ../tmp/check_map.cjs
 ```
 
-These check internal links and anchors, four matching event cards, held historical page bodies, the pending countdown configuration, preview gating, date calculation edge cases, map-data validation and the empty location file during the content hold. They do not replace visual or real-browser testing. Run them after removing temporary `_map-qa*` browser fixtures, if any were created.
+These check internal links and anchors, four matching event cards, held historical page bodies, the pending countdown configuration, preview gating, date calculation edge cases, map-data validation, the published location records and their photo/story links, image alt text, EXIF removal from history exports, and that held images stay out of the public folder. They do not replace visual or real-browser testing. Run them after removing temporary `_map-qa*` browser fixtures, if any were created.
 
 ## Acknowledgments
 

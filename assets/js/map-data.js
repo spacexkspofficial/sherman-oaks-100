@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
   const categories = Object.freeze({
-    events: "Event venues", heritage: "Heritage sites",
+    "then-now": "Then & now photo spots", events: "Event venues", heritage: "Heritage sites",
     art: "Public art", community: "Community places"
   });
   const text = value => typeof value === "string" ? value.trim() : "";
@@ -14,6 +14,23 @@
       const url = new URL(value);
       return url.protocol === "https:" && !url.username && !url.password ? url.href : "";
     } catch (_) { return ""; }
+  }
+  // Photos must be site-hosted history exports; story links stay on this site.
+  function safeImage(value) {
+    const path = text(value);
+    return /^assets\/images\/history\/[a-z0-9]+(?:-[a-z0-9]+)*\.jpg$/.test(path) ? path : "";
+  }
+  // A section of this one-page site (#then-now-la-reina) or a site page.
+  function safePage(value) {
+    const path = text(value);
+    return /^(?:[a-z0-9-]+\.html)?#[a-z0-9-]+$|^[a-z0-9-]+\.html$/.test(path) ? path : "";
+  }
+  function photo(entry, key) {
+    const src = safeImage(entry[key + "Image"]);
+    const alt = text(entry[key + "Alt"]);
+    const label = text(entry[key + "Label"]);
+    if (!label) return null;
+    return src && alt ? { src, alt, label } : { src: "", alt: "", label };
   }
   function read(document) {
     if (!document || document.version !== 1 || !Array.isArray(document.locations)) {
@@ -36,7 +53,9 @@
         address: text(entry.address), description: text(entry.description),
         lat: entry.lat, lng: entry.lng, accessibility: text(entry.accessibility),
         url: safeUrl(entry.url), sourceUrl: safeUrl(entry.sourceUrl),
-        sourceLabel: text(entry.sourceLabel) || "Source"
+        sourceLabel: text(entry.sourceLabel) || "Source",
+        then: photo(entry, "then"), now: photo(entry, "now"),
+        storyUrl: safePage(entry.storyUrl), storyLabel: text(entry.storyLabel) || "See then & now"
       });
     });
     return { places, rejected };
@@ -55,5 +74,5 @@
   function directions(place) {
     return "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(place.lat + "," + place.lng);
   }
-  return Object.freeze({ categories, read, filter, safeUrl, directions });
+  return Object.freeze({ categories, read, filter, safeUrl, safeImage, safePage, directions });
 });

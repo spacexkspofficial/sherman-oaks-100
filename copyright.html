@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,30..100,0..1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261003a" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261012h" />
 </head>
 <body>
 
@@ -25,16 +25,13 @@
 
 <header class="site-header">
   <div class="container">
-    <nav class="nav" aria-label="Primary">
-      <a class="brand" href="index.html" aria-label="Sherman Oaks 100 — home">
+    <nav class="nav" aria-label="Sections">
+      <a class="brand" href="index.html" aria-label="Sherman Oaks Centennial 1927–2027 — home">
         <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#14322a"/><circle cx="32" cy="32" r="22" fill="none" stroke="#c9a55a" stroke-width="1"/><text x="32" y="40" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="500" fill="#c9a55a">100</text></svg>
         <span class="brand__text">Sherman Oaks<small>Centennial · 1927–2027</small></span>
       </a>
-      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-      <ul class="nav__menu" id="primary-menu"><li><a href="index.html" data-page="index.html">Home</a></li><li><a href="index.html#events" data-page="events.html">Events</a></li><li><a href="map.html" data-page="map.html">Map</a></li><li><a href="index.html#history" data-page="history.html">History</a></li><li><a href="index.html#stories" data-page="gallery.html">Stories</a></li><li><a href="index.html#sponsors" data-page="sponsors.html">Sponsors</a></li><li><a href="index.html#get-involved" data-page="get-involved.html">Get involved</a></li><li><a href="contact.html" data-page="contact.html">Contact</a></li></ul>
-      <div class="nav__cta"><a class="btn btn--accent btn--small" href="get-involved.html">Volunteer</a></div>
+      <div class="nav__scroller"><ul class="nav__menu" id="primary-menu"><li><a href="index.html#about">About</a></li><li><a href="index.html#events">Events</a></li><li><a href="index.html#history">History</a></li><li><a href="index.html#map">Map</a></li><li><a href="index.html#stories">Stories</a></li><li><a href="index.html#support">Support</a></li><li><a href="index.html#get-involved">Get involved</a></li><li><a href="index.html#faq">FAQ</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+      <div class="nav__cta"><a class="btn btn--accent btn--small" href="index.html#volunteer">Volunteer</a></div>
     </nav>
   </div>
 </header>
@@ -59,12 +56,10 @@
   <div class="container container--narrow prose">
 
     <div class="legal-meta">
-      <strong>Preliminary placeholder:</strong>
-      This notice is a starting point and not legal advice. The centennial
-      committee should have an attorney review and refine this language
-      before the public launch, especially before publishing third-party
-      photos, archival material, or sponsor logos.
-      <br/><strong>Last updated:</strong> May 2026 (placeholder)
+      <strong>Draft for legal review.</strong> This notice has not yet been
+      adopted. Photographer and collection credits for the historical
+      photographs are still being confirmed.
+      <br/><strong>Last updated:</strong> October 12, 2026
     </div>
 
     <h2>1. Ownership</h2>
@@ -144,12 +139,13 @@
     </p>
 
     <h2>7. Open-source acknowledgments</h2>
-    <p>
-      This Site uses freely available web fonts (Fraunces and Inter, served via
-      Google Fonts under the SIL Open Font License) and standard open web
-      technologies (HTML, CSS, JavaScript). No paid third-party libraries are
-      bundled into the Site.
-    </p>
+    <p>This Site is built with the following open-source software and open data:</p>
+    <ul>
+      <li>Fraunces and Inter typefaces, served by Google Fonts under the SIL Open Font License 1.1.</li>
+      <li><a href="https://leafletjs.com/">Leaflet</a> 1.9.4, © Volodymyr Agafonkin, under the BSD 2-Clause License (<a href="assets/vendor/leaflet/LICENSE">license text</a>).</li>
+      <li><a href="https://maplibre.org/">MapLibre GL JS</a> 5.24.0, © MapLibre contributors, under the BSD 3-Clause License (<a href="assets/vendor/maplibre/LICENSE-maplibre.txt">license text</a>), and maplibre-gl-leaflet 0.1.3 under the ISC License (<a href="assets/vendor/maplibre/LICENSE-adapter.txt">license text</a>).</li>
+      <li>Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, available under the Open Database License (ODbL).</li>
+    </ul>
 
     <h2>8. Changes</h2>
     <p>
@@ -172,23 +168,54 @@
   <div class="container">
     <div class="site-footer__top">
       <div class="site-footer__brand">
-        <a class="brand" href="index.html">
+        <a class="brand" href="index.html" aria-label="Sherman Oaks Centennial 1927–2027 — home">
           <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1c4536"/><circle cx="32" cy="32" r="22" fill="none" stroke="#c9a55a" stroke-width="1"/><text x="32" y="40" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="500" fill="#c9a55a">100</text></svg>
           <span class="brand__text" style="color: var(--cream-50);">Sherman Oaks<small style="color: var(--gold-300);">Centennial · 1927–2027</small></span>
         </a>
         <p>A community-led celebration of a hundred years of neighborhood life in the heart of the San Fernando Valley.</p>
       </div>
-      <div><h4>Explore</h4><ul><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="history.html">History</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="map.html">Community Map</a></li></ul></div>
-      <div><h4>Join In</h4><ul><li><a href="get-involved.html">Volunteer</a></li><li><a href="sponsors.html">Sponsor</a></li><li><a href="steering-committee.html">Steering Committee</a></li><li><a href="civic-partners.html">Civic Partners</a></li><li><a href="news.html">News</a></li></ul></div>
-      <div><h4>Connect</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li><li><a href="mailto:info@shermanoaks100.com">info@shermanoaks100.com</a></li><li class="subtle" style="color: rgba(254, 252, 246, 0.55);">Sherman Oaks, California</li></ul></div>
+      
+      <div>
+        <h2 class="site-footer__heading">Explore</h2>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#events">Events</a></li>
+          <li><a href="index.html#history">Then &amp; now</a></li>
+          <li><a href="index.html#map">Community map</a></li>
+          <li><a href="index.html#stories">Stories</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Join In</h2>
+        <ul>
+          <li><a href="index.html#volunteer">Volunteer</a></li>
+          <li><a href="index.html#support">Sponsor</a></li>
+          <li><a href="index.html#partners">Partner with us</a></li>
+          <li><a href="index.html#committee">Steering Committee</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Connect</h2>
+        <ul>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="mailto:info@shermanoaks100.com">info@shermanoaks100.com</a></li>
+          <li class="subtle" style="color: rgba(254, 252, 246, 0.55);">Sherman Oaks, California</li>
+        </ul>
+      </div>
+    
     </div>
     <div class="site-footer__bottom">
       <p>© <span data-year>2027</span> Sherman Oaks 100 Centennial Committee. All rights reserved.</p>
-      <div class="site-footer__legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="copyright.html">Copyright</a><a href="accessibility.html">Accessibility</a></div>
+      <div class="site-footer__legal"><a href="privacy.html">Privacy</a><a href="privacy.html#choices">Privacy choices</a><a href="terms.html">Terms</a><a href="copyright.html">Copyright</a><a href="accessibility.html">Accessibility</a></div>
     </div>
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20261003a" defer></script>
+<script src="assets/js/site-config.js?v=20261012a" defer></script>
+<script src="assets/js/consent.js?v=20261012a" defer></script>
+<script src="assets/js/main.js?v=20261012c" defer></script>
 </body>
 </html>

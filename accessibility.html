@@ -1,16 +1,21 @@
 <!doctype html>
+<!--
+  ACCESSIBILITY STATEMENT: draft for legal review (October 12, 2026).
+  Keep "Current status" and "Known limitations" true: re-test after site changes.
+  Counsel decisions are listed in the workspace file legal/COUNSEL-REVIEW-MEMO.md.
+-->
 <html lang="en" class="auth-required">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Accessibility Statement — Sherman Oaks 100</title>
-  <meta name="description" content="The Sherman Oaks 100 accessibility statement — our commitments for the website and centennial events, plus how to request accommodations or report barriers." />
+  <meta name="description" content="How the Sherman Oaks 100 website meets WCAG 2.1 AA, its known limitations, and how to request event accommodations, other formats or report a barrier." />
   <meta name="theme-color" content="#fffdf8" />
   <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2314322a'/><text x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23c9a55a' text-anchor='middle' font-weight='600'>100</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,30..100,0..1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261003a" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261012h" />
 </head>
 <body>
 
@@ -18,16 +23,13 @@
 
 <header class="site-header">
   <div class="container">
-    <nav class="nav" aria-label="Primary">
-      <a class="brand" href="index.html" aria-label="Sherman Oaks 100 — home">
+    <nav class="nav" aria-label="Sections">
+      <a class="brand" href="index.html" aria-label="Sherman Oaks Centennial 1927–2027 — home">
         <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#14322a"/><circle cx="32" cy="32" r="22" fill="none" stroke="#c9a55a" stroke-width="1"/><text x="32" y="40" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="500" fill="#c9a55a">100</text></svg>
         <span class="brand__text">Sherman Oaks<small>Centennial · 1927–2027</small></span>
       </a>
-      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-      <ul class="nav__menu" id="primary-menu"><li><a href="index.html" data-page="index.html">Home</a></li><li><a href="index.html#events" data-page="events.html">Events</a></li><li><a href="map.html" data-page="map.html">Map</a></li><li><a href="index.html#history" data-page="history.html">History</a></li><li><a href="index.html#stories" data-page="gallery.html">Stories</a></li><li><a href="index.html#sponsors" data-page="sponsors.html">Sponsors</a></li><li><a href="index.html#get-involved" data-page="get-involved.html">Get involved</a></li><li><a href="contact.html" data-page="contact.html">Contact</a></li></ul>
-      <div class="nav__cta"><a class="btn btn--accent btn--small" href="get-involved.html">Volunteer</a></div>
+      <div class="nav__scroller"><ul class="nav__menu" id="primary-menu"><li><a href="index.html#about">About</a></li><li><a href="index.html#events">Events</a></li><li><a href="index.html#history">History</a></li><li><a href="index.html#map">Map</a></li><li><a href="index.html#stories">Stories</a></li><li><a href="index.html#support">Support</a></li><li><a href="index.html#get-involved">Get involved</a></li><li><a href="index.html#faq">FAQ</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+      <div class="nav__cta"><a class="btn btn--accent btn--small" href="index.html#volunteer">Volunteer</a></div>
     </nav>
   </div>
 </header>
@@ -41,8 +43,9 @@
     <span class="eyebrow">Accessibility Statement</span>
     <h1 class="page-header__title display">Making the centennial <em>welcoming</em>.</h1>
     <p class="page-header__sub">
-      The Sherman Oaks 100 Committee is committed to making both this website
-      and the centennial events accessible to as many neighbors as we can.
+      Everyone should be able to use this website and take part in the
+      centennial. Here is what we do, what we know still needs work and how
+      to reach us.
     </p>
   </div>
 </section>
@@ -51,84 +54,133 @@
 <section class="section">
   <div class="container container--narrow prose">
 
-    <h2>The website</h2>
+    <div class="legal-meta">
+      <strong>Draft for legal review.</strong> This statement has not yet been
+      adopted. It describes the website as tested on October 12, 2026.
+      <br/><strong>Last updated:</strong> October 12, 2026
+    </div>
+
+    <h2 id="commitment">Our commitment</h2>
     <p>
-      The Sherman Oaks 100 website is built using semantic HTML, accessible
-      color contrast, keyboard-navigable controls, and responsive design that
-      adapts to mobile, tablet, and desktop screens. We've aimed to meet the
-      Web Content Accessibility Guidelines (WCAG) 2.1 at AA level as a target.
+      The Sherman Oaks 100 Centennial Committee (“the Committee,” “we”) wants
+      people with disabilities to have the same access to information about
+      the centennial as everyone else, as the Americans with Disabilities Act
+      (ADA) requires. This statement covers the website at shermanoaks100.com
+      and the centennial events the Committee organizes.
     </p>
+
+    <h2 id="standard">The standard we follow</h2>
+    <p>
+      We design and test this website to meet the
+      <a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines (WCAG) 2.1, Level AA</a>.
+      This is the technical standard that the U.S. Department of Justice adopted
+      for the websites of state and local governments under Title II of the ADA
+      (28 C.F.R. part 35, subpart H). Where we can, we also follow the newer
+      WCAG 2.2 guidance on focus visibility and target size.
+    </p>
+
+    <h2 id="status">Current status</h2>
+    <p>
+      In our October 12, 2026 review, the pages people use (the home page with
+      its events, history, map, stories, support, get-involved, FAQ and
+      contact sections, plus this statement and the privacy, terms, copyright
+      and “page not found” pages) met WCAG 2.1 Level AA in the tests described
+      below, apart from the limitations listed on this page. We have not yet
+      tested the site with people who use assistive technology, so we treat
+      the site as <strong>partially conformant</strong> until that testing is
+      done and any problems it finds are fixed.
+    </p>
+
+    <h3 id="features">What we built in</h3>
     <ul>
-      <li>Skip-to-content link at the top of every page.</li>
-      <li>Keyboard-friendly navigation, including the mobile menu and event filters.</li>
-      <li>Visible focus styles on links, buttons, and form fields.</li>
-      <li>Reduced-motion support — animations dampen when your operating
-          system requests reduced motion.</li>
-      <li>Color choices designed for AA-level contrast on body text.</li>
-      <li>Form fields with associated labels and helpful hints.</li>
-      <li>Alt text on meaningful images; decorative graphics are marked
-          appropriately for screen readers.</li>
+      <li>A “Skip to content” link, clear page landmarks and a logical heading structure.</li>
+      <li>Every control can be reached and used with a keyboard, and the focused item always has a visible outline that the sticky header and cookie notice do not cover.</li>
+      <li>Text colors meet the AA contrast ratios: at least 4.5:1 for regular text and 3:1 for large text and for focus outlines.</li>
+      <li>Pages can be zoomed to 200% and read on a 320-pixel-wide screen without scrolling sideways, and nothing is cut off when readers increase letter, word or line spacing.</li>
+      <li>Photographs have text descriptions. Decorative graphics are hidden from screen readers.</li>
+      <li>The then-and-now photo comparisons work with a keyboard (arrow keys) and screen readers, and both photographs are described.</li>
+      <li>Every place on the community map is also listed in text beside the map, with its address, description and visiting notes.</li>
+      <li>Animations are reduced when your device asks for reduced motion. The Founders’ Day countdown, once it starts, has a pause button.</li>
+      <li>Links that open a new tab say so. Information never depends on color alone.</li>
     </ul>
 
-    <h2>The events</h2>
-    <p>
-      The committee aims for every centennial-led event to be welcoming and
-      accessible. Specific accommodations depend on each venue, but our
-      commitments include:
-    </p>
+    <h3 id="testing">How we tested</h3>
     <ul>
-      <li>Selecting accessible venues for marquee events whenever possible.</li>
-      <li>Providing accessible seating and clear sight lines at programmed events.</li>
-      <li>Welcoming service animals.</li>
-      <li>Working with partners and sponsors to support ASL, captioning,
-          or translation when feasible.</li>
-      <li>Family-friendly programming, with quieter spaces or breaks where
-          appropriate.</li>
+      <li>Automated checks with the axe-core accessibility engine (version 4.10) for WCAG 2.0, 2.1 and 2.2 Level A and AA rules.</li>
+      <li>A contrast check of every visible piece of text against its actual background.</li>
+      <li>Manual checks of keyboard use, focus visibility, headings, link and button names, image descriptions, 320-pixel reflow, the WCAG text-spacing test and reduced motion.</li>
+      <li>Screen widths of 320, 375 and 1,280 pixels.</li>
     </ul>
 
-    <h2>Requesting an accommodation</h2>
+    <h2 id="limitations">Known limitations</h2>
+    <ul>
+      <li>
+        <strong>Map imagery.</strong> The street map itself is a picture drawn
+        from OpenStreetMap data, so screen readers cannot read the street names
+        inside it. Every place on the map is listed in text beside it, with an
+        address and a Directions link.
+      </li>
+      <li>
+        <strong>Other websites.</strong> Links to OpenStreetMap, Google Maps
+        and your email app take you to services we do not control. If one of
+        them is hard to use, contact us and we will give you the information
+        another way.
+      </li>
+      <li>
+        <strong>Event details.</strong> Venues, times and their accessibility
+        information are not confirmed yet. We will add access details (such as
+        step-free entry, seating, restrooms and parking) to each event as soon
+        as we have them.
+      </li>
+      <li>
+        <strong>Assistive-technology testing.</strong> We have not yet tested
+        the site with screen-reader, voice-control or switch users. Your
+        feedback helps.
+      </li>
+    </ul>
     <p>
-      If you need a specific accommodation to participate in an event — or if
-      something on this website is creating a barrier for you — please write us
-      at <a href="mailto:info@shermanoaks100.com">info@shermanoaks100.com</a> with as much
-      detail as you're comfortable sharing.
-    </p>
-    <p>
-      We'll do our best to accommodate within the constraints of a
-      volunteer-run, community-funded project. Getting in touch ahead of an
-      event helps us prepare.
+      We do not currently publish videos, audio or downloadable documents
+      (such as PDFs). Any we add will have accurate captions or transcripts,
+      or will be accessible documents, before they go online. If you need any
+      information from this website in another format, ask us and we will
+      provide it.
     </p>
 
-    <h2>Known limitations</h2>
+    <h2 id="events">Accessibility at centennial events</h2>
+    <p>For events the Committee organizes, we will:</p>
+    <ul>
+      <li>choose venues with accessible entrances, routes, seating and restrooms whenever we can, and post the access details with each event;</li>
+      <li>welcome service animals;</li>
+      <li>provide auxiliary aids and services, such as American Sign Language interpreters, real-time captioning (CART), assistive listening, large-print or electronic materials, and accessible seating, when you ask; and</li>
+      <li>never charge you for an accommodation.</li>
+    </ul>
     <p>
-      A small group of volunteers built this site. We expect some accessibility
-      gaps. Specifically:
+      Please ask at least two weeks before an event if you can, so we have
+      time to arrange interpreters or captioning. We will still do our best
+      with later requests. Some events may be hosted with partner
+      organizations; we will help you reach the right organizer.
+    </p>
+
+    <h2 id="contact">Ask for help or report a barrier</h2>
+    <p>
+      Email <a href="mailto:info@shermanoaks100.com?subject=Accessibility%20request">info@shermanoaks100.com</a>
+      with the subject “Accessibility request.” It helps if you tell us:
     </p>
     <ul>
-      <li>Placeholder images currently use decorative labels rather than
-        descriptive content — we'll write proper alt text as real images replace
-        the placeholders.</li>
-      <li>Third-party embeds (when added — maps, video players, newsletter
-        forms) follow their own accessibility behavior, which may not match
-        the rest of the site.</li>
-      <li>This is a preliminary build. Accessibility refinements will continue
-        through 2026 and into the centennial year.</li>
+      <li>the page or event, and what you were trying to do;</li>
+      <li>what went wrong, or the accommodation or format you need; and</li>
+      <li>the best way to reach you. If you would rather talk on the phone, include your number and we will call you.</li>
     </ul>
-
-    <h2>Telling us about barriers</h2>
     <p>
-      If you encounter an accessibility barrier — a page that doesn't read
-      well in a screen reader, a control you can't reach with the keyboard,
-      contrast that's too low, an event that's harder to attend than it
-      should be — please tell us at
-      <a href="mailto:info@shermanoaks100.com">info@shermanoaks100.com</a>. We'll
-      acknowledge your message and work to address it.
+      We aim to reply within five business days. If we cannot fix a website
+      problem right away, we will give you the information or service another
+      way in the meantime.
     </p>
 
-    <hr/>
-    <p class="subtle">
-      This statement reflects our commitments today and is intentionally
-      written as something we will keep updating as the centennial grows.
+    <h2 id="updates">Reviewing this statement</h2>
+    <p>
+      We will review this statement whenever the website changes significantly
+      and at least once a year, and update the date at the top of the page.
     </p>
   </div>
 </section>
@@ -140,23 +192,54 @@
   <div class="container">
     <div class="site-footer__top">
       <div class="site-footer__brand">
-        <a class="brand" href="index.html">
+        <a class="brand" href="index.html" aria-label="Sherman Oaks Centennial 1927–2027 — home">
           <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1c4536"/><circle cx="32" cy="32" r="22" fill="none" stroke="#c9a55a" stroke-width="1"/><text x="32" y="40" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="500" fill="#c9a55a">100</text></svg>
           <span class="brand__text" style="color: var(--cream-50);">Sherman Oaks<small style="color: var(--gold-300);">Centennial · 1927–2027</small></span>
         </a>
         <p>A community-led celebration of a hundred years of neighborhood life in the heart of the San Fernando Valley.</p>
       </div>
-      <div><h4>Explore</h4><ul><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="history.html">History</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="map.html">Community Map</a></li></ul></div>
-      <div><h4>Join In</h4><ul><li><a href="get-involved.html">Volunteer</a></li><li><a href="sponsors.html">Sponsor</a></li><li><a href="steering-committee.html">Steering Committee</a></li><li><a href="civic-partners.html">Civic Partners</a></li><li><a href="news.html">News</a></li></ul></div>
-      <div><h4>Connect</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQ</a></li><li><a href="mailto:info@shermanoaks100.com">info@shermanoaks100.com</a></li><li class="subtle" style="color: rgba(254, 252, 246, 0.55);">Sherman Oaks, California</li></ul></div>
+      
+      <div>
+        <h2 class="site-footer__heading">Explore</h2>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#events">Events</a></li>
+          <li><a href="index.html#history">Then &amp; now</a></li>
+          <li><a href="index.html#map">Community map</a></li>
+          <li><a href="index.html#stories">Stories</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Join In</h2>
+        <ul>
+          <li><a href="index.html#volunteer">Volunteer</a></li>
+          <li><a href="index.html#support">Sponsor</a></li>
+          <li><a href="index.html#partners">Partner with us</a></li>
+          <li><a href="index.html#committee">Steering Committee</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Connect</h2>
+        <ul>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="mailto:info@shermanoaks100.com">info@shermanoaks100.com</a></li>
+          <li class="subtle" style="color: rgba(254, 252, 246, 0.55);">Sherman Oaks, California</li>
+        </ul>
+      </div>
+    
     </div>
     <div class="site-footer__bottom">
       <p>© <span data-year>2027</span> Sherman Oaks 100 Centennial Committee. All rights reserved.</p>
-      <div class="site-footer__legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="copyright.html">Copyright</a><a href="accessibility.html">Accessibility</a></div>
+      <div class="site-footer__legal"><a href="privacy.html">Privacy</a><a href="privacy.html#choices">Privacy choices</a><a href="terms.html">Terms</a><a href="copyright.html">Copyright</a><a href="accessibility.html">Accessibility</a></div>
     </div>
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20261003a" defer></script>
+<script src="assets/js/site-config.js?v=20261012a" defer></script>
+<script src="assets/js/consent.js?v=20261012a" defer></script>
+<script src="assets/js/main.js?v=20261012c" defer></script>
 </body>
 </html>
