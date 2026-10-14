@@ -255,49 +255,6 @@
   }
 
   /* ---------------------------------------------------------------------
-   * Founders' Day countdown. No date is assumed while confirmation is pending.
-   * ------------------------------------------------------------------- */
-  function initCountdown() {
-    const panel = document.querySelector("[data-countdown]");
-    if (!panel || typeof window.centennialTimeRemaining !== "function") return;
-    const target = (window.SHERMAN_OAKS_100 || {}).foundersDay;
-    const values = panel.querySelector("[data-countdown-values]");
-    const message = panel.querySelector("[data-countdown-message]");
-    const toggle = panel.querySelector("[data-countdown-toggle]");
-    const initial = window.centennialTimeRemaining(target, Date.now());
-    if (!initial) return;
-    let timer;
-    function render() {
-      const result = window.centennialTimeRemaining(target, Date.now());
-      ["days", "hours", "minutes", "seconds"].forEach(function (unit) {
-        panel.querySelector('[data-unit="' + unit + '"]').textContent = String(result[unit]).padStart(2, "0");
-      });
-      values.hidden = false;
-      message.textContent = result.complete ? "Founders’ Day has arrived. Celebrate with your neighbors!" :
-        "Join us on " + new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeZone: "America/Los_Angeles" }).format(new Date(target)) + ".";
-      if (result.complete && timer) { window.clearInterval(timer); timer = null; if (toggle) toggle.hidden = true; }
-    }
-    render();
-    if (initial.complete) return;
-    timer = window.setInterval(render, 1000);
-    // WCAG 2.2.2: a ticking clock needs a way to stop it.
-    if (!toggle) return;
-    toggle.hidden = false;
-    toggle.addEventListener("click", function () {
-      if (timer) {
-        window.clearInterval(timer);
-        timer = null;
-        toggle.textContent = "Resume countdown";
-      } else {
-        render();
-        if (window.centennialTimeRemaining(target, Date.now()).complete) return;
-        timer = window.setInterval(render, 1000);
-        toggle.textContent = "Pause countdown";
-      }
-    });
-  }
-
-  /* ---------------------------------------------------------------------
    * Map placeholder pin tooltips (preview behavior)
    * ------------------------------------------------------------------- */
   function initMapPins() {
@@ -523,16 +480,32 @@
           else if (e.key === "Home") { e.preventDefault(); show(0, true); }
           else if (e.key === "End") { e.preventDefault(); show(tabs.length - 1, true); }
         });
+        function go(delta) {
+          const next = (i + delta + tabs.length) % tabs.length;
+          show(next, false);
+          if (viewer.getBoundingClientRect().top < 0) viewer.scrollIntoView({ block: "start", behavior: reducedMotion() ? "auto" : "smooth" });
+          tabs[next].focus({ preventScroll: true });
+        }
+        // A quiet "Next: place →" beside the drag hint shows there are more views.
+        const hint = panel.querySelector(".compare__hint");
+        if (hint) {
+          const nextName = tabs[(i + 1) % tabs.length].querySelector("span").firstChild.textContent.trim();
+          const nextLink = document.createElement("button");
+          const arrow = document.createElement("span");
+          nextLink.type = "button";
+          nextLink.className = "tn-next";
+          nextLink.textContent = "Next: " + nextName + " ";
+          arrow.setAttribute("aria-hidden", "true");
+          arrow.textContent = "→";
+          nextLink.append(arrow);
+          nextLink.addEventListener("click", function () { go(1); });
+          hint.append(nextLink);
+        }
         const step = panel.querySelector(".tn-step");
         if (!step) return;
         step.hidden = false;
         step.querySelectorAll("[data-tn-step]").forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            const next = (i + Number(btn.getAttribute("data-tn-step")) + tabs.length) % tabs.length;
-            show(next, false);
-            if (viewer.getBoundingClientRect().top < 0) viewer.scrollIntoView({ block: "start", behavior: reducedMotion() ? "auto" : "smooth" });
-            tabs[next].focus({ preventScroll: true });
-          });
+          btn.addEventListener("click", function () { go(Number(btn.getAttribute("data-tn-step"))); });
         });
       });
       show(0, false);
@@ -559,7 +532,6 @@
     initYear();
     initReveal();
     initEventFilters();
-    initCountdown();
     initMapPins();
     initCompare();
     initThenNowTabs();

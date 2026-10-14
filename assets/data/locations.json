@@ -72,7 +72,7 @@
       "thenAlt": "1940: Street view of the corner of Ventura and Van Nuys boulevards.",
       "thenLabel": "1940",
       "nowLabel": "Present-day photo planned",
-      "storyUrl": "#then-now-ventura-van-nuys",
+      "storyUrl": "#archive-ventura-van-nuys",
       "storyLabel": "See the 1940 view"
     },
     {
@@ -126,9 +126,7 @@
       "thenLabel": "Historic photo pending",
       "nowImage": "assets/images/history/casa-vega-2026-thumb.jpg",
       "nowAlt": "2026: Aerial view of Casa Vega on Ventura Boulevard.",
-      "nowLabel": "2026",
-      "storyUrl": "#then-now-casa-vega",
-      "storyLabel": "See the 2026 view"
+      "nowLabel": "2026"
     }
   ]
 }

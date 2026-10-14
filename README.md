@@ -35,14 +35,13 @@ The full implementation and approval status is maintained in the workspace's `CH
 - [x] Add the four planned quarterly events to the homepage and calendar, with working category filters.
 - [x] Add the Centennial Legacy vision without unconfirmed funding promises. (Proposed sponsorship levels were added, then removed on October 14.)
 - [x] Build the Memory Wall introduction and email contribution route.
-- [x] Build countdown logic that stays pending until an approved date is configured.
+- [x] Build countdown logic that stays pending until an approved date is configured. (Removed October 14 with all Founders' Day mentions: there is no Founders' Day event.)
 - [x] Remove invented listings, sample dates, placeholder contact domains, dead links and misleading form-success behavior from refreshed pages.
 - [x] Complete responsive/browser verification and fix event columns, seal lettering and mobile-menu scrolling on resize.
 - [x] Replace the Community Map mockup with the working map and a single location data file. Remove its pretend pins, unconfirmed venue descriptions and teaser for the separate draft resident map.
 - [x] October 3: make the map easy to find on the homepage and shared navigation; simplify the basemap by omitting buildings, house numbers and POI icons; remove the flag graphic while retaining linked credits on both map pages.
 - [ ] Confirm `info@shermanoaks100.com` receives messages. Email-link destinations were checked; delivery was not.
 - [ ] Enter confirmed event dates, times, venues, admission and accessibility details on both event listings.
-- [ ] Activate the countdown after the exact Founders' Day date and time are confirmed.
 - [ ] Confirm Legacy program wording, funding and the responsible organization.
 - [x] October 12: steering committee roster, special thanks and working committees from Vickie's list.
 - [x] October 12: Alex confirmed `info@shermanoaks100.com` as the website's point of contact, including for joining a working committee.
@@ -62,7 +61,7 @@ The full implementation and approval status is maintained in the workspace's `CH
 - [ ] **Map remaining:** further centennial places as approved; confirm the production tile provider before launch. The separate Notable Residents draft is still on hold.
 - [ ] **HOLD — trivia:** decide scope and approve verified content before implementation.
 - [ ] **HOLD — video:** arrange recording/editing, captions, approval and hosting before adding the resident-story video.
-- [ ] Set a realistic launch schedule once dependencies are resolved. October 18, 2026 was an earlier website launch target, not the confirmed 2027 Founders' Day date or a launch guarantee.
+- [ ] Set a realistic launch schedule once dependencies are resolved. October 18, 2026 was an earlier website launch target, not a 2027 event date or a launch guarantee.
 
 On October 11 Alex released the photo hold for the agreed selection only. Other archive material is still not approved for publication: receipt, review or a shortlist is not permission. Never publish files Cesar labels "Wait to publish."
 
@@ -97,8 +96,7 @@ Preserve the current implementation when resuming. The workspace's `tmp/refresh_
 | Analytics consent banner and Google Analytics loader (off while `gaMeasurementId` is `null`) | `assets/js/consent.js`, `assets/js/site-config.js` |
 | Shared styles and responsive layout | `assets/css/styles.css` |
 | Phone layout (applies only at 699 px and below; linked last on all 8 full pages with `media="(max-width: 699px)"`). Restyle only: never hide content or change reading order there. | `assets/css/mobile.css` |
-| Preview access, section tracking nav, in-page links, countdown display, then-and-now tabs and slider, photo lightbox | `assets/js/main.js` |
-| Countdown configuration and date calculation | `assets/js/site-config.js`, `assets/js/countdown.js` |
+| Preview access, section tracking nav, in-page links, then-and-now tabs, "Next" cue and slider, photo lightbox | `assets/js/main.js` |
 
 Header and footer markup is duplicated in `index.html` and the 7 standalone pages; update them consistently. On `index.html` nav links are `#section`; on standalone pages they are `index.html#section`; 404 links use root-relative paths so nested missing URLs work.
 
@@ -111,12 +109,6 @@ python -m http.server 8012 --bind 127.0.0.1
 ```
 
 Open `http://127.0.0.1:8012/index.html` in a browser. Reuse an existing server on that port if it is already serving this folder. The existing preview password is configured in `assets/js/main.js`.
-
-## Countdown activation
-
-`foundersDay` in `assets/js/site-config.js` is intentionally `null`. The page displays an announcement message and starts no countdown timer.
-
-After the committee confirms the date and time, set an ISO 8601 timestamp with the correct Los Angeles UTC offset. The display labels the date in Los Angeles time. Do not use the October 18, 2026 website launch target as the 2027 event date. Missing or invalid dates keep the pending message; completed dates stop at zero.
 
 ## Content holds and launch work
 
@@ -180,11 +172,10 @@ The workspace includes read-only validation scripts outside the deployed folder:
 
 ```sh
 python ../tmp/check_site.py
-node ../tmp/check_countdown.cjs
 node ../tmp/check_map.cjs
 ```
 
-These check internal links and anchors, four matching event cards, held historical page bodies, the pending countdown configuration, preview gating, date calculation edge cases, map-data validation, the published location records and their photo/story links, image alt text, EXIF removal from history exports, and that held images stay out of the public folder. They do not replace visual or real-browser testing. Run them after removing temporary `_map-qa*` browser fixtures, if any were created.
+These check internal links and anchors, four matching event cards, held historical page bodies, preview gating, map-data validation, the published location records and their photo/story links, image alt text, EXIF removal from history exports, and that held images stay out of the public folder. They do not replace visual or real-browser testing. Run them after removing temporary `_map-qa*` browser fixtures, if any were created.
 
 ## Acknowledgments
 
