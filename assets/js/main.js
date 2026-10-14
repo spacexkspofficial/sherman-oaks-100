@@ -50,7 +50,7 @@
     gate.innerHTML =
       "<div class=\"auth-gate__panel\">" +
         "<a class=\"auth-gate__brand\" href=\"index.html\" aria-label=\"Sherman Oaks 100 home\">" +
-          "<span class=\"auth-gate__mark\">100</span>" +
+          "<img class=\"auth-gate__mark\" src=\"/assets/images/brand/sherman-oaks-centennial.webp\" width=\"637\" height=\"571\" alt=\"\" />" +
           "<span>Sherman Oaks<small>Centennial · 1927-2027</small></span>" +
         "</a>" +
         "<span class=\"eyebrow\">Preview Access</span>" +

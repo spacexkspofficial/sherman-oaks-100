@@ -15,17 +15,20 @@
   <meta property="og:url" content="https://shermanoaks100.com/" />
   <meta name="twitter:card" content="summary" />
 
-  <!-- Favicon (inline SVG, replace with proper file once final brand is approved) -->
-  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2314322a'/><text x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23c9a55a' text-anchor='middle' font-weight='600'>100</text></svg>" />
+  <!-- Centennial artwork: browser and home-screen icons -->
+  <link rel="icon" href="favicon.ico?v=20261014" sizes="16x16 32x32 48x48" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png?v=20261014" />
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/icons/favicon-48.png?v=20261014" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png?v=20261014" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,30..100,0..1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261012h" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261014a" />
   <link rel="stylesheet" href="assets/css/community-map.css?v=20261012g" />
-  <link rel="stylesheet" href="assets/css/mobile.css?v=20261012a" media="(max-width: 699px)" />
+  <link rel="stylesheet" href="assets/css/mobile.css?v=20261014a" media="(max-width: 699px)" />
 
   <!-- JSON-LD: light schema so search engines know what this is -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Sherman Oaks 100","url":"https://shermanoaks100.com/","description":"A community centennial celebration planned for 2027."}</script>
@@ -39,19 +42,7 @@
   <div class="container">
     <nav class="nav" aria-label="Sections">
       <a class="brand" href="#top" aria-label="Sherman Oaks Centennial 1927–2027 — back to top">
-        <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
-          <defs>
-            <linearGradient id="brand-grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#1c4536"/>
-              <stop offset="100%" stop-color="#14322a"/>
-            </linearGradient>
-          </defs>
-          <rect width="64" height="64" rx="14" fill="url(#brand-grad)"/>
-          <circle cx="32" cy="32" r="22" fill="none" stroke="#c9a55a" stroke-width="1"/>
-          <circle cx="32" cy="32" r="18" fill="none" stroke="#c9a55a" stroke-width="0.5" opacity="0.6"/>
-          <text x="32" y="40" text-anchor="middle" font-family="Fraunces, Georgia, serif"
-                font-size="20" font-weight="500" fill="#c9a55a">100</text>
-        </svg>
+        <img class="brand__mark" src="assets/images/brand/sherman-oaks-centennial.webp" width="637" height="571" alt="" />
         <span class="brand__text">
           Sherman Oaks
           <small>Centennial · 1927–2027</small>
@@ -59,7 +50,7 @@
       </a>
 
       <div class="nav__scroller">
-        <ul class="nav__menu" id="primary-menu"><li><a href="#about">About</a></li><li><a href="#events">Events</a></li><li><a href="#history">History</a></li><li><a href="#map">Map</a></li><li><a href="#stories">Stories</a></li><li><a href="#support">Support</a></li><li><a href="#get-involved">Get involved</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li></ul>
+        <ul class="nav__menu" id="primary-menu"><li><a href="#about">About</a></li><li><a href="#events">Events</a></li><li><a href="#history">History</a></li><li><a href="#map">Map</a></li><li><a href="#stories">Stories</a></li><li><a href="#support">Legacy</a></li><li><a href="#get-involved">Get involved</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li></ul>
       </div>
 
       <div class="nav__cta">
@@ -84,108 +75,7 @@
   <div class="hero__cta"><a class="btn btn--primary" href="#events">Explore the 2027 events</a><a class="btn btn--ghost" href="#get-involved">Be part of it</a></div>
   <p class="hero__map-link"><a href="#history">See Sherman Oaks then &amp; now <span aria-hidden="true">→</span></a></p>
 </div>
-  <div class="hero__seal-wrap"><svg class="hero__seal" viewBox="0 0 400 400" role="img"
-             aria-label="Sherman Oaks Centennial seal, 1927 to 2027">
-          <defs>
-            <radialGradient id="sealCore" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#fefcf6"/>
-              <stop offset="70%" stop-color="#f3ebd1"/>
-              <stop offset="100%" stop-color="#e3c98f"/>
-            </radialGradient>
-            <linearGradient id="sealRing" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#1c4536"/>
-              <stop offset="100%" stop-color="#14322a"/>
-            </linearGradient>
-            <path id="topArc"
-                  d="M 50 200 a 150 150 0 0 1 300 0"
-                  fill="none"/>
-            <path id="botArc"
-                  d="M 50 200 a 150 150 0 0 0 300 0"
-                  fill="none"/>
-          </defs>
-
-          <!-- Outer dark ring -->
-          <circle cx="200" cy="200" r="190" fill="url(#sealRing)"/>
-          <!-- Decorative ring lines -->
-          <circle cx="200" cy="200" r="180" fill="none" stroke="#c9a55a" stroke-width="1" opacity="0.6"/>
-          <circle cx="200" cy="200" r="166" fill="none" stroke="#c9a55a" stroke-width="0.6" opacity="0.45"/>
-
-          <!-- Circular text (top: name) -->
-          <text fill="#c9a55a" font-family="Inter, sans-serif" font-size="14"
-                font-weight="700" letter-spacing="6">
-            <textPath href="#topArc" startOffset="50%" text-anchor="middle">
-              · SHERMAN OAKS CENTENNIAL ·
-            </textPath>
-          </text>
-          <!-- Circular text (bottom: years) -->
-          <text fill="#c9a55a" font-family="Inter, sans-serif" font-size="14"
-                font-weight="700" letter-spacing="6">
-            <textPath href="#botArc" startOffset="50%" text-anchor="middle">
-              · 1927 — 2027 ·
-            </textPath>
-          </text>
-
-          <!-- Inner cream disc -->
-          <circle cx="200" cy="200" r="124" fill="url(#sealCore)"
-                  stroke="#c9a55a" stroke-width="1.5"/>
-
-          <!-- Oak leaves left & right -->
-          <g fill="#1c4536" opacity="0.85">
-            <!-- Left leaf -->
-            <path transform="translate(46,200) rotate(-90)"
-                  d="M0 0 C -10 -10 -10 -30 0 -42 C 6 -34 7 -22 0 -12 Z
-                     M 0 -8 C -8 -16 -8 -32 0 -42 M 0 -2 C -6 -14 -6 -28 0 -38"
-                  stroke="#1c4536" stroke-width="0.7" fill="#265a47"/>
-            <!-- Right leaf -->
-            <path transform="translate(354,200) rotate(90)"
-                  d="M0 0 C -10 -10 -10 -30 0 -42 C 6 -34 7 -22 0 -12 Z"
-                  fill="#265a47" stroke="#1c4536" stroke-width="0.7"/>
-          </g>
-
-          <!-- Oak garland (simplified, stylized) -->
-          <g stroke="#265a47" stroke-width="1.4" fill="#3d8a6c" opacity="0.9">
-            <!-- Left side garland -->
-            <g transform="translate(80,260) rotate(-30)">
-              <ellipse cx="0"  cy="0"  rx="6" ry="14"/>
-              <ellipse cx="-6" cy="14" rx="5" ry="12"/>
-              <ellipse cx="-2" cy="28" rx="6" ry="13"/>
-            </g>
-            <!-- Right side garland -->
-            <g transform="translate(320,260) rotate(30)">
-              <ellipse cx="0"  cy="0"  rx="6" ry="14"/>
-              <ellipse cx="6"  cy="14" rx="5" ry="12"/>
-              <ellipse cx="2"  cy="28" rx="6" ry="13"/>
-            </g>
-          </g>
-
-          <!-- Center "100" -->
-          <text x="200" y="220" text-anchor="middle"
-                font-family="Fraunces, Georgia, serif" font-size="106"
-                font-weight="500" fill="#1c4536"
-                letter-spacing="-3">100</text>
-
-          <!-- "YEARS" under -->
-          <text x="200" y="255" text-anchor="middle"
-                font-family="Inter, sans-serif" font-size="11"
-                font-weight="700" fill="#a0832f" letter-spacing="10">
-            YEARS
-          </text>
-
-          <!-- "Celebrating" arc above 100 -->
-          <text x="200" y="135" text-anchor="middle"
-                font-family="Fraunces, Georgia, serif" font-style="italic"
-                font-size="18" fill="#265a47">
-            celebrating
-          </text>
-
-          <!-- Tiny star ornaments -->
-          <g fill="#c9a55a">
-            <circle cx="200" cy="100" r="2.5"/>
-            <circle cx="200" cy="300" r="2.5"/>
-            <circle cx="100" cy="200" r="2.5"/>
-            <circle cx="300" cy="200" r="2.5"/>
-          </g>
-        </svg></div>
+  <div class="hero__seal-wrap"><img class="hero__seal" src="assets/images/brand/sherman-oaks-centennial.webp" width="637" height="571" alt="Sherman Oaks Centennial — 100 Years, 1927–2027" fetchpriority="high" /></div>
 </div>
 </div>
 <figure class="hero-horizon">
@@ -549,55 +439,25 @@
 </section>
 
 
-<!-- ========= SUPPORT: sponsorship + legacy ========= -->
+<!-- ========= LEGACY: Centennial Legacy ideas ========= -->
 <section class="section section--alt" id="support" aria-labelledby="support-title">
 <div class="container">
-<div class="section-head" id="sponsors"><span class="eyebrow eyebrow--center">Support the centennial</span>
-<h2 class="section-head__title" id="support-title">Help bring the year to life.</h2>
-<p class="section-head__sub">The following amounts are proposed. Benefits, recognition and the official sponsorship program link are awaiting confirmation.</p>
-</div>
-<div class="grid grid--4 support-levels">
-<article class="card"><span class="card__eyebrow">Proposed level</span>
-<h3 class="card__title">$100</h3>
-<p class="card__body">Benefits to be confirmed.</p>
-<a class="card__link" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20interest%20%E2%80%94%20%24100">Ask about this level →</a></article>
-<article class="card"><span class="card__eyebrow">Proposed level</span>
-<h3 class="card__title">$1,000</h3>
-<p class="card__body">Benefits to be confirmed.</p>
-<a class="card__link" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20interest%20%E2%80%94%20%241%2C000">Ask about this level →</a></article>
-<article class="card"><span class="card__eyebrow">Proposed level</span>
-<h3 class="card__title">$5,000</h3>
-<p class="card__body">Benefits to be confirmed.</p>
-<a class="card__link" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20interest%20%E2%80%94%20%245%2C000">Ask about this level →</a></article>
-<article class="card"><span class="card__eyebrow">Proposed level</span>
-<h3 class="card__title">$10,000+</h3>
-<p class="card__body">Benefits to be confirmed.</p>
-<a class="card__link" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20interest%20%E2%80%94%20%2410%2C000%2B">Ask about this level →</a></article>
-</div>
-<div class="support-talk" id="interest-form">
-<div>
-<h3>Let’s talk about your support.</h3>
-<p>Tell us your name, organization and the level you’re interested in. You can also ask about contributing goods, services or a venue. Payment instructions and any applicable tax information will come from the committee’s approved program.</p>
-</div>
-<a class="btn btn--primary" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20interest">Email about sponsorship</a>
-</div>
-
 <div class="legacy" id="legacy">
 <div class="section-head"><span class="eyebrow eyebrow--center">Centennial Legacy</span>
-<h3 class="section-head__title">Celebrate today. Invest in tomorrow.</h3>
+<h2 class="section-head__title" id="support-title">Celebrate today. Invest in tomorrow.</h2>
 <p class="section-head__sub">The committee’s long-term vision includes projects that could continue beyond 2027.</p>
 </div>
 <div class="grid grid--3">
 <article class="card"><span class="card__eyebrow">A greener neighborhood</span>
-<h4 class="card__title">More trees, lasting shade</h4>
+<h3 class="card__title">More trees, lasting shade</h3>
 <p class="card__body">Explore opportunities for tree planting and long-term care.</p>
 </article>
 <article class="card"><span class="card__eyebrow">A thriving local economy</span>
-<h4 class="card__title">Small-business support</h4>
+<h3 class="card__title">Small-business support</h3>
 <p class="card__body">Consider grants that could help neighborhood businesses grow.</p>
 </article>
 <article class="card"><span class="card__eyebrow">The next generation</span>
-<h4 class="card__title">Student scholarships</h4>
+<h3 class="card__title">Student scholarships</h3>
 <p class="card__body">Explore ways to support local students and their future.</p>
 </article>
 </div>
@@ -634,7 +494,7 @@
 <div class="grid grid--3">
 <article class="card"><span class="card__eyebrow">Local connections</span>
 <h4 class="card__title">Businesses &amp; civic groups</h4>
-<p class="card__body">Discuss sponsorship, services, volunteer support or a place to gather.</p>
+<p class="card__body">Discuss services, volunteer support or a place to gather.</p>
 </article>
 <article class="card"><span class="card__eyebrow">The next generation</span>
 <h4 class="card__title">Schools &amp; students</h4>
@@ -657,7 +517,7 @@
 </div>
 <h4 class="committee__label">Co-chairs</h4>
 <ul class="committee__list committee__chairs">
-<li class="member"><span class="member__name">Fran Kerzner</span><span class="member__org">Sherman Oaks/Encino Chamber Board Member</span></li>
+<li class="member"><span class="member__name">Fran Kerzner</span><span class="member__org">President, Sherman Oaks Chamber Foundation</span></li>
 <li class="member"><span class="member__name">Vickie Bourdas Martinez</span><span class="member__org">CEO, Sherman Oaks/Encino Chamber</span></li>
 </ul>
 <h4 class="committee__label">Committee</h4>
@@ -697,7 +557,6 @@
 <li>Median Decorations</li>
 <li>Pop-up Museum</li>
 <li>Service Day LA</li>
-<li>Sponsorship Cultivation</li>
 </ul>
 </div>
 </div>
@@ -729,11 +588,6 @@
 <details class="faq__item"><summary>How can I share a story or photograph?</summary>
 <div class="faq__body">
 <p>Start with a <a href="#share-story">story idea</a> or a <a href="#contribute-photos">description of your photographs</a>. The committee will follow up about next steps, credits and permission before publishing anything.</p>
-</div>
-</details>
-<details class="faq__item"><summary>How can I sponsor the celebration?</summary>
-<div class="faq__body">
-<p>Review the <a href="#support">proposed sponsorship levels</a> and contact the committee. Final benefits and the official program details are still being confirmed.</p>
 </div>
 </details>
 <details class="faq__item"><summary>Can my organization take part?</summary>
@@ -772,7 +626,7 @@
 <div class="contact-panel"><span class="eyebrow">Let’s talk</span>
 <h2 id="contact-title"><a class="contact-address" href="mailto:info@shermanoaks100.com">info@shermanoaks100.com</a></h2>
 <p>Questions, ideas or a way you’d like to help? Choose a topic below to open a new message in your email app, or copy the address above.</p>
-<div class="email-cta__grid"><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20General%20question">General question</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Event%20inquiry">Events</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Volunteer%20interest">Volunteer</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Sponsorship%20inquiry">Sponsorship</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Historical%20contribution">Story or photographs</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Partnership%20or%20press%20inquiry">Partnerships &amp; press</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Centennial%20updates">Centennial updates</a></div>
+<div class="email-cta__grid"><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20General%20question">General question</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Event%20inquiry">Events</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Volunteer%20interest">Volunteer</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Historical%20contribution">Story or photographs</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Partnership%20or%20press%20inquiry">Partnerships &amp; press</a><a class="btn btn--ghost" href="mailto:info@shermanoaks100.com?subject=Sherman%20Oaks%20100%20%E2%80%94%20Centennial%20updates">Centennial updates</a></div>
 </div>
 </div>
 </section>
@@ -785,12 +639,7 @@
     <div class="site-footer__top">
       <div class="site-footer__brand">
         <a class="brand" href="#top" aria-label="Sherman Oaks Centennial 1927–2027 — back to top">
-          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
-            <rect width="64" height="64" rx="14" fill="#1c4536"/>
-            <circle cx="32" cy="32" r="22" fill="none" stroke="#c9a55a" stroke-width="1"/>
-            <text x="32" y="40" text-anchor="middle" font-family="Fraunces, Georgia, serif"
-                  font-size="20" font-weight="500" fill="#c9a55a">100</text>
-          </svg>
+          <img class="brand__mark" src="assets/images/brand/sherman-oaks-centennial.webp" width="637" height="571" alt="" />
           <span class="brand__text" style="color: var(--cream-50);">
             Sherman Oaks
             <small style="color: var(--gold-300);">Centennial · 1927–2027</small>
@@ -813,7 +662,6 @@
         <h2 class="site-footer__heading">Join In</h2>
         <ul>
           <li><a href="#volunteer">Volunteer</a></li>
-          <li><a href="#support">Sponsor</a></li>
           <li><a href="#partners">Partner with us</a></li>
           <li><a href="#committee">Steering Committee</a></li>
         </ul>
@@ -846,7 +694,7 @@
 <script src="assets/js/site-config.js?v=20261012b" defer></script>
 <script src="assets/js/consent.js?v=20261012b" defer></script>
 <script src="assets/js/countdown.js?v=20260912b" defer></script>
-<script src="assets/js/main.js?v=20261012c" defer></script>
+<script src="assets/js/main.js?v=20261014a" defer></script>
 <script src="assets/js/map-loader.js?v=20261012f" defer></script>
 </body>
 </html>

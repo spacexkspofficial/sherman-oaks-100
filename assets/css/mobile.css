@@ -32,7 +32,7 @@ body {
 }
 .container { padding-inline: var(--m-gutter); }
 .section { padding: var(--m-section) 0; }
-.card:hover, .event-card:hover, .btn:hover, .sponsor:hover { transform: none; }
+.card:hover, .event-card:hover, .btn:hover { transform: none; }
 
 /* Section intros read left-aligned: long centered lines are hard to track. */
 .section-head { text-align: left; max-width: none; margin: 0 0 1.5rem; }
@@ -49,7 +49,7 @@ body {
    -------------------------------------------------------------------------- */
 .site-header { background: rgba(255, 253, 248, .96); }
 .nav { gap: .35rem; }
-.brand__mark { width: 36px; height: 36px; }
+.brand__mark { width: 44px; height: auto; }
 .nav__menu, .nav--open .nav__menu { gap: .1rem; padding: .25rem 28px .25rem 2px; }
 .nav__menu a, .nav--open .nav__menu a {
   min-height: 40px; padding: .4rem .8rem; border: 0; background: transparent;
@@ -179,18 +179,13 @@ body {
 /* --------------------------------------------------------------------------
    Support
    -------------------------------------------------------------------------- */
-.support-levels { gap: .6rem; }
-.support-levels .card { padding: .9rem; gap: .15rem; border-radius: 12px; }
-.support-levels .card__title { font-size: 1.5rem; }
-.support-levels .card__body { font-size: .875rem; margin-bottom: .25rem; }
 /* An underline instead of a bottom border, so a link that wraps doesn't get
    a box-wide rule under it. */
 .card a.card__link {
   display: inline-block; padding-block: .3rem; border-bottom: 0;
   text-decoration: underline; text-underline-offset: 3px;
 }
-.support-talk { margin-top: 1.5rem; padding: 1.25rem; border-radius: var(--r-md); }
-.support-talk h3, .committee h3, .working-committees h3 { font-size: 1.45rem; }
+.committee h3, .working-committees h3 { font-size: 1.45rem; }
 
 /* Legacy ideas and partner types are information, not actions: a divided
    list instead of stacked boxes. */

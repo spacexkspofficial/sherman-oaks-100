@@ -16,11 +16,11 @@ The non-historical changes from the 24-item website proposal have been implement
 - **Steering committee (October 12).** Vickie's confirmed roster replaces the placeholder: two co-chairs, nine members and a special-thanks list. A working-committees panel follows it. Its button emails `info@shermanoaks100.com`, which Alex confirmed as the website's point of contact, with the subject "Centennial Committee". Also uncommitted local work.
 - **Photos (October 11).** The agreed set plus Cesar's 2026 photos. The Ventura & Sepulveda 1960s, La Reina 1945 and marquee images are glare-restored from archive photos of framed prints. Credits/permissions are still to confirm; see the workspace changelog.
 
-- Brighter homepage with direct links to events, history, community stories, sponsors and participation. On October 3, added a Map link to all 19 navigation menus, a hero map link and a dedicated homepage map feature.
+- Brighter homepage with direct links to events, history, community stories, the Centennial Legacy and participation. On October 3, added a Map link to all 19 navigation menus, a hero map link and a dedicated homepage map feature.
 - Four planned 2027 events, shown by quarter; Q3 is planned for August. Exact dates, times, venues and admission details remain unconfirmed.
-- Proposed sponsorship levels of $100, $1,000, $5,000 and $10,000+. Benefits and the official external program link remain pending.
+- October 14: all sponsorship content was removed at Alex's request (proposed levels, FAQ, contact button, footer links, the "Sponsorship Cultivation" working committee and `sponsors.html`). The Support section (`#support`) now shows only the Centennial Legacy ideas, and its nav label reads "Legacy".
 - Centennial Legacy vision for trees, small-business support and student scholarships, clearly described as ideas under consideration.
-- Memory Wall introduction awaiting approved entries. Volunteer, story, photo, sponsorship and contact actions open an email draft addressed to `info@shermanoaks100.com`, the address already used by the preview gate. No message is sent automatically.
+- Memory Wall introduction awaiting approved entries. Volunteer, story, photo and contact actions open an email draft addressed to `info@shermanoaks100.com`, the address already used by the preview gate. No message is sent automatically.
 - Sample event dates, sponsor benefits, committee identities, partner endorsements and dated news announcements removed from the refreshed pages. No newsletter subscription is represented as completed.
 - Community Map (built September 13, redesigned October 11): seven then-and-now photo spots with photo pins, then/now popups, a side list or phone card row, directions and data-loading fallbacks.
 - History (timeline text) and Notable Residents page bodies remain existing drafts on hold.
@@ -33,7 +33,7 @@ The full implementation and approval status is maintained in the workspace's `CH
 
 - [x] Refresh the homepage appearance, shared navigation and participation routes.
 - [x] Add the four planned quarterly events to the homepage and calendar, with working category filters.
-- [x] Add proposed sponsorship levels and the Centennial Legacy vision without unconfirmed benefits or funding promises.
+- [x] Add the Centennial Legacy vision without unconfirmed funding promises. (Proposed sponsorship levels were added, then removed on October 14.)
 - [x] Build the Memory Wall introduction and email contribution route.
 - [x] Build countdown logic that stays pending until an approved date is configured.
 - [x] Remove invented listings, sample dates, placeholder contact domains, dead links and misleading form-success behavior from refreshed pages.
@@ -43,13 +43,12 @@ The full implementation and approval status is maintained in the workspace's `CH
 - [ ] Confirm `info@shermanoaks100.com` receives messages. Email-link destinations were checked; delivery was not.
 - [ ] Enter confirmed event dates, times, venues, admission and accessibility details on both event listings.
 - [ ] Activate the countdown after the exact Founders' Day date and time are confirmed.
-- [ ] Finalize sponsorship amounts, benefits, recognition wording and the official program URL.
 - [ ] Confirm Legacy program wording, funding and the responsible organization.
 - [x] October 12: steering committee roster, special thanks and working committees from Vickie's list.
 - [x] October 12: Alex confirmed `info@shermanoaks100.com` as the website's point of contact, including for joining a working committee.
 - [x] October 12: WCAG 2.1 AA accessibility fixes, rewritten Accessibility Statement, Privacy Policy and Terms of Use, and an opt-in analytics consent banner (off until a GA ID is set). Lawyer review and the launch checklist are in the workspace `legal/` folder.
 - [x] October 12 (evening): phone layout in `assets/css/mobile.css`. Desktop and tablet rendering is unchanged (verified at 700, 768 and 1440 px). Uncommitted local work.
-- [ ] Complete partner listings, policy review and final metadata/social assets, including the centennial logo Vickie will send, then carry out the authorized launch. Keep the preview gate until that launch.
+- [ ] Complete partner listings, policy review and final metadata/social assets (the centennial logo and favicon are in as of October 14; a social sharing image isn't), then carry out the authorized launch. Keep the preview gate until that launch.
 
 ### Work that needs content, decisions or outside help
 
@@ -88,7 +87,7 @@ Preserve the current implementation when resuming. The workspace's `tmp/refresh_
 | Content | File |
 | --- | --- |
 | The whole one-page site: all sections, then-and-now viewer, archive, map section, Memory Wall | `index.html` |
-| Redirect stubs for retired pages (no content) | `about`, `events`, `gallery`, `map`, `sponsors`, `get-involved`, `contact`, `faq`, `news`, `steering-committee`, `civic-partners` `.html` |
+| Redirect stubs for retired pages (no content) | `about`, `events`, `gallery`, `map`, `get-involved`, `contact`, `faq`, `news`, `steering-committee`, `civic-partners` `.html` |
 | Community Map approved location list | `assets/data/locations.json` |
 | Map behavior, data validation, basemap style/provider, lazy loader | `assets/js/community-map.js`, `assets/js/map-data.js`, `assets/js/map-config.js`, `assets/js/map-loader.js` |
 | Map styles and bundled Leaflet library/license | `assets/css/community-map.css`, `assets/vendor/leaflet/`, `assets/vendor/maplibre/` |
@@ -124,10 +123,10 @@ After the committee confirms the date and time, set an ISO 8601 timestamp with t
 - Photographs, then-and-now comparisons and then-and-now map locations were released on October 11 for the agreed selection. Timeline revisions, trivia, video, other map content and other archive images stay on hold until Alex releases them and the content is approved. Confirm credits and web permissions for the published photos before launch.
 - Approved Memory Wall entries can be added manually to the marked section of `index.html`, with contributor permission, captions and credits.
 - Update event cards on both `index.html` and `events.html` when plans are confirmed.
-- Confirm sponsorship benefits, program URL, contribution wording and any tax language before publishing final offers. The site only directs inquiries; it cannot process payments or administer a fund.
+- Confirm contribution wording and any tax language before publishing a giving or Legacy program. The site only directs inquiries; it cannot process payments or administer a fund.
 - Public media uploads require an approved external submission and storage service. Current contribution links open the visitor's email app.
 - Vickie confirmed the steering committee roster on October 12. Confirm partner participation, social links, policy wording and inbox operation before launch. Committee members' affiliations are not partner endorsements. Do not restore placeholder names or endorsements.
-- Browser verification is complete for the refreshed build: all 10 refreshed pages were checked at 320, 768 and 1440 pixels, with additional visual checks at 390 pixels. Login, event filters, navigation, keyboard access, FAQ expansion, the pending countdown and email-link destinations were checked. Browser review corrected event-card columns, obscured seal lettering and a mobile-menu resize scroll lock. Inbox delivery and actual event/sponsorship details still require confirmation.
+- Browser verification is complete for the refreshed build: all 10 refreshed pages were checked at 320, 768 and 1440 pixels, with additional visual checks at 390 pixels. Login, event filters, navigation, keyboard access, FAQ expansion, the pending countdown and email-link destinations were checked. Browser review corrected event-card columns, obscured seal lettering and a mobile-menu resize scroll lock. Inbox delivery and actual event details still require confirmation.
 - Remove the preview screen and deploy only as part of an authorized public launch. Pushes to the publishing branch can update GitHub Pages. The preview gate is client-side only, so anything pushed, including photo files, is publicly fetchable. No push was made for the October 11 update.
 
 ## Community Map
