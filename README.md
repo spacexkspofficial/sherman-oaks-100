@@ -17,8 +17,8 @@ The non-historical changes from the 24-item website proposal have been implement
 - **Photos (October 11).** The agreed set plus Cesar's 2026 photos. The Ventura & Sepulveda 1960s, La Reina 1945 and marquee images are glare-restored from archive photos of framed prints. Credits/permissions are still to confirm; see the workspace changelog.
 
 - Brighter homepage with direct links to events, history, community stories, the Centennial Legacy and participation. On October 3, added a Map link to all 19 navigation menus, a hero map link and a dedicated homepage map feature.
-- Four planned 2027 events, shown by quarter; Q3 is planned for August. Exact dates, times, venues and admission details remain unconfirmed.
-- October 14: all sponsorship content was removed at Alex's request (proposed levels, FAQ, contact button, footer links, the "Sponsorship Cultivation" working committee and `sponsors.html`). The Support section (`#support`) now shows only the Centennial Legacy ideas, and its nav label reads "Legacy".
+- Four 2027 events, named and dated from the sponsorship flyer (October 14): the Centennial Mural unveiling (Saturday, January 23), the Shine LA Service Day & Tree Day (a spring Saturday; the flyer gives both "Spring TBD" and "April 24", so the site says the date is to be confirmed), 100 Years / Young Artists (August 18 through Labor Day) and the 35th Sherman Oaks Street Fair, Centennial Edition (Sunday, October 17). Times, venues and admission details remain unconfirmed.
+- October 14 (evening): sponsorship is back, from Fran's two-page sponsorship flyer. Alex confirmed with Fran that it can go on the site; there is no purchase link yet, so every action emails `info@shermanoaks100.com`. The Support section (`#support`, nav label "Support") opens with `#sponsor`: a how-to-sponsor box, five Centennial Series packages, single-event levels for the four events, the flyer's tax note, and the three flyer contacts. The Centennial Legacy ideas follow. The FAQ, contact topic, Businesses card, "Sponsorship Cultivation" working committee and footer "Sponsor" links are restored. Terms §4 now covers sponsorships (pending counsel review). Earlier the same day, all sponsorship content had been removed at Alex's request.
 - Centennial Legacy vision for trees, small-business support and student scholarships, clearly described as ideas under consideration.
 - Memory Wall introduction awaiting approved entries. Volunteer, story, photo and contact actions open an email draft addressed to `info@shermanoaks100.com`, the address already used by the preview gate. No message is sent automatically.
 - Sample event dates, sponsor benefits, committee identities, partner endorsements and dated news announcements removed from the refreshed pages. No newsletter subscription is represented as completed.
@@ -33,7 +33,7 @@ The full implementation and approval status is maintained in the workspace's `CH
 
 - [x] Refresh the homepage appearance, shared navigation and participation routes.
 - [x] Add the four planned quarterly events to the homepage and calendar, with working category filters.
-- [x] Add the Centennial Legacy vision without unconfirmed funding promises. (Proposed sponsorship levels were added, then removed on October 14.)
+- [x] Add the Centennial Legacy vision without unconfirmed funding promises. (Proposed sponsorship levels were added, removed on October 14, then replaced the same evening by the packages in Fran's flyer.)
 - [x] Build the Memory Wall introduction and email contribution route.
 - [x] Build countdown logic that stays pending until an approved date is configured. (Removed October 14 with all Founders' Day mentions: there is no Founders' Day event.)
 - [x] Remove invented listings, sample dates, placeholder contact domains, dead links and misleading form-success behavior from refreshed pages.
