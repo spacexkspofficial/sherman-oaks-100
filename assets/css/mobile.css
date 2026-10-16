@@ -280,3 +280,6 @@ body {
 .page-header { padding: 2rem 0 1.5rem; }
 .legal-meta { padding: 1rem; margin-bottom: 1.5rem; }
 .prose h2 { margin-top: 2.25rem; }
+/* The decorative "404" (aria-hidden) must not widen the page when readers
+   increase letter spacing (WCAG 1.4.12); it is clipped, never the content. */
+.lost__big { overflow-x: clip; }

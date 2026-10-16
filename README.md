@@ -11,7 +11,7 @@ The non-historical changes from the 24-item website proposal have been implement
   - **History:** a then-and-now viewer (five pairs), "More views in the works" and the archive.
   - **Nav:** marks the section in view and shows scroll progress. Below 1200 px it is a swipeable row of section chips.
   - **Redirects:** the eleven retired pages are redirect stubs that keep `#section`/`#place=` links.
-  - **Standalone pages:** `privacy`, `terms`, `copyright`, `accessibility`, `404` and the held drafts `history.html` (timeline) and `notable-residents.html`.
+  - **Standalone pages:** `privacy`, `terms`, `copyright`, `accessibility` and `404`. The held drafts `history.html` (timeline) and `notable-residents.html` moved to the workspace's `../held-from-launch/pages/` on October 16 and must not return to this folder until released and fixed.
   - **Editing:** edit `index.html` directly. The workspace's `historical-data/cesar-2026-10-11/review/build_onepage.py` was a one-time builder; do not rerun it.
 - **Steering committee (October 12).** Vickie's confirmed roster replaces the placeholder: two co-chairs, nine members and a special-thanks list. A working-committees panel follows it. Its button emails `info@shermanoaks100.com`, which Alex confirmed as the website's point of contact, with the subject "Centennial Committee". Also uncommitted local work.
 - **Photos (October 11).** The agreed set plus Cesar's 2026 photos. The Ventura & Sepulveda 1960s, La Reina 1945 and marquee images are glare-restored from archive photos of framed prints. Since October 16 the historic images are credited to Hollywood Historic Photos by Decor Art Galleries; the remaining credit items are in the workspace changelog.
@@ -23,7 +23,7 @@ The non-historical changes from the 24-item website proposal have been implement
 - Memory Wall introduction awaiting approved entries. Volunteer, story, photo and contact actions open an email draft addressed to `info@shermanoaks100.com`, the address already used by the preview gate. No message is sent automatically.
 - Sample event dates, sponsor benefits, committee identities, partner endorsements and dated news announcements removed from the refreshed pages. No newsletter subscription is represented as completed.
 - Community Map (built September 13, redesigned October 11): seven then-and-now photo spots (Sherman Oaks Circle added and Ventura & Van Nuys held on October 16) with photo pins, then/now popups, a side list or phone card row, directions and data-loading fallbacks.
-- History (timeline text) and Notable Residents page bodies remain existing drafts on hold.
+- History (timeline text) and Notable Residents page bodies remain drafts on hold, now kept outside the public folder in `../held-from-launch/pages/`.
 
 The full implementation and approval status is maintained in the workspace's `CHANGELOG-PENDING-APPROVAL.md`, outside the deployed folder. Read this handoff first in future sessions; check the current files and Git/deployment state before continuing. Completed implementation does not mean pending content has been approved or the update published.
 
@@ -47,14 +47,15 @@ The full implementation and approval status is maintained in the workspace's `CH
 - [x] October 12: Alex confirmed `info@shermanoaks100.com` as the website's point of contact, including for joining a working committee.
 - [x] October 12: WCAG 2.1 AA accessibility fixes, rewritten Accessibility Statement, Privacy Policy and Terms of Use, and an opt-in analytics consent banner (off until a GA ID is set). Lawyer review and the launch checklist are in the workspace `legal/` folder.
 - [x] October 12 (evening): phone layout in `assets/css/mobile.css`. Desktop and tablet rendering is unchanged (verified at 700, 768 and 1440 px). Uncommitted local work.
-- [ ] Complete partner listings, policy review and final metadata/social assets (the centennial logo and favicon are in as of October 14; a social sharing image isn't), then carry out the authorized launch. Keep the preview gate until that launch.
+- [x] October 16: Privacy Policy, Terms of Use, Accessibility Statement and Copyright Notice adopted for launch (effective October 16, 2026; draft boxes removed; counsel review moved to after launch at the client's request). Getty and LAPL images, the Ventura & Van Nuys map record and the two held drafts moved to `../held-from-launch/`. See the workspace `legal/` folder.
+- [ ] Complete partner listings, post-launch counsel review and final metadata/social assets (the centennial logo and favicon are in as of October 14; a social sharing image isn't), then carry out the authorized launch. Keep the preview gate until that launch.
 
 ### Work that needs content, decisions or outside help
 
 - [ ] **HOLD — history:** verified pre-1927 introduction, founding entry and timeline milestones; keep existing historical page bodies as drafts meanwhile.
 - [x] October 11: agreed photographs added (homepage banner, gallery archive grid, 2017 street-fair photo) as metadata-free web exports.
 - [x] October 16: Cesar says the photos on the site can be used. Nine historic images are credited to Hollywood Historic Photos by Decor Art Galleries, linked to hollywoodhistoricphotos.com. The Fashion Square 1962 aerial is credited to the Herald Examiner Collection/Los Angeles Public Library (its source, found in a Drive search), and the 2025 Casa de Cadillac and 2017 Street Fair photos to Sherman Oaks 100. Uncommitted local work.
-- [ ] **Photo credits and permissions remaining:** the **Getty Images** Ventura & Van Nuys photo still needs a license, unless Cesar's OK covers it; an LAPL web-use order for the Fashion Square 1962 aerial; Cesar's confirmation that he took the 2025 Casa de Cadillac and 2017 Street Fair photos; whether the map thumbnails need a credit line. See `../historical-data/cesar-2026-10-11/review/photo-approvals.json`. Better originals are wanted for Sherman Oaks Circle (450 px) and the Fashion Square postcard (640 px).
+- [ ] **Photo credits and permissions remaining:** the **Getty Images** Ventura & Van Nuys photo needs a license before it returns (held from launch October 16); an LAPL web-use order for the Fashion Square 1962 aerial (held from launch October 16; LAPL requires prior written permission and a fee for web use); Cesar's confirmation that he took the 2025 Casa de Cadillac and 2017 Street Fair photos; whether the map thumbnails need a credit line. See `../historical-data/cesar-2026-10-11/review/photo-approvals.json`. Better originals are wanted for Sherman Oaks Circle (450 px) and the Fashion Square postcard (640 px).
 - [x] October 11: then-and-now feature with four complete pairs.
 - [x] October 16 (evening): Casa Vega 1970/2026 comparison added from the image Alex sent (Hollywood Historic Photos, credited). It shows a faint watermark, which stays; Alex approved launching with it the same evening.
 - [ ] **Then-and-now remaining:** a present-day Ventura & Van Nuys photo (on Ventura east of Van Nuys, looking west, with Crave Café at 14504 Ventura on the left corner); a present-day Sherman Oaks Circle photo (from Ventura Blvd. looking south). Neither present-day photo exists on Drive. The Circle's location was confirmed October 16.
@@ -93,8 +94,8 @@ Preserve the current implementation when resuming. The workspace's `tmp/refresh_
 | Map behavior, data validation, basemap style/provider, lazy loader | `assets/js/community-map.js`, `assets/js/map-data.js`, `assets/js/map-config.js`, `assets/js/map-loader.js` |
 | Map styles and bundled Leaflet library/license | `assets/css/community-map.css`, `assets/vendor/leaflet/`, `assets/vendor/maplibre/` |
 | History photos (1600/800 px, 480 px map thumbs, metadata-free) | `assets/images/history/` |
-| Held historical drafts | `history.html`, `notable-residents.html` |
-| Draft policies requiring legal review (rewritten October 12; see the workspace `legal/` folder) | `privacy.html`, `terms.html`, `copyright.html`, `accessibility.html` |
+| Held from launch (not in this folder): draft pages, unlicensed photos, the Ventura & Van Nuys map record | `../held-from-launch/` (see its README) |
+| Policies adopted for launch October 16, 2026; counsel review after launch (see the workspace `legal/` folder). Update their dates whenever they change. | `privacy.html`, `terms.html`, `copyright.html`, `accessibility.html` |
 | Analytics consent banner and Google Analytics loader (off while `gaMeasurementId` is `null`) | `assets/js/consent.js`, `assets/js/site-config.js` |
 | Shared styles and responsive layout | `assets/css/styles.css` |
 | Phone layout (applies only at 699 px and below; linked last on all 8 full pages with `media="(max-width: 699px)"`). Restyle only: never hide content or change reading order there. | `assets/css/mobile.css` |
@@ -164,7 +165,7 @@ Unapproved/invalid entries and duplicate IDs are skipped. A malformed file shows
 
 The default map now uses an original, simplified Shortbread vector style: ivory background, muted green spaces and gold roads, with street and neighborhood labels. Buildings, house numbers, businesses and other POI icons are omitted. Locally bundled MapLibre GL JS 5.24.0 (BSD-3-Clause) and maplibre-gl-leaflet 0.1.3 (ISC) render the basemap beneath existing Leaflet pins; package tarballs were checked against npm SHA-512 integrity and licenses are in `assets/vendor/maplibre/`. Style, source and font URLs are in `assets/js/map-config.js`. No new account or API key was created.
 
-The working preview uses OpenStreetMap vector tiles and label fonts, with standard raster tiles as a fallback if WebGL or the vector libraries are unavailable. All linked credits remain; the default Leaflet flag graphic is replaced with text-only attribution on both map pages. Normal browser referrer/cache behavior is retained and no tiles are prefetched for offline use. The services are best-effort; review expected traffic and the [vector usage policy](https://operations.osmfoundation.org/policies/vector/) and [raster tile usage policy](https://operations.osmfoundation.org/policies/tiles/) before launch, or configure an appropriate hosted provider. The list remains usable if the map library or tiles fail. The draft privacy page now describes this map's requests; overall policy review remains outstanding. Directions use [Google Maps URLs](https://developers.google.com/maps/documentation/urls/get-started) and open only when a visitor selects the link.
+The working preview uses OpenStreetMap vector tiles and label fonts, with standard raster tiles as a fallback if WebGL or the vector libraries are unavailable. All linked credits remain; the default Leaflet flag graphic is replaced with text-only attribution on both map pages. Normal browser referrer/cache behavior is retained and no tiles are prefetched for offline use. The services are best-effort; review expected traffic and the [vector usage policy](https://operations.osmfoundation.org/policies/vector/) and [raster tile usage policy](https://operations.osmfoundation.org/policies/tiles/) before launch, or configure an appropriate hosted provider. The list remains usable if the map library or tiles fail. The Privacy Policy describes this map's requests; if the provider changes, update it first. Directions use [Google Maps URLs](https://developers.google.com/maps/documentation/urls/get-started) and open only when a visitor selects the link.
 
 October 3 checks covered the homepage links, 19 navigation links, desktop navigation at 1201 pixels, mobile navigation, the simplified map at phone/tablet/desktop sizes, pins and popup focus with temporary fixtures, text-only attribution and the raster fallback. The separate Notable Residents page received navigation and attribution presentation changes only; its historical content remains held.
 
@@ -177,7 +178,7 @@ python ../tmp/check_site.py
 node ../tmp/check_map.cjs
 ```
 
-These check internal links and anchors, four matching event cards, held historical page bodies, preview gating, map-data validation, the published location records and their photo/story links, image alt text, EXIF removal from history exports, and that held images stay out of the public folder. They do not replace visual or real-browser testing. Run them after removing temporary `_map-qa*` browser fixtures, if any were created.
+These check internal links and anchors, four matching event cards, that held drafts and held images stay out of the public folder, that no policy page is still marked as a draft, that no page loads unpkg/CARTO, preview gating, map-data validation, the published location records and their photo/story links, image alt text, EXIF removal from history exports, and that held images stay out of the public folder. They do not replace visual or real-browser testing. Run them after removing temporary `_map-qa*` browser fixtures, if any were created.
 
 ## Acknowledgments
 

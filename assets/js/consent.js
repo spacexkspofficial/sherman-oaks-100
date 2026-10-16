@@ -217,8 +217,11 @@
     });
     if (browserSignalsOptOut()) { stopAnalytics(); return; }
     const choice = effectiveChoice();
-    if (choice === "granted") loadAnalytics();
-    else if (choice === null) whenPageVisible(function () { showBanner(null); });
+    if (choice === "granted") { loadAnalytics(); return; }
+    // No current "Allow" (declined, never asked, or the 12-month choice expired):
+    // clear any Google Analytics cookies left from an earlier visit.
+    stopAnalytics();
+    if (choice === null) whenPageVisible(function () { showBanner(null); });
   }
 
   if (document.readyState !== "loading") init();
