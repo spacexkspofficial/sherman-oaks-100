@@ -21,6 +21,23 @@
       "storyLabel": "Compare then & now"
     },
     {
+      "id": "sherman-oaks-circle",
+      "approved": true,
+      "name": "Sherman Oaks Circle",
+      "category": "then-now",
+      "address": "Sherman Oaks Circle, south of Ventura Blvd. near Sepulveda Blvd.",
+      "lat": 34.15164,
+      "lng": -118.4691,
+      "description": "The Sherman Oaks Circle, laid out just south of Ventura Boulevard, seen around 1940 with young cypress trees and open hills beyond. A 1929 plan for a “City Hall” here was never built; a short street still carries the circle’s name.",
+      "accessibility": "Residential street. Please view from the public sidewalk.",
+      "thenImage": "assets/images/history/sherman-oaks-circle-1940-thumb.jpg",
+      "thenAlt": "Around 1940: A traffic circle ringed with young cypress trees, with open hills beyond.",
+      "thenLabel": "1940",
+      "nowLabel": "Today",
+      "storyUrl": "#archive-sherman-oaks-circle",
+      "storyLabel": "See the c. 1940 view"
+    },
+    {
       "id": "ventura-sepulveda",
       "approved": true,
       "name": "Ventura and Sepulveda",
@@ -71,7 +88,7 @@
       "thenImage": "assets/images/history/ventura-van-nuys-1940-thumb.jpg",
       "thenAlt": "1940: Street view of the corner of Ventura and Van Nuys boulevards.",
       "thenLabel": "1940",
-      "nowLabel": "Present-day photo planned",
+      "nowLabel": "Today",
       "storyUrl": "#archive-ventura-van-nuys",
       "storyLabel": "See the 1940 view"
     },

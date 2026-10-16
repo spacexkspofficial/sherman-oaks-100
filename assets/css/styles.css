@@ -2321,11 +2321,11 @@ main [id] { scroll-margin-top: 100px; }
 .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: clamp(1.25rem, 3vw, 2rem); }
 .archive-photo { margin: 0; }
 .archive-photo--wide { grid-column: 1 / -1; }
-.archive-photo a { display: block; overflow: hidden; border-radius: var(--r-md); background: var(--cream-200); }
+.archive-photo > a { display: block; overflow: hidden; border-radius: var(--r-md); background: var(--cream-200); }
 .archive-photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform var(--t-base); }
 .archive-photo--wide img { aspect-ratio: auto; }
-.archive-photo a:hover img { transform: scale(1.03); }
-.archive-photo a:focus-visible { outline: 3px solid var(--oak-600); outline-offset: 3px; }
+.archive-photo > a:hover img { transform: scale(1.03); }
+.archive-photo > a:focus-visible { outline: 3px solid var(--oak-600); outline-offset: 3px; }
 .archive-photo h3 { margin: .9rem 0 .25rem; font-size: 1.2rem; }
 .archive-photo .photo-caption { margin-top: 0; }
 .archive-note { margin-top: 2rem; color: var(--fg-muted); font-size: .88rem; }
