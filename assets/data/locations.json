@@ -76,23 +76,6 @@
       "storyLabel": "Compare then & now"
     },
     {
-      "id": "ventura-van-nuys",
-      "approved": true,
-      "name": "Ventura and Van Nuys",
-      "category": "then-now",
-      "address": "Ventura Blvd. at Van Nuys Blvd.",
-      "lat": 34.15092,
-      "lng": -118.4487,
-      "description": "A 1940 street scene at one of Sherman Oaks' best-known intersections. A matching present-day photograph from the same corner is planned.",
-      "accessibility": "Busy intersection. Use marked crosswalks.",
-      "thenImage": "assets/images/history/ventura-van-nuys-1940-thumb.jpg",
-      "thenAlt": "1940: Street view of the corner of Ventura and Van Nuys boulevards.",
-      "thenLabel": "1940",
-      "nowLabel": "Today",
-      "storyUrl": "#archive-ventura-van-nuys",
-      "storyLabel": "See the 1940 view"
-    },
-    {
       "id": "casa-de-cadillac",
       "approved": true,
       "name": "Casa de Cadillac",
@@ -119,16 +102,14 @@
       "address": "14006 Riverside Dr.",
       "lat": 34.15688,
       "lng": -118.43722,
-      "description": "Bullock's rose beside the Ventura Freeway as Fashion Square took shape on the former McKinley Home for Boys site. Compare a January 24, 1962 aerial with 2026.",
-      "accessibility": "Shopping center open to the public. Both views are aerial photographs looking northwest.",
-      "thenImage": "assets/images/history/fashion-square-1962-thumb.jpg",
-      "thenAlt": "January 1962: Aerial view of Bullock's under construction beside the Ventura Freeway.",
+      "description": "Fashion Square opened in 1962 beside the Ventura Freeway, on the former McKinley Home for Boys site. A historic aerial view to compare with 2026 is being prepared.",
+      "accessibility": "Shopping center open to the public.",
       "thenLabel": "1962",
       "nowImage": "assets/images/history/fashion-square-2026-thumb.jpg",
       "nowAlt": "2026: Aerial view of Westfield Fashion Square and the Ventura Freeway.",
       "nowLabel": "2026",
-      "storyUrl": "#then-now-fashion-square",
-      "storyLabel": "Compare then & now"
+      "storyUrl": "#archive-fashion-square",
+      "storyLabel": "See the vintage postcard"
     },
     {
       "id": "casa-vega",
@@ -138,12 +119,16 @@
       "address": "13301 Ventura Blvd.",
       "lat": 34.14686,
       "lng": -118.42278,
-      "description": "Part of Ventura Boulevard since 1956. A 1970 aerial view of this corner is being cleared to pair with the 2026 view.",
-      "accessibility": "Private business. The 2026 view is an aerial photograph.",
-      "thenLabel": "Historic photo pending",
+      "description": "Part of Ventura Boulevard since 1956. Compare a 1970 aerial view of the corner of Fulton Avenue with the same corner in 2026.",
+      "accessibility": "Private business. Both views are aerial photographs.",
+      "thenImage": "assets/images/history/casa-vega-1970-thumb.jpg",
+      "thenAlt": "1970: Aerial view of Casa Vega at Ventura Boulevard and Fulton Avenue.",
+      "thenLabel": "1970",
       "nowImage": "assets/images/history/casa-vega-2026-thumb.jpg",
       "nowAlt": "2026: Aerial view of Casa Vega on Ventura Boulevard.",
-      "nowLabel": "2026"
+      "nowLabel": "2026",
+      "storyUrl": "#then-now-casa-vega",
+      "storyLabel": "Compare then & now"
     }
   ]
 }
