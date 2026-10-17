@@ -55,7 +55,7 @@
         "</a>" +
         "<span class=\"eyebrow\">Preview Access</span>" +
         "<h1 id=\"auth-gate-title\">This website is currently being developed.</h1>" +
-        "<p>For questions about Sherman Oaks 100, contact <a href=\"mailto:info@shermanoaks100.com\">info@shermanoaks100.com</a>.</p>" +
+        "<p>For questions about Sherman Oaks 100, contact <a href=\"mailto:info@shermanoaks100.com\" target=\"_blank\" rel=\"noopener noreferrer\">info@shermanoaks100.com</a>.</p>" +
         "<form class=\"auth-gate__form\" autocomplete=\"off\">" +
           "<label for=\"auth-password\">Password</label>" +
           "<div class=\"auth-gate__row\">" +
