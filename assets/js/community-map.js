@@ -47,7 +47,7 @@
       img.src = shot.src; img.alt = shot.alt; img.loading = "lazy"; img.decoding = "async";
       img.width = 480; img.height = 360;
       figure.append(img);
-    } else figure.append(element("span", "map-place__photo-pending", "Photo coming soon"));
+    } else figure.append(element("span", "map-place__photo-pending", shot.label === "TBD" ? "To be determined" : "Photo coming soon"));
     figure.append(element("figcaption", "", shot.label));
     return figure;
   }
@@ -78,7 +78,7 @@
         button.type = "button";
         button.disabled = !shot.src;
         button.setAttribute("aria-pressed", String(shot === shots[0]));
-        if (!shot.src) button.title = "Photo coming soon";
+        if (!shot.src) button.title = shot.label === "TBD" ? "Photo timing to be determined" : "Photo coming soon";
         button.addEventListener("click", function () {
           show(shot);
           toggle.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b === button)));

@@ -33,7 +33,7 @@
       "thenImage": "assets/images/history/sherman-oaks-circle-1940-thumb.jpg",
       "thenAlt": "Around 1940: A traffic circle ringed with young cypress trees, with open hills beyond.",
       "thenLabel": "1940",
-      "nowLabel": "Today",
+      "nowLabel": "TBD",
       "storyUrl": "#archive-sherman-oaks-circle",
       "storyLabel": "See the c. 1940 view"
     },
@@ -121,14 +121,16 @@
       "address": "14006 Riverside Dr.",
       "lat": 34.15688,
       "lng": -118.43722,
-      "description": "Fashion Square opened in 1962 beside the Ventura Freeway, on the former McKinley Home for Boys site. A historic aerial view to compare with 2026 is being prepared.",
+      "description": "Fashion Square opened in 1962 beside the Ventura Freeway, on the former McKinley Home for Boys site. Compare the 1962 aerial with the same view in 2026.",
       "accessibility": "Shopping center open to the public.",
       "thenLabel": "1962",
       "nowImage": "assets/images/history/fashion-square-2026-thumb.jpg",
       "nowAlt": "2026: Aerial view of Westfield Fashion Square and the Ventura Freeway.",
       "nowLabel": "2026",
-      "storyUrl": "#archive-fashion-square",
-      "storyLabel": "See the vintage postcard"
+      "storyUrl": "#then-now-fashion-square",
+      "storyLabel": "Compare then & now",
+      "thenImage": "assets/images/history/fashion-square-1962-thumb.jpg",
+      "thenAlt": "January 1962: Aerial view of Bullock's under construction beside the Ventura Freeway."
     },
     {
       "id": "casa-vega",
