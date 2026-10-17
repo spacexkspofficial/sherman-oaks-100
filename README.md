@@ -1,194 +1,108 @@
-# Sherman Oaks 100 — Centennial Website
+# Sherman Oaks 100
 
-A static HTML, CSS and JavaScript website for the 2027 centennial, hosted on GitHub Pages at `shermanoaks100.com`. No framework, build step, backend or payment processing.
+The community website for Sherman Oaks' 2027 centennial: events, neighborhood history, then-and-now photographs, an interactive map, sponsorship information, and ways to get involved.
 
-## Current preview — updated October 17, 2026
+The site is built with HTML, CSS, and vanilla JavaScript and is designed for GitHub Pages. Files in this repository are the deployable site; there is no package install, build step, application server, or database.
 
-**October 17 — sponsorship flyer consolidation:** Alex supplied `Sherman-Oaks-100-Sponsorship-Flyer (1).pdf` and relayed Fran's direction that anyone purchasing or moving forward must email. The Support section now offers quick links to Series packages, single-event levels and centennial-only opportunities. All five Series packages have separate Street Fair, other-event and permanent-recognition benefits; all 15 single-event levels and their prices are retained. Time Capsule ($7,500), Centennial Gallery ($5,000), Birthday Cake ($3,500) and History Walk ($3,500) now have their own cards and email links. The main call to action, closing panel and FAQ explicitly say to email `info@shermanoaks100.com` to purchase or proceed. All 19 sponsorship links to that inbox include editable subject/body drafts. The flyer's direct mural and Street Fair contacts remain available. Email is the intended purchase path; no checkout link is required. The spring date remains unconfirmed because the flyer says both "Spring TBD" and "April 24"; sponsorship and FAQ wording now explicitly says spring 2027. Stylesheet version: `20261017b` across all six full pages. Checks: 360 local links, 65 map checks, clean diff whitespace, 19 valid sponsorship draft links, and Chrome at 1440/768/375/320 px without horizontal overflow or console errors. Starting checkout was clean at `5523aa6`; changes are local, uncommitted and not pushed.
+- [Contribution guide](CONTRIBUTING.md): workflow, editing conventions, and validation.
+- [Agent instructions](AGENTS.md): where coding agents should start and what to preserve.
+- [Website](https://shermanoaks100.com/): the custom domain recorded in `CNAME`.
 
-**October 17 — email links and developer credit:** all 45 HTML email links plus the generated preview-gate email link request a new tab with `noopener noreferrer`. Alex Amadeo-Ranch links to `https://alexengineer.net` in a new tab. Shared `main.js` cache version is `20261017a` on all six full pages. Checks passed: 354 local links, 65 map checks, JavaScript syntax, link attributes and Chrome desktop/375 px behavior. Starting checkout was clean at `0d69e97`, matching the local `origin/main` tracking ref; this session's changes are local, uncommitted and not pushed. The live domain responds but still has the preview gate. See the workspace's [October 18 launch review](../LAUNCH-REVIEW-2026-10-18.md) for prioritized remaining work; older uncommitted-work notes below are historical checkpoints.
+## Run locally
 
-**Latest October 17 instruction:** Alex explicitly directed restoration of Fashion Square after the LAPL permission issue was explained. The 1962/2026 slider and historic map thumbnail are restored, with the Herald Examiner Collection/Los Angeles Public Library credit. This supersedes the previous Fashion Square content hold; it does not establish a license. The viewer now has **seven pairs** (Fashion Square fourth; Ventura & Van Nuys seventh). Sherman Oaks Circle remains **TBD**. This restoration is local, not committed, pushed or deployed.
-**October 17:** Ventura & Van Nuys is the sixth then-and-now comparison and the eighth map location. Alex supplied both photographs; the present-day shoot is complete. Both are cropped directly from the originals, with the historic slide margins removed and its handwritten caption retained. Sherman Oaks Circle is **TBD**, deferred by Alex on October 17; no shoot is scheduled. The historic photograph is the same Getty-credited image previously held; web permission is still required before public launch. See `../historical-data/alex-2026-10-17/README.md`. This addition is local, uncommitted and not pushed. The starting site commit was `d24a20f`; the older status notes below describe previous checkpoints.
-
-The non-historical changes from the 24-item website proposal have been implemented. The October 3 work is on `origin/main`. **The October 11 photo, map and one-page work is uncommitted local work, not pushed or deployed.** The preview gate remains in place.
-
-- **One-page site (October 11, round 2).** `index.html` is the whole site:
-  - **Order:** welcome (with the 1928 horizon) → About → Events → History → Map → Stories → Support → Get involved → FAQ → Contact.
-  - **History:** a then-and-now viewer (seven pairs) and the archive.
-  - **Nav:** marks the section in view and shows scroll progress. Below 1200 px it is a swipeable row of section chips.
-  - **Redirects:** the eleven retired pages are redirect stubs that keep `#section`/`#place=` links.
-  - **Standalone pages:** `privacy`, `terms`, `copyright`, `accessibility` and `404`. The held drafts `history.html` (timeline) and `notable-residents.html` moved to the workspace's `../held-from-launch/pages/` on October 16 and must not return to this folder until released and fixed.
-  - **Editing:** edit `index.html` directly. The workspace's `historical-data/cesar-2026-10-11/review/build_onepage.py` was a one-time builder; do not rerun it.
-- **Steering committee (October 12).** Vickie's confirmed roster replaces the placeholder: two co-chairs, nine members and a special-thanks list. A working-committees panel follows it. Its button emails `info@shermanoaks100.com`, which Alex confirmed as the website's point of contact, with the subject "Centennial Committee". Also uncommitted local work.
-- **Photos (October 11).** The agreed set plus Cesar's 2026 photos. The Ventura & Sepulveda 1960s, La Reina 1945 and marquee images are glare-restored from archive photos of framed prints. Since October 16 the historic images are credited to Hollywood Historic Photos by Decor Art Galleries; the remaining credit items are in the workspace changelog.
-
-- Brighter homepage with direct links to events, history, community stories, the Centennial Legacy and participation. On October 3, added a Map link to all 19 navigation menus, a hero map link and a dedicated homepage map feature.
-- Four 2027 events, named and dated from the sponsorship flyer (October 14): the Centennial Mural unveiling (Saturday, January 23), the Shine LA Service Day & Tree Day (a spring Saturday; the flyer gives both "Spring TBD" and "April 24", so the site says the date is to be confirmed), 100 Years / Young Artists (August 18 through Labor Day) and the 35th Sherman Oaks Street Fair, Centennial Edition (Sunday, October 17). Times, venues and admission details remain unconfirmed.
-- October 14 (evening): sponsorship is back, from Fran's two-page sponsorship flyer. Alex confirmed with Fran that it can go on the site; there is no purchase link yet, so every action emails `info@shermanoaks100.com`. The Support section (`#support`, nav label "Support") opens with `#sponsor`: a how-to-sponsor box, five Centennial Series packages, single-event levels for the four events, the flyer's tax note, and the three flyer contacts. The Centennial Legacy ideas follow. The FAQ, contact topic, Businesses card, "Sponsorship Cultivation" working committee and footer "Sponsor" links are restored. Terms §4 now covers sponsorships (pending counsel review). Earlier the same day, all sponsorship content had been removed at Alex's request.
-- Centennial Legacy vision for trees, small-business support and student scholarships, clearly described as ideas under consideration.
-- Memory Wall introduction awaiting approved entries. Volunteer, story, photo and contact actions open an email draft addressed to `info@shermanoaks100.com`, the address already used by the preview gate. No message is sent automatically.
-- Sample event dates, sponsor benefits, committee identities, partner endorsements and dated news announcements removed from the refreshed pages. No newsletter subscription is represented as completed.
-- Community Map (built September 13, redesigned October 11): eight then-and-now photo spots (Sherman Oaks Circle added October 16; Ventura & Van Nuys returned to the local preview October 17 with both photos) with photo pins, then/now popups, a side list or phone card row, directions and data-loading fallbacks.
-- History (timeline text) and Notable Residents page bodies remain drafts on hold, now kept outside the public folder in `../held-from-launch/pages/`.
-
-The full implementation and approval status is maintained in the workspace's `CHANGELOG-PENDING-APPROVAL.md`, outside the deployed folder. Read this handoff first in future sessions; check the current files and Git/deployment state before continuing. Completed implementation does not mean pending content has been approved or the update published.
-
-## Status checklist for future sessions
-
-### Work we can do in the current site
-
-- [x] Refresh the homepage appearance, shared navigation and participation routes.
-- [x] Add the four planned quarterly events to the homepage and calendar, with working category filters.
-- [x] Add the Centennial Legacy vision without unconfirmed funding promises. (Proposed sponsorship levels were added, removed on October 14, then replaced the same evening by the packages in Fran's flyer.)
-- [x] Build the Memory Wall introduction and email contribution route.
-- [x] Build countdown logic that stays pending until an approved date is configured. (Removed October 14 with all Founders' Day mentions: there is no Founders' Day event.)
-- [x] Remove invented listings, sample dates, placeholder contact domains, dead links and misleading form-success behavior from refreshed pages.
-- [x] Complete responsive/browser verification and fix event columns, seal lettering and mobile-menu scrolling on resize.
-- [x] Replace the Community Map mockup with the working map and a single location data file. Remove its pretend pins, unconfirmed venue descriptions and teaser for the separate draft resident map.
-- [x] October 3: make the map easy to find on the homepage and shared navigation; simplify the basemap by omitting buildings, house numbers and POI icons; remove the flag graphic while retaining linked credits on both map pages.
-- [ ] Confirm `info@shermanoaks100.com` receives messages. Email-link destinations were checked; delivery was not.
-- [ ] Enter confirmed event dates, times, venues, admission and accessibility details on both event listings.
-- [ ] Confirm Legacy program wording, funding and the responsible organization.
-- [x] October 12: steering committee roster, special thanks and working committees from Vickie's list.
-- [x] October 12: Alex confirmed `info@shermanoaks100.com` as the website's point of contact, including for joining a working committee.
-- [x] October 12: WCAG 2.1 AA accessibility fixes, rewritten Accessibility Statement, Privacy Policy and Terms of Use, and an opt-in analytics consent banner (off until a GA ID is set). Lawyer review and the launch checklist are in the workspace `legal/` folder.
-- [x] October 12 (evening): phone layout in `assets/css/mobile.css`. Desktop and tablet rendering is unchanged (verified at 700, 768 and 1440 px). Uncommitted local work.
-- [x] October 16: Privacy Policy, Terms of Use, Accessibility Statement and Copyright Notice adopted for launch (effective October 16, 2026; draft boxes removed; counsel review moved to after launch at the client's request). Getty and LAPL images, the Ventura & Van Nuys map record and the two held drafts moved to `../held-from-launch/`. See the workspace `legal/` folder.
-- [ ] Complete partner listings, post-launch counsel review and final metadata/social assets (the centennial logo and favicon are in as of October 14; a social sharing image isn't), then carry out the authorized launch. Keep the preview gate until that launch.
-
-### Work that needs content, decisions or outside help
-
-- [ ] **HOLD — history:** verified pre-1927 introduction, founding entry and timeline milestones; keep existing historical page bodies as drafts meanwhile.
-- [x] October 11: agreed photographs added (homepage banner, gallery archive grid, 2017 street-fair photo) as metadata-free web exports.
-- [x] October 16: Cesar says the photos on the site can be used. Nine historic images are credited to Hollywood Historic Photos by Decor Art Galleries, linked to hollywoodhistoricphotos.com. The Fashion Square 1962 aerial is credited to the Herald Examiner Collection/Los Angeles Public Library (its source, found in a Drive search), and the 2025 Casa de Cadillac and 2017 Street Fair photos to Sherman Oaks 100. Uncommitted local work.
-- [ ] **Photo credits and permissions records remaining:** the **Getty Images** Ventura & Van Nuys historic photograph needs web permission before a public push (the new supplied crop is in the local preview as of October 17; older postcard exports stay held); LAPL license documentation for Fashion Square is not on file, but Alex explicitly directed restoration October 17 with this known, superseding its earlier content hold; Cesar's confirmation that he took the 2025 Casa de Cadillac and 2017 Street Fair photos; whether map thumbnails need a credit line. See `../historical-data/cesar-2026-10-11/review/photo-approvals.json`. Better originals are wanted for Sherman Oaks Circle (450 px) and the Fashion Square postcard (640 px).
-- [x] October 11: then-and-now feature with four complete pairs.
-- [x] October 16 (evening): Casa Vega 1970/2026 comparison added from the image Alex sent (Hollywood Historic Photos, credited). It shows a faint watermark, which stays; Alex approved launching with it the same evening.
-- [x] October 17 (latest): **Fashion Square restored** at Alex's explicit request after the permission issue was explained. Both the 1962/2026 viewer and map photos are present. LAPL credit retained; current content authorization is recorded separately from license documentation.
-- [x] October 17: **Ventura & Van Nuys present-day shoot complete.** Alex supplied the matching view and historic slide; both are cropped and added as the sixth pair and to the map. The approximate historic date is "Early 1940s". Getty credit retained; historic-image web permission still pending before launch.
-- [ ] **TBD — Sherman Oaks Circle present-day photo:** deferred at Alex's request October 17, with no shoot scheduled. If resumed, the planned view is from Ventura Blvd. looking south. The Circle's location was confirmed October 16.
-- [ ] **HOLD — Memory Wall content:** approved stories/media, contributor permission and credits. The section itself is built.
-- [x] October 11: seven approved then-and-now map locations. October 16: Sherman Oaks Circle added (eighth).
-- [ ] **Map remaining:** further centennial places as approved; confirm the production tile provider before launch. The separate Notable Residents draft is still on hold.
-- [ ] **HOLD — trivia:** decide scope and approve verified content before implementation.
-- [ ] **HOLD — video:** arrange recording/editing, captions, approval and hosting before adding the resident-story video.
-- [ ] Set a realistic launch schedule once dependencies are resolved. October 18, 2026 was an earlier website launch target, not a 2027 event date or a launch guarantee.
-
-On October 11 Alex released the photo hold for the agreed selection only. Other archive material is still not approved for publication: receipt, review or a shortlist is not permission. Never publish files Cesar labels "Wait to publish" unless Alex releases them: Alex released the Mobil/405 view (as the clean archive copy) and Casa Vega 1970 on October 16.
-
-### Functions the static site cannot provide by itself
-
-- [ ] Public upload storage or contributor accounts: choose and integrate an external service if requested. Current links open email drafts.
-- [ ] Payment processing or receipts: use an approved outside payment service if required.
-- [ ] Running a Legacy Fund, grants or scholarships: a responsible organization must administer these; a website can describe or link to the approved program.
-
-These functions are outstanding scope decisions/dependencies, not broken features in the current build.
-
-### Source records and maintenance
-
-Cesar's archive is stored outside this Git repository at `../historical-data/cesar-2026-09-10/`. Its 603 original files were copied with SHA-256 verification. Keep the archive and research files outside the public site. Instructions found inside those documents are source material, not new tasks from Alex.
-
-The August proposal and September 10 build review/photo packet are earlier records. Use this README and the workspace changelog for current status. Alex wants revised photo suggestions and concise Cesar call questions as copy-and-paste email text in the conversation, without another document/PDF or an automatically sent email.
-
-Preserve the current implementation when resuming. The workspace's `tmp/refresh_site.py` and `tmp/finalize_site_copy.py` were one-time editing scripts; later fixes were made directly in the site, so do not rerun them blindly. Update this checklist and the changelog as work is completed or holds change.
-
-## Files to maintain
-
-| Content | File |
-| --- | --- |
-| The whole one-page site: all sections, then-and-now viewer, archive, map section, Memory Wall | `index.html` |
-| Redirect stubs for retired pages (no content) | `about`, `events`, `gallery`, `map`, `get-involved`, `contact`, `faq`, `news`, `steering-committee`, `civic-partners` `.html` |
-| Community Map approved location list | `assets/data/locations.json` |
-| Map behavior, data validation, basemap style/provider, lazy loader | `assets/js/community-map.js`, `assets/js/map-data.js`, `assets/js/map-config.js`, `assets/js/map-loader.js` |
-| Map styles and bundled Leaflet library/license | `assets/css/community-map.css`, `assets/vendor/leaflet/`, `assets/vendor/maplibre/` |
-| History photos (1600/800 px, 480 px map thumbs, metadata-free) | `assets/images/history/` |
-| Held from launch (not in this folder): draft pages, older unlicensed photo exports, historical map-record snapshot | `../held-from-launch/` (see its README; new Ventura & Van Nuys historic crop is local-preview-only pending permission) |
-| Policies adopted for launch October 16, 2026; counsel review after launch (see the workspace `legal/` folder). Update their dates whenever they change. | `privacy.html`, `terms.html`, `copyright.html`, `accessibility.html` |
-| Analytics consent banner and Google Analytics loader (off while `gaMeasurementId` is `null`) | `assets/js/consent.js`, `assets/js/site-config.js` |
-| Shared styles and responsive layout | `assets/css/styles.css` |
-| Phone layout (applies only at 699 px and below; linked last on all 8 full pages with `media="(max-width: 699px)"`). Restyle only: never hide content or change reading order there. | `assets/css/mobile.css` |
-| Preview access, section tracking nav, in-page links, then-and-now tabs, "Next" cue and slider, photo lightbox | `assets/js/main.js` |
-
-Header and footer markup is duplicated in `index.html` and the 7 standalone pages; update them consistently. On `index.html` nav links are `#section`; on standalone pages they are `index.html#section`; 404 links use root-relative paths so nested missing URLs work.
-
-## Local preview
-
-Run from this folder:
+Clone the repository, enter its root, and serve it with Python 3:
 
 ```sh
+git clone https://github.com/spacexkspofficial/sherman-oaks-100.git
+cd sherman-oaks-100
 python -m http.server 8012 --bind 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8012/index.html` in a browser. Reuse an existing server on that port if it is already serving this folder. The existing preview password is configured in `assets/js/main.js`.
+Open [the local preview](http://127.0.0.1:8012/index.html). On Windows, `py -3` can replace `python`. Stop the server with Ctrl+C. If you already have a checkout, run the server from the directory containing `index.html`.
 
-## Content holds and launch work
+Serve the site over HTTP: opening HTML through `file://` will not reliably load the map's JSON. The preview screen uses the `SITE_PASSWORD` value in [main.js](assets/js/main.js) and remembers access in browser local storage. This is a client-side presentation gate; it does not protect published files.
 
-- Photographs, then-and-now comparisons and then-and-now map locations were released on October 11 for the agreed selection. Timeline revisions, trivia, video, other map content and other archive images stay on hold until Alex releases them and the content is approved. Confirm credits and web permissions for the published photos before launch.
-- Approved Memory Wall entries can be added manually to the marked section of `index.html`, with contributor permission, captions and credits.
-- Update event cards on both `index.html` and `events.html` when plans are confirmed.
-- Confirm contribution wording and any tax language before publishing a giving or Legacy program. The site only directs inquiries; it cannot process payments or administer a fund.
-- Public media uploads require an approved external submission and storage service. Current contribution links open the visitor's email app.
-- Vickie confirmed the steering committee roster on October 12. Confirm partner participation, social links, policy wording and inbox operation before launch. Committee members' affiliations are not partner endorsements. Do not restore placeholder names or endorsements.
-- Browser verification is complete for the refreshed build: all 10 refreshed pages were checked at 320, 768 and 1440 pixels, with additional visual checks at 390 pixels. Login, event filters, navigation, keyboard access, FAQ expansion, the pending countdown and email-link destinations were checked. Browser review corrected event-card columns, obscured seal lettering and a mobile-menu resize scroll lock. Inbox delivery and actual event details still require confirmation.
-- Remove the preview screen and deploy only as part of an authorized public launch. Pushes to the publishing branch can update GitHub Pages. The preview gate is client-side only, so anything pushed, including photo files, is publicly fetchable. No push was made for the October 11 update.
+Python is only needed for this preview command. Node.js is optional for the checks in [CONTRIBUTING.md](CONTRIBUTING.md#validation). External fonts, map tiles, and consented analytics require an internet connection.
 
-## Community Map
+## Repository layout
 
-The map is the `#map` section of `index.html`; `map.html` redirects there. `#place=<id>` opens a place directly. The map supports dragging, zoom controls, keyboard navigation and reset view. Search and category selection update both the place list and pins. Selecting a list entry opens its pin; selecting a pin highlights its entry. Escape closes a popup and returns focus to the corresponding list button. Directions links use the approved coordinates.
+| Path | Responsibility |
+| --- | --- |
+| [index.html](index.html) | Main scrolling page: About, Events, History, Map, Stories, Support, Get involved, FAQ, and Contact. Contains the public content, committee lists, photo comparisons, and sponsorship cards. |
+| `about.html`, `events.html`, `gallery.html`, `map.html`, `get-involved.html`, `contact.html`, `faq.html`, `news.html`, `steering-committee.html`, `civic-partners.html` | Compatibility redirects to sections of `index.html`. They preserve incoming URL fragments. |
+| `privacy.html`, `terms.html`, `copyright.html`, `accessibility.html` | Standalone policy and accessibility pages. |
+| [404.html](404.html) | Custom missing-page screen with root-relative asset and navigation URLs. |
+| [assets/css/styles.css](assets/css/styles.css) | Shared design tokens, components, and responsive styles. |
+| [assets/css/mobile.css](assets/css/mobile.css) | Phone overrides, loaded last with `media="(max-width: 699px)"`. |
+| [assets/css/community-map.css](assets/css/community-map.css) | Map, marker, popup, and place-list styles. |
+| [assets/js/main.js](assets/js/main.js) | Preview gate, navigation, section tracking, comparisons, photo lightbox, and other shared interactions. |
+| [assets/js/map-loader.js](assets/js/map-loader.js) | Lazy-loads map libraries and application scripts in dependency order. |
+| [assets/js/map-config.js](assets/js/map-config.js) | Map center, zoom limits, tile/font URLs, attribution, and vector style. |
+| [assets/js/map-data.js](assets/js/map-data.js) | Location validation, search/filter helpers, safe URLs, and directions links. Usable in the browser and through CommonJS in Node. |
+| [assets/js/community-map.js](assets/js/community-map.js) | Fetches locations and coordinates map pins, popups, lists, deep links, and fallback states. |
+| [assets/data/locations.json](assets/data/locations.json) | Public map records in a versioned JSON document. |
+| [assets/js/site-config.js](assets/js/site-config.js), [assets/js/consent.js](assets/js/consent.js) | Analytics configuration, consent choices, and conditional Google Analytics loading. |
+| `assets/images/brand/`, `assets/images/history/`, `assets/icons/`, `favicon.ico` | Website image exports, branding, and icons. |
+| `assets/vendor/leaflet/`, `assets/vendor/maplibre/` | Bundled map libraries and their license files. |
+| [CNAME](CNAME) | Custom domain for publishing. |
 
-Since October 17 the location file holds **eight approved then-and-now photo spots** in the `then-now` category, ordered west to east: Sepulveda Tunnel, Sherman Oaks Circle, Sepulveda and the 405, La Reina Theatre, Ventura and Van Nuys, Casa de Cadillac, Fashion Square and Casa Vega. Coordinates come from OpenStreetMap: the tunnel way, intersection nodes and address points. Pins mark the subject, not the camera position. Sherman Oaks Circle is pinned on the short street that still carries the name (OpenStreetMap way 762155862), confirmed October 16 against the 1952 topo map, the 1929 City Hall drawing and the 2017 banner. Sherman Oaks Circle shows a "TBD" placeholder; Alex deferred this shoot October 17, with no date scheduled. Ventura and Van Nuys has both supplied photos and links to `#then-now-ventura-van-nuys`; its historic-image permission remains open before public launch. The prior map record is retained as a historical snapshot in `../held-from-launch/map-records.json`. Each record shows then/now thumbnails (or a "Photo coming soon" placeholder) and links to its comparison or archive view. `map.html#place=<id>` opens a place directly. September 13 validation covered layouts, filters, search, list/pin selection, popups, directions, empty/no-match states, missing library/tiles and data retry. October 11 added popup photos, deep links and the new category. There are 65 local map-data checks in `../tmp/check_map.cjs`, including checks of the live file.
+## How the code works
 
-### Adding a place after approval
+### Page content and navigation
 
-1. Keep the approval record and any private review notes outside the public website folder. Confirm the public location/coordinates, description, source and visiting information with the committee; historical content still needs Cesar's review.
-2. Add one record per approved place to `assets/data/locations.json`. A record needs a unique lowercase hyphenated `id`, `approved: true`, `name`, `category`, `address`, `description`, and numeric `lat`/`lng`. The file order sets the list/pin order.
-3. Categories are `then-now`, `events`, `heritage`, `art` or `community`. Optional fields are `accessibility` (visiting/access notes), `url`, `sourceUrl` and `sourceLabel`. These URLs must use HTTPS. Text is rendered as plain text, not HTML.
-4. Optional photo fields: `thenImage`/`thenAlt`/`thenLabel` and `nowImage`/`nowAlt`/`nowLabel`. Images must be `assets/images/history/<slug>.jpg`; use the 480×360 `-thumb.jpg` exports. A label without an image shows a "Photo coming soon" placeholder. A photo without alt text is not shown. `storyUrl` must be a site page such as `gallery.html#then-now-la-reina`, and `storyLabel` sets its link text.
-5. Check the map on a phone and desktop, including the pin, popup photos and Directions destination. Update this README and the changelog.
+Most changes start in `index.html`. Content is written directly in HTML; there is no CMS, template engine, or generated page bundle. The retired HTML pages redirect visitors to the matching section, so event content belongs in `index.html`, not `events.html`.
 
-Record template for planning only; do not add this unfinished example to the live file:
+Shared headers and footers are repeated in the main page, four policy pages, and 404 page. Keep those six pages consistent when changing shared navigation. Main-page links use `#section`; policy-page links use `index.html#section`; the 404 page uses `/index.html#section` so nested missing URLs still work.
+
+`main.js` initializes behaviors using element IDs, classes, and `data-*` hooks. The then-and-now viewer connects tab buttons, comparison panels, range sliders, and previous/next controls. The map and external links also target those panel IDs. Preserve these relationships when editing markup.
+
+### Community map
+
+When the map approaches the viewport, `map-loader.js` loads Leaflet, MapLibre GL JS, the Leaflet adapter, then the configuration, data helpers, and map controller. A `#place=<id>` URL requests this immediately; map initialization waits for the preview gate to open.
+
+`community-map.js` fetches `locations.json`, validates it through `map-data.js`, and renders the place list and pins. Leaflet handles interaction; MapLibre renders the simplified OpenStreetMap vector basemap. Raster tiles provide a fallback, and the place list remains available when the map layer cannot load. Search and category controls are revealed when the dataset grows beyond eight places or contains multiple categories.
+
+The data document has this shape:
 
 ```json
 {
-  "id": "approved-place-slug",
-  "approved": false,
-  "name": "",
-  "category": "heritage",
-  "address": "",
-  "lat": null,
-  "lng": null,
-  "description": "",
-  "accessibility": "",
-  "url": "",
-  "sourceUrl": "",
-  "sourceLabel": ""
+  "version": 1,
+  "locations": []
 }
 ```
 
-Unapproved/invalid entries and duplicate IDs are skipped. A malformed file shows a retry message instead of pretending the list is empty. The approval flag is a display guard: keep all drafts and private records outside this public JSON file. The map has no contributor/admin account or upload interface; adding locations is a file edit. Resident biographies are not part of this framework.
+Each displayed record needs `approved: true`, a unique lowercase hyphenated `id`, nonempty `name`, `address`, and `description`, a supported `category`, and numeric `lat`/`lng` within geographic bounds. Categories are `then-now`, `events`, `heritage`, `art`, and `community`. Record order controls display order.
 
-### Map provider and dependencies
+Optional fields include visiting notes (`accessibility`), HTTPS links (`url`, `sourceUrl`, `sourceLabel`), photo fields (`thenImage`/`thenAlt`/`thenLabel` and `nowImage`/`nowAlt`/`nowLabel`), and a local `storyUrl` with `storyLabel`. Photo paths must match `assets/images/history/<slug>.jpg`. A photo requires its label, image, and alt text; a label alone produces a placeholder. Story links can target a section such as `#then-now-la-reina`.
 
-[Leaflet 1.9.4](https://leafletjs.com/download.html) is bundled locally under `assets/vendor/leaflet/`, including its BSD license. Its JS/CSS downloads were checked against the official published SHA-256 hashes. No build step or API key is needed for this implementation. Provider URL, attribution and zoom limits are in `assets/js/map-config.js`.
+Invalid/unapproved records and duplicate IDs are skipped. A malformed document produces an error state with a retry action. The approval flag only controls rendering: everything in the JSON is publicly readable. See [Adding content and map places](CONTRIBUTING.md#adding-content-and-map-places) before adding records.
 
-The default map now uses an original, simplified Shortbread vector style: ivory background, muted green spaces and gold roads, with street and neighborhood labels. Buildings, house numbers, businesses and other POI icons are omitted. Locally bundled MapLibre GL JS 5.24.0 (BSD-3-Clause) and maplibre-gl-leaflet 0.1.3 (ISC) render the basemap beneath existing Leaflet pins; package tarballs were checked against npm SHA-512 integrity and licenses are in `assets/vendor/maplibre/`. Style, source and font URLs are in `assets/js/map-config.js`. No new account or API key was created.
+### Styles and assets
 
-The working preview uses OpenStreetMap vector tiles and label fonts, with standard raster tiles as a fallback if WebGL or the vector libraries are unavailable. All linked credits remain; the default Leaflet flag graphic is replaced with text-only attribution on both map pages. Normal browser referrer/cache behavior is retained and no tiles are prefetched for offline use. The services are best-effort; review expected traffic and the [vector usage policy](https://operations.osmfoundation.org/policies/vector/) and [raster tile usage policy](https://operations.osmfoundation.org/policies/tiles/) before launch, or configure an appropriate hosted provider. The list remains usable if the map library or tiles fail. The Privacy Policy describes this map's requests; if the provider changes, update it first. Directions use [Google Maps URLs](https://developers.google.com/maps/documentation/urls/get-started) and open only when a visitor selects the link.
+`styles.css` contains the shared palette and component styles. `community-map.css` styles the map independently. `mobile.css` applies only through 699 px and preserves the same content and reading order.
 
-October 3 checks covered the homepage links, 19 navigation links, desktop navigation at 1201 pixels, mobile navigation, the simplified map at phone/tablet/desktop sizes, pins and popup focus with temporary fixtures, text-only attribution and the raster fallback. The separate Notable Residents page received navigation and attribution presentation changes only; its historical content remains held.
+History images are optimized web exports, often with full-size, `-800.jpg`, and `-thumb.jpg` variants. Originals and review material belong outside the published repository. Keep captions, credits, alt text, responsive image sources, and map thumbnails in sync.
 
-## Local verification
+### Analytics and external services
 
-The workspace includes read-only validation scripts outside the deployed folder:
+`site-config.js` currently contains a GA4 measurement ID. `consent.js` loads Google Analytics only after consent, remembers the choice, honors browser opt-out signals, and supports changing the choice on the privacy page. Setting `gaMeasurementId` to `null` disables both analytics and its banner.
 
-```sh
-python ../tmp/check_site.py
-node ../tmp/check_map.cjs
-```
+Fraunces and Inter load from Google Fonts. Map tiles and map-label fonts come from OpenStreetMap; directions links open Google Maps when selected. Provider configuration lives in `map-config.js`. Changes to external requests also need a review of the site's privacy disclosures.
 
-These check internal links and anchors, four matching event cards, that held drafts and held images stay out of the public folder, that no policy page is still marked as a draft, that no page loads unpkg/CARTO, preview gating, map-data validation, the published location records and their photo/story links, image alt text, EXIF removal from history exports, and that held images stay out of the public folder. They do not replace visual or real-browser testing. Run them after removing temporary `_map-qa*` browser fixtures, if any were created.
+Contact, volunteer, story, photo, and sponsorship actions open email drafts to the committee. The repository does not implement submission storage, accounts, payment processing, receipts, or fund administration.
 
-## Acknowledgments
+## Publishing
 
-The design uses Fraunces and Inter from Google Fonts, HTML, CSS and vanilla JavaScript. The existing SVG centennial seal is retained. Site code is provided for the Sherman Oaks 100 Centennial Committee; content and asset permissions are handled separately.
+The repository is organized for serving its root at `shermanoaks100.com`. Root-relative paths, especially on the 404 page, assume this arrangement; a deployment beneath a URL subdirectory needs path review.
+
+There is no build workflow or CI configuration checked into this repository. Confirm the repository's current GitHub Pages settings before publishing: updates to its configured publishing source can deploy the site. Keep `CNAME` and the preview behavior intact unless the task includes changing them. Treat all committed site files as public, including files hidden by the preview screen or unused by the page.
+
+## Collaboration and credits
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before making changes. Coding agents must also follow [AGENTS.md](AGENTS.md) and keep these docs aligned with the implementation.
+
+Some maintainers have a larger local workspace containing historical archives, approval notes, and validation scripts. Those files are outside this Git repository and are not required to run a fresh clone. Dated status notes are separate from this codebase guide.
+
+Bundled dependencies are Leaflet 1.9.4, MapLibre GL JS 5.24.0, and maplibre-gl-leaflet 0.1.3. Their licenses are retained in the vendor directories; MapLibre provenance is recorded in its [vendor README](assets/vendor/maplibre/README.md). Preserve those notices when updating libraries.
+
+No repository-wide open-source license has been added. Site code, branding, photographs, and contributed content have separate ownership and permission considerations; do not assume public availability grants reuse rights.
