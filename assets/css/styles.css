@@ -2504,8 +2504,8 @@ main [id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 }
 
 /* Sponsorship (#sponsor): the committee's 2027 flyer as packages and
-   single-event levels. Every action is an email until a purchase link
-   exists. Prices and dates use --accent-text for contrast on white. */
+   single-event levels. Purchases and next steps start by email.
+   Prices and dates use --accent-text for contrast on white. */
 .sponsor-cta {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem 2rem;
   padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 4vw, 2.25rem);
@@ -2515,6 +2515,18 @@ main [id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .sponsor-cta h3 { font-size: var(--step-2); margin: 0 0 .35rem; }
 .sponsor-cta p { margin: 0; max-width: 68ch; color: var(--ink-700); }
 .sponsor-cta .btn { white-space: normal; text-align: center; }
+.sponsor-cta p a { overflow-wrap: anywhere; text-underline-offset: 3px; }
+
+.sponsor-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+.sponsor-option {
+  display: flex; flex-direction: column; gap: .65rem; padding: 1.25rem;
+  border: 1px solid var(--border-strong); border-radius: var(--r-md); background: #fff;
+  color: var(--ink-700); font-size: .95rem; line-height: 1.55; text-decoration: none;
+}
+.sponsor-option:hover { border-color: var(--oak-800); background: var(--cream-100); }
+.sponsor-option__label { color: var(--accent-text); font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.sponsor-option > strong { color: var(--oak-800); font: 600 var(--step-1)/1.3 var(--font-display); }
+.sponsor-option__more { margin-top: auto; padding-top: .25rem; color: var(--primary); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
 .sponsor-block { margin-top: clamp(2.5rem, 6vw, 3.5rem); }
 .sponsor-block__head {
@@ -2526,6 +2538,7 @@ main [id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   letter-spacing: .14em; text-transform: uppercase; color: var(--cream-50);
 }
 .sponsor-block__head p { margin: 0; font-size: .9rem; color: var(--gold-200); }
+.sponsor-block__intro { max-width: 85ch; margin: 0 0 1.25rem; color: var(--ink-700); line-height: 1.6; }
 
 .packages { display: grid; gap: 1rem; }
 .package, .event-sponsor {
@@ -2543,6 +2556,9 @@ main [id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   margin: 0 0 0 auto; font-family: var(--font-display); font-size: var(--step-3); font-weight: 600; line-height: 1.1; color: var(--accent-text);
 }
 .package p { margin: 0; max-width: 95ch; color: var(--ink-700); font-size: .97rem; line-height: 1.6; }
+.package__benefits { margin: .75rem 0 0; padding-left: 1.2rem; max-width: 95ch; color: var(--ink-700); font-size: .97rem; line-height: 1.6; }
+.package__benefits li + li { margin-top: .4rem; }
+.package__benefits li::marker { color: var(--accent-text); }
 .package .package__value { margin-top: .6rem; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-muted); }
 .package__link { display: inline-block; margin-top: .75rem; font-size: .92rem; font-weight: 600; color: var(--primary); text-underline-offset: 3px; }
 
@@ -2562,6 +2578,12 @@ main [id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .level__name { font-weight: 700; line-height: 1.3; color: var(--oak-800); }
 .level__desc { font-size: .9rem; line-height: 1.45; color: var(--ink-700); }
 .level__price { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; white-space: nowrap; color: var(--accent-text); }
+
+.centennial-opportunities { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.centennial-opportunity { display: flex; flex-direction: column; padding: 1.25rem; border: 1px solid var(--border-strong); border-top: 3px solid var(--gold-600); border-radius: var(--r-md); background: #fff; }
+.centennial-opportunity h4 { margin: 0; color: var(--oak-800); font-size: var(--step-1); }
+.centennial-opportunity__price { margin: .65rem 0; color: var(--accent-text); font: 600 var(--step-3)/1.2 var(--font-display); }
+.centennial-opportunity .package__link { margin-top: auto; padding-top: .75rem; }
 
 .sponsor-fineprint { max-width: 82ch; margin: clamp(2rem, 5vw, 2.75rem) auto 0; padding-top: 1.25rem; border-top: 1px solid var(--border-strong); font-size: .85rem; }
 .sponsor-fineprint p { margin: 0 0 .6rem; line-height: 1.6; color: var(--fg-muted); }
@@ -2589,9 +2611,15 @@ main [id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .sponsor-contact__list a:hover { color: var(--cream-50); }
 @media (max-width: 900px) {
   .event-sponsors { grid-template-columns: minmax(0, 1fr); }
+  .centennial-opportunities { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 800px) {
   .sponsor-contact { grid-template-columns: 1fr; }
+}
+@media (max-width: 699px) {
+  .sponsor-options, .centennial-opportunities { grid-template-columns: minmax(0, 1fr); gap: .75rem; }
+  .sponsor-option, .centennial-opportunity { padding: 1rem; }
+  .package__benefits { font-size: .95rem; line-height: 1.55; }
 }
 
 /* Then & now viewer: tabs pick one comparison at a time once main.js is ready */
