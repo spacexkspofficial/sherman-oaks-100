@@ -76,6 +76,25 @@
       "storyLabel": "Compare then & now"
     },
     {
+      "id": "ventura-van-nuys",
+      "approved": true,
+      "name": "Ventura and Van Nuys",
+      "category": "then-now",
+      "address": "Ventura Blvd. at Van Nuys Blvd.",
+      "lat": 34.15092,
+      "lng": -118.4487,
+      "description": "Compare the arched corner storefront and the service station at Ventura and Van Nuys in the early 1940s with the same intersection in 2026.",
+      "accessibility": "Busy intersection. Use marked crosswalks.",
+      "thenImage": "assets/images/history/ventura-van-nuys-1940s-thumb.jpg",
+      "thenAlt": "Early 1940s: An arched drugstore, service station and cars at Ventura and Van Nuys.",
+      "thenLabel": "Early 1940s",
+      "nowImage": "assets/images/history/ventura-van-nuys-2026-thumb.jpg",
+      "nowAlt": "2026: The arched Crave storefront, Chevron station and traffic at Ventura and Van Nuys.",
+      "nowLabel": "2026",
+      "storyUrl": "#then-now-ventura-van-nuys",
+      "storyLabel": "Compare then & now"
+    },
+    {
       "id": "casa-de-cadillac",
       "approved": true,
       "name": "Casa de Cadillac",
