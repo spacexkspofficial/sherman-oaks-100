@@ -2312,7 +2312,7 @@ main [id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .support-cta .btn { white-space: normal; text-align: center; }
 .support-cta p a { overflow-wrap: anywhere; text-underline-offset: 3px; }
 
-.support-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+.support-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.25rem; }
 .support-option {
   display: flex; flex-direction: column; gap: .65rem; padding: 1.25rem;
   border: 1px solid var(--border-strong); border-radius: var(--r-md); background: #fff;
@@ -2376,11 +2376,6 @@ main [id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .level__desc { font-size: .9rem; line-height: 1.45; color: var(--ink-700); }
 .level__price { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; white-space: nowrap; color: var(--accent-text); }
 
-.centennial-opportunities { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
-.centennial-opportunity { display: flex; flex-direction: column; padding: 1.25rem; border: 1px solid var(--border-strong); border-top: 3px solid var(--gold-600); border-radius: var(--r-md); background: #fff; }
-.centennial-opportunity h3, .centennial-opportunity h4 { margin: 0; color: var(--oak-800); font-size: var(--step-1); }
-.centennial-opportunity__price { margin: .65rem 0; color: var(--accent-text); font: 600 var(--step-3)/1.2 var(--font-display); }
-.centennial-opportunity .package__link { margin-top: auto; padding-top: .75rem; }
 
 .support-fineprint { max-width: 82ch; margin: clamp(2rem, 5vw, 2.75rem) auto 0; padding-top: 1.25rem; border-top: 1px solid var(--border-strong); font-size: .85rem; }
 .support-fineprint p { margin: 0 0 .6rem; line-height: 1.6; color: var(--fg-muted); }
@@ -2443,14 +2438,13 @@ main [id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .support-organizations { padding-left: 1.25rem; line-height: 1.8; }
 @media (max-width: 900px) {
   .support-events { grid-template-columns: minmax(0, 1fr); }
-  .centennial-opportunities { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 800px) {
   .support-contact { grid-template-columns: 1fr; }
 }
 @media (max-width: 699px) {
-  .support-options, .centennial-opportunities { grid-template-columns: minmax(0, 1fr); gap: .75rem; }
-  .support-option, .centennial-opportunity { padding: 1rem; }
+  .support-options { grid-template-columns: minmax(0, 1fr); gap: .75rem; }
+  .support-option { padding: 1rem; }
   .package__benefits { font-size: .95rem; line-height: 1.55; }
 }
 

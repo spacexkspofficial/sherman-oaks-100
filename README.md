@@ -28,9 +28,9 @@ Python is only needed for this preview command. Node.js is optional for the chec
 
 | Path | Responsibility |
 | --- | --- |
-| [index.html](index.html) | Main scrolling page: About, Events, History, Map, Stories, Support, Get involved, FAQ, and Contact. Sponsorship is a short overview with three links and one contact panel. |
-| `sponsorship-series.html`, `sponsorship-events.html`, `sponsorship-centennial.html` | Full sponsorship prices, benefits, comparison table, event levels, special opportunities, and organizer contacts. Keep detailed sponsorship content on these pages. |
-| [assets/docs/sherman-oaks-100-sponsorship.pdf](assets/docs/sherman-oaks-100-sponsorship.pdf) | Public two-page sponsorship flyer, linked from all three sponsorship pages. Its page-1 service-day date matches page 2 (Saturday, April 24). It declares English but has no screen-reader tags, so the HTML pages carry all of its content. |
+| [index.html](index.html) | Main scrolling page: About, Events, History, Map, Stories, Support, Get involved, FAQ, and Contact. Sponsorship is a short overview with two links and one contact panel. |
+| `sponsorship-series.html`, `sponsorship-events.html` | Full sponsorship prices, benefits, comparison table, event levels, and organizer contacts. Keep detailed sponsorship content on these pages. |
+| [assets/docs/sherman-oaks-100-sponsorship.pdf](assets/docs/sherman-oaks-100-sponsorship.pdf) | Public two-page sponsorship flyer, linked from all two sponsorship pages. Its page-1 service-day date matches page 2 (Saturday, April 24). It declares English but has no screen-reader tags, so the HTML pages carry all of its content. |
 | `about.html`, `events.html`, `gallery.html`, `map.html`, `get-involved.html`, `contact.html`, `faq.html`, `news.html`, `steering-committee.html`, `civic-partners.html` | Compatibility redirects to sections of `index.html`. They preserve incoming query strings and URL fragments. |
 | `privacy.html`, `terms.html`, `copyright.html`, `accessibility.html` | Standalone policy and accessibility pages. |
 | [404.html](404.html) | Custom missing-page screen with root-relative asset and navigation URLs. |
@@ -54,9 +54,9 @@ Python is only needed for this preview command. Node.js is optional for the chec
 
 Most changes start in `index.html`. Content is written directly in HTML; there is no CMS, template engine, or generated page bundle. The retired HTML pages redirect visitors to the matching section, so event content belongs in `index.html`, not `events.html`.
 
-Shared headers and footers are repeated in the main page, three sponsorship pages, four policy pages, and 404 page. Keep those nine pages consistent when changing shared navigation. Main-page links use `#section`; standalone-page links use `index.html#section`; the 404 page uses `/index.html#section` so nested missing URLs still work.
+Shared headers and footers are repeated in the main page, two sponsorship pages, four policy pages, and 404 page. Keep those eight pages consistent when changing shared navigation. Main-page links use `#section`; standalone-page links use `index.html#section`; the 404 page uses `/index.html#section` so nested missing URLs still work.
 
-The homepage sponsorship cards link directly to the three static detail pages. `main.js` forwards old homepage hashes (`#series-packages`, `#single-event`, and `#centennial-opportunities`) to their corresponding pages, preserving the query string and section target. Without JavaScript, those homepage IDs identify the corresponding overview links. Each detail page includes navigation to the other sponsorship pages and back to the homepage. Package inquiries retain editable email drafts; purchases begin by email.
+The homepage sponsorship cards link directly to the two static detail pages. `main.js` forwards old homepage hashes (`#series-packages` and `#single-event`) to their corresponding pages, preserving the query string and section target. Without JavaScript, those homepage IDs identify the corresponding overview links. The retired `sponsorship-centennial.html` page and old `#centennial-opportunities` homepage hash redirect to the Support section; the retired opportunities are no longer offered in the HTML. Each detail page includes navigation to the other sponsorship pages and back to the homepage. Package inquiries retain editable email drafts; purchases begin by email.
 
 `main.js` initializes behaviors using element IDs, classes, and `data-*` hooks. The then-and-now viewer connects tab buttons, comparison panels, range sliders, and previous/next controls. The map and external links also target those panel IDs. Preserve these relationships when editing markup.
 

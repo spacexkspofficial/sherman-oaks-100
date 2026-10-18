@@ -14,8 +14,8 @@ Bug reports should include the affected URL or section, expected and actual beha
 
 ## Editing conventions
 
-- **Content:** Edit `index.html` for events, history, committee information, contact routes, and the short sponsorship overview. Keep full sponsorship details in `sponsorship-series.html`, `sponsorship-events.html`, and `sponsorship-centennial.html`; update the linked public flyer when its source changes. Retired page files such as `events.html` are redirect stubs; preserve their destination, incoming query string and hash handling, and fallback link.
-- **Shared markup:** Update the header/footer consistently across `index.html`, the three sponsorship pages, `privacy.html`, `terms.html`, `copyright.html`, `accessibility.html`, and `404.html`. Preserve the 404 page's root-relative URLs. The contact panel, flyer note, and fine print at the end of the three sponsorship pages sit between `shared:sponsorship-footer` comments and must stay identical; edit all three and run the shared-block check under [Validation](#validation).
+- **Content:** Edit `index.html` for events, history, committee information, contact routes, and the short sponsorship overview. Keep full sponsorship details in `sponsorship-series.html` and `sponsorship-events.html`; update the linked public flyer when its source changes. Retired page files such as `events.html` are redirect stubs; preserve their destination, incoming query string and hash handling, and fallback link.
+- **Shared markup:** Update the header/footer consistently across `index.html`, the two sponsorship pages, `privacy.html`, `terms.html`, `copyright.html`, `accessibility.html`, and `404.html`. Preserve the 404 page's root-relative URLs. The contact panel, flyer note, and fine print at the end of the two sponsorship pages sit between `shared:sponsorship-footer` comments and must stay identical; edit both and run the shared-block check under [Validation](#validation).
 - **Behavior:** Keep element IDs, `data-*` hooks, ARIA relationships, and deep links in sync. Do not rename a comparison panel without updating its tab controls and map story links.
 - **Styles:** Use existing CSS variables and component classes. Keep phone overrides in `mobile.css`, linked last with the matching 699 px media condition. Preserve content, credits, and reading order across viewports.
 - **Class names and IDs:** Do not put `sponsor`, `ad`, `promo`, or similar advertising words in new class names or IDs. Ad blockers hide elements by name (EasyList hides every `.sponsor-block`), so sponsorship components use the `support-` prefix. Existing IDs such as `#sponsor` stay for deep links.
@@ -77,10 +77,10 @@ node --check assets/js/map-data.js
 node --check assets/js/community-map.js
 ```
 
-For a sponsorship-page change, confirm the shared footer block is still identical on all three pages:
+For a sponsorship-page change, confirm the shared footer block is still identical on both pages:
 
 ```sh
-python -c "import re; b={re.search(r'<!-- shared:sponsorship-footer.*?/shared:sponsorship-footer -->', open(f'sponsorship-{p}.html', encoding='utf-8').read(), re.S).group(0) for p in ('series', 'events', 'centennial')}; print('Shared sponsorship footer identical' if len(b) == 1 else 'Shared sponsorship footer differs')"
+python -c "import re; b={re.search(r'<!-- shared:sponsorship-footer.*?/shared:sponsorship-footer -->', open(f'sponsorship-{p}.html', encoding='utf-8').read(), re.S).group(0) for p in ('series', 'events')}; print('Shared sponsorship footer identical' if len(b) == 1 else 'Shared sponsorship footer differs')"
 ```
 
 For a map-data change, run this from the repository root in PowerShell or a POSIX shell:
@@ -95,7 +95,7 @@ This checks schema acceptance, not image existence, story anchors, factual accur
 
 - Preview affected sections at 320 px, a typical phone width (375–390 px), tablet width (768 px), and desktop width (1440 px). For mobile CSS changes, also compare 699 px and 700 px. Check overflow, wrapping, credits, and usable controls.
 - Check navigation, incoming hashes and retired-page redirects. For shared layout changes, include a policy page and the 404 page. Python's basic server does not automatically serve the custom 404 page; open `/404.html` directly, then check nested missing URLs on the target host when validating deployment.
-- For sponsorship changes, check all three homepage links, cross-page/back navigation, old homepage sponsorship hashes, the PDF link, and email destinations. Confirm the homepage stays concise and every package, event level, and special opportunity remains available on the detail pages. Check the comparison table's keyboard and touch scrolling on phones, and view the detail pages with an ad blocker such as uBlock Origin turned on.
+- For sponsorship changes, check both homepage links, cross-page/back navigation, old homepage sponsorship hashes, the PDF link, and email destinations. Confirm the homepage stays concise and every package and event level remains available on the detail pages. Check the comparison table's keyboard and touch scrolling on phones, and view the detail pages with an ad blocker such as uBlock Origin turned on.
 - Use the keyboard for affected menus, FAQ disclosures, comparison tabs/sliders, lightboxes, and map popups. Check focus placement and Escape behavior.
 - For map changes, check deep links, list/pin selection, photo and directions links, retry/error states, and raster fallback. Search/category controls are intentionally hidden for a small single-category dataset. Never leave test locations or `_map-qa*` fixtures in the published files.
 - For analytics changes, use a fresh browser storage state. Verify no analytics request before consent or after decline, then check consent, revocation, and browser opt-out behavior. Local preview uses the configured measurement ID too; deliberate analytics consent can send test traffic to that property.

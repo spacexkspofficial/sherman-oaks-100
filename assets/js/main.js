@@ -12,10 +12,13 @@
   function redirectSponsorshipHash() {
     const path = location.pathname.split("/").pop().toLowerCase();
     if (path && path !== "index.html") return false;
+    if (location.hash === "#centennial-opportunities") {
+      location.replace("index.html" + location.search + "#support");
+      return true;
+    }
     const pages = {
       "#series-packages": "sponsorship-series.html",
-      "#single-event": "sponsorship-events.html",
-      "#centennial-opportunities": "sponsorship-centennial.html"
+      "#single-event": "sponsorship-events.html"
     };
     const page = pages[location.hash];
     if (!page) return false;
