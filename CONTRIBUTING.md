@@ -14,7 +14,7 @@ Bug reports should include the affected URL or section, expected and actual beha
 
 ## Editing conventions
 
-- **Content:** Edit `index.html` for events, history, committee information, contact routes, and the short sponsorship overview. Keep full sponsorship details in `sponsorship-series.html` and `sponsorship-events.html`; update the linked public flyer when its source changes. Retired page files such as `events.html` are redirect stubs; preserve their destination, incoming query string and hash handling, and fallback link.
+- **Content:** Edit `index.html` for events, history, committee information, contact routes, and the short sponsorship overview. Keep full sponsorship details in `sponsorship-series.html` and `sponsorship-events.html`; update the linked public flyer when its source changes. Retired page files such as `events.html` are redirect stubs; preserve their destination, incoming query string and hash handling, and fallback link. Keep inline JSON-LD and `llms.txt` synchronized with visible content; follow [SEARCH.md](SEARCH.md) when changing metadata, canonical pages or crawler guidance.
 - **Shared markup:** Update the header/footer consistently across `index.html`, the two sponsorship pages, `privacy.html`, `terms.html`, `copyright.html`, `accessibility.html`, and `404.html`. Preserve the 404 page's root-relative URLs. The contact panel, flyer note, and fine print at the end of the two sponsorship pages sit between `shared:sponsorship-footer` comments and must stay identical; edit both and run the shared-block check under [Validation](#validation).
 - **Behavior:** Keep element IDs, `data-*` hooks, ARIA relationships, and deep links in sync. Do not rename a comparison panel without updating its tab controls and map story links.
 - **Styles:** Use existing CSS variables and component classes. Keep phone overrides in `mobile.css`, linked last with the matching 699 px media condition. Preserve content, credits, and reading order across viewports.
@@ -44,7 +44,8 @@ To add a map place:
 1. Confirm the public description, coordinates, category, and photo/source details. Keep drafts outside `assets/data/locations.json`.
 2. Add a record following the [README data contract](README.md#community-map) and the actual validation in [map-data.js](assets/js/map-data.js). Keep the document at `version: 1`; only include approved public records.
 3. Use a stable unique ID and place the record in its intended list order. If photos are present, include their labels and alt text. Use a real local `storyUrl` target when linking a comparison.
-4. Update the JSON cache version. Check the pin, list entry, popup, photo toggle, story link, and directions coordinates in the browser, including `index.html#place=<id>`.
+4. Mirror the approved record in `index.html#photo-locations` and the homepage's inline Place/ItemList schema. Keep the directory summary/count and `llms.txt` accurate. The JSON remains the location-schema authority.
+5. Update the JSON cache version. Check the pin, list entry, popup, photo toggle, story link, and directions coordinates in the browser, including `index.html#place=<id>`.
 
 The `approved` flag is a display filter, not an access control or a substitute for permission records. Current held timeline and Notable Residents drafts remain outside the repository. Do not reintroduce held material as part of an unrelated code change. Maintainers with the larger local workspace should consult its latest handoff and approval records when a change touches that material; dated notes may have been superseded by later user decisions.
 
@@ -100,6 +101,7 @@ This checks schema acceptance, not image existence, story anchors, factual accur
 - For map changes, check deep links, list/pin selection, photo and directions links, retry/error states, and raster fallback. Search/category controls are intentionally hidden for a small single-category dataset. Never leave test locations or `_map-qa*` fixtures in the published files.
 - For analytics changes, use a fresh browser storage state. Verify no analytics request before consent or after decline, then check consent, revocation, and browser opt-out behavior. Local preview uses the configured measurement ID too; deliberate analytics consent can send test traffic to that property.
 - Check the console and network panel for unexpected errors or missing assets. A working `mailto:` link verifies the draft destination, not inbox delivery.
+- For search/content changes, follow [the search checks](SEARCH.md#validation-and-discovery-after-publishing): parse JSON-LD and XML, verify canonical/social URLs and sitemap coverage, compare structured text with the visible source, check crawl access and test the photo directory without JavaScript. Search-console submission and live indexing checks require a deployed site and owner account access.
 
 ### Additional maintainer workspace checks
 
@@ -108,6 +110,7 @@ Some local workspaces have read-only validators in `../tmp/`. They are not track
 ```sh
 python ../tmp/check_site.py
 node ../tmp/check_map.cjs
+python ../tmp/check_seo.py
 ```
 
 They check site structure, links, redirects, image metadata/content holds, and map-data behavior. They do not establish publication permission or replace relevant browser checks. Do not rerun old workspace build/edit scripts blindly: later changes were made directly in the site files.

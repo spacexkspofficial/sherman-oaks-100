@@ -177,3 +177,12 @@
 @media (prefers-reduced-motion: reduce) {
   .photo-pin, .map-gesture-hint, .map-location { transition: none; }
 }
+
+/* Always-readable directory for visitors, search engines and AI retrieval. */
+.map-directory { margin: 1.5rem 0; padding: 1rem 1.25rem; border: 1px solid var(--border-strong); border-radius: var(--r-lg); background: var(--bg); }
+.map-directory summary { cursor: pointer; color: var(--primary-deep); font-weight: 600; }
+.map-directory > p { margin: 1rem 0; }
+.map-directory__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 2rem; list-style: none; padding: 0; }
+.map-directory__list li { min-width: 0; }
+.map-directory__list h3 { margin: 0 0 .5rem; font-size: 1.1rem; }
+.map-directory__list p { margin: .5rem 0; }

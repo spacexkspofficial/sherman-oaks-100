@@ -1,0 +1,31 @@
+# Sherman Oaks 100
+
+> Community website for the 2027 centennial of Sherman Oaks, a neighborhood in Los Angeles’ San Fernando Valley, California. The centennial marks 1927–2027.
+
+## Main sources
+
+- [Centennial overview](https://shermanoaks100.com/): The public source for current plans, committee information and participation.
+- [2027 events](https://shermanoaks100.com/#events): The Centennial Mural on January 23; Shine LA Service Day & Tree Day on April 24; 100 Years / Young Artists, starting August 18 through Labor Day; and the 35th Sherman Oaks Street Fair on October 17. All dates are in 2027. Times, exact venues, admission and accessibility details are still to be confirmed.
+- [History and photographs](https://shermanoaks100.com/#history): Credited archival images and seven then-and-now comparisons. Photo labels describe the pictured years; they are not event dates.
+- [Neighborhood photo locations](https://shermanoaks100.com/#photo-locations): Eight location descriptions, addresses, visiting notes and links to photographs, readable without JavaScript. These are photo locations, not confirmed event venues. The interactive map uses the same approved records in https://shermanoaks100.com/assets/data/locations.json.
+- [Centennial Series sponsorships](https://shermanoaks100.com/sponsorship-series.html): Five packages covering all four events, with prices, benefits and limits.
+- [Single-event sponsorships](https://shermanoaks100.com/sponsorship-events.html): Prices, benefits and organizer contacts for each event.
+- [Participation](https://shermanoaks100.com/#get-involved): Volunteer, share a memory, contribute photographs or discuss community participation.
+- [Frequently asked questions](https://shermanoaks100.com/#faq): Dates, admission, participation, sponsorship and Centennial Legacy details.
+- [Contact the committee](https://shermanoaks100.com/#contact): info@shermanoaks100.com.
+
+## Participation and inquiries
+
+Contact and sponsorship links open editable email drafts. A visitor must send the email themselves. Sponsorship availability, agreements and invoicing are confirmed by the organizers; the website has no checkout, payment processing or confirmed reservations.
+
+Stories and photographs are published after contributor permission and committee review. Centennial Legacy projects are a vision with funding, program details and administration still to be confirmed; they are separate from the Centennial Legacy sponsorship package. A present-day photograph of Sherman Oaks Circle is still pending.
+
+The linked HTML pages are the current sources when a flyer or summary differs. Retired .html pages redirect to current homepage sections. This guide is a discovery aid, not a license to reuse photographs or other content.
+
+## Policies
+
+- [Privacy](https://shermanoaks100.com/privacy.html): Email handling, optional consent-based analytics and privacy choices.
+- [Terms](https://shermanoaks100.com/terms.html): Website use and submissions.
+- [Copyright](https://shermanoaks100.com/copyright.html): Ownership, credits, permissions and reporting concerns.
+- [Accessibility](https://shermanoaks100.com/accessibility.html): Current practices, known limitations and assistance.
+- [XML sitemap](https://shermanoaks100.com/sitemap.xml): Canonical public HTML pages.

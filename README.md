@@ -6,6 +6,7 @@ The site is built with HTML, CSS, and vanilla JavaScript and is designed for Git
 
 - [Contribution guide](CONTRIBUTING.md): workflow, editing conventions, and validation.
 - [Agent instructions](AGENTS.md): where coding agents should start and what to preserve.
+- [Search and AI discovery](SEARCH.md): canonical URLs, crawler access, structured data, content synchronization and search-console setup.
 - [Website](https://shermanoaks100.com/): the custom domain recorded in `CNAME`.
 
 ## Run locally
@@ -47,6 +48,9 @@ Python is only needed for this preview command. Node.js is optional for the chec
 | `assets/images/brand/`, `assets/images/history/`, `assets/icons/`, `favicon.ico` | Website image exports, branding, and icons. |
 | `assets/vendor/leaflet/`, `assets/vendor/maplibre/` | Bundled map libraries and their license files. |
 | [CNAME](CNAME) | Custom domain for publishing. |
+| `robots.txt`, `sitemap.xml`, `llms.txt` | Crawler access, seven canonical HTML URLs and an optional AI discovery guide. |
+| [SEARCH.md](SEARCH.md) | Search metadata, structured-data ownership, update rules and discovery checks. |
+| `assets/images/brand/sherman-oaks-100-social.png` | Shared 1200 × 630 social preview using the existing centennial seal. |
 
 ## How the code works
 
@@ -80,6 +84,14 @@ Each displayed record needs `approved: true`, a unique lowercase hyphenated `id`
 Optional fields include visiting notes (`accessibility`), HTTPS links (`url`, `sourceUrl`, `sourceLabel`), photo fields (`thenImage`/`thenAlt`/`thenLabel`/`thenCredit` and `nowImage`/`nowAlt`/`nowLabel`/`nowCredit`), and a local `storyUrl` with `storyLabel`. Photo paths must match `assets/images/history/<slug>.jpg`. A photo requires its label, image, and alt text; a label alone produces a placeholder. Credits are plain text shown below the list-card photos and under the popup photo, worded like the History section credits. Story links can target a section such as `#then-now-la-reina`.
 
 Invalid/unapproved records and duplicate IDs are skipped. A malformed document produces an error state with a retry action. The approval flag only controls rendering: everything in the JSON is publicly readable. See [Adding content and map places](CONTRIBUTING.md#adding-content-and-map-places) before adding records.
+
+The expandable `#photo-locations` text directory in `index.html` also lists all approved places without JavaScript. Names, addresses, descriptions, visiting notes and photo links mirror the JSON. Update that directory and the homepage's inline Place/ItemList schema whenever records change.
+
+### Search and AI discovery
+
+Seven canonical HTML pages carry unique titles/descriptions, absolute canonical URLs, Open Graph/social previews and inline JSON-LD. The homepage includes the committee/site identity, visible event plans and FAQ, and approved photo places. Sponsorship pages describe their package/event collections and breadcrumbs. Redirects and the 404 page remain `noindex` and are excluded from the sitemap.
+
+`robots.txt` preserves unrestricted crawler access and advertises `sitemap.xml`. `llms.txt` is a supplementary linked guide; the HTML is the source of truth. Structured data and the guide must track visible content. These files do not guarantee search rankings or AI citations. See [SEARCH.md](SEARCH.md) for maintenance, event-rich-result limitations and owner account steps after deployment.
 
 ### Styles and assets
 

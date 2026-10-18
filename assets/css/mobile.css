@@ -292,3 +292,6 @@ body {
 /* The decorative "404" (aria-hidden) must not widen the page when readers
    increase letter spacing (WCAG 1.4.12); it is clipped, never the content. */
 .lost__big { overflow-x: clip; }
+
+/* Text directory stays in the same reading order as the interactive map. */
+.map-directory__list { grid-template-columns: minmax(0, 1fr); }

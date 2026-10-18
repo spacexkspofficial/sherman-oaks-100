@@ -1,0 +1,6 @@
+# Public pages and assets are available to search and AI retrieval crawlers.
+# Crawling does not grant reuse rights; see /copyright.html.
+User-agent: *
+Allow: /
+
+Sitemap: https://shermanoaks100.com/sitemap.xml
