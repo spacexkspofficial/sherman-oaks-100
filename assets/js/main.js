@@ -10,6 +10,22 @@
   const SITE_PASSWORD = "SO100-earlyaccess";
   const AUTH_STORAGE_KEY = "shermanOaks100PreviewAccess";
 
+  // Keep shared/bookmarked homepage sponsorship hashes pointing to the full
+  // details after those sections moved to dedicated static pages.
+  function redirectSponsorshipHash() {
+    const path = location.pathname.split("/").pop().toLowerCase();
+    if (path && path !== "index.html") return false;
+    const pages = {
+      "#series-packages": "sponsorship-series.html",
+      "#single-event": "sponsorship-events.html",
+      "#centennial-opportunities": "sponsorship-centennial.html"
+    };
+    const page = pages[location.hash];
+    if (!page) return false;
+    location.replace(page + location.search + location.hash);
+    return true;
+  }
+
   /* ---------------------------------------------------------------------
    * Preview password gate
    * ------------------------------------------------------------------- */
@@ -525,6 +541,8 @@
   }
 
   ready(function () {
+    if (redirectSponsorshipHash()) return;
+    window.addEventListener("hashchange", redirectSponsorshipHash);
     initAuthGate();
     initNavToggle();
     initHeaderScroll();
