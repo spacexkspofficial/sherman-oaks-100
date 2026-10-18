@@ -5,7 +5,7 @@
   "use strict";
   const root = document.querySelector("[data-community-map]");
   if (!root) return;
-  const v = "20261017b";
+  const v = "20261017c";
   const styles = ["assets/vendor/leaflet/leaflet.css", "assets/vendor/maplibre/maplibre-gl.css"];
   const scripts = ["assets/vendor/leaflet/leaflet.js", "assets/vendor/maplibre/maplibre-gl.js",
     "assets/vendor/maplibre/leaflet-maplibre-gl.js", "assets/js/map-config.js?v=" + v,
@@ -35,8 +35,7 @@
   if (wantsPlace()) load();
   window.addEventListener("hashchange", function () { if (wantsPlace()) load(); });
   if (!("IntersectionObserver" in window)) { load(); return; }
-  // Hidden behind the preview gate, the section never intersects, so nothing
-  // loads (and no map tiles are requested) until the page is opened.
+  // Nothing loads (and no map tiles are requested) until the map section nears the screen.
   const observer = new IntersectionObserver(function (entries) {
     if (entries.some(entry => entry.isIntersecting)) { observer.disconnect(); load(); }
   }, { rootMargin: "900px 0px" });

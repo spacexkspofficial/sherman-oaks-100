@@ -12,12 +12,12 @@ Use the implementation and the current user request to resolve stale documentati
 
 - Keep changes focused and preserve unrelated edits. This is a static HTML/CSS/vanilla JavaScript site with no build step; preserve that structure unless the task calls for a change.
 - Edit public section content in `index.html`; keep its sponsorship overview concise and put full details on the three `sponsorship-*.html` pages. Retired pages such as `events.html` and `map.html` are redirects, not alternate content sources.
-- Preserve IDs, hash/deep links, redirect behavior, accessibility hooks, photo credits, and metadata-free image exports. Keep shared markup consistent across the nine full pages listed in CONTRIBUTING.md.
+- Preserve IDs, hash/deep links, redirect behavior, accessibility hooks, photo credits, and metadata-free image exports. Keep shared markup consistent across the nine full pages listed in CONTRIBUTING.md. Avoid advertising words such as `sponsor` in new class names and IDs: ad blockers hide those elements.
 - Keep mobile styling within the existing 699 px boundary and preserve visible content and reading order. Update asset cache versions when changing runtime files.
 - Treat `map-data.js` as the location schema authority. Keep drafts and test fixtures out of the public JSON. Preserve plain-text rendering, local photo/story path validation, and fallback states.
 - Preserve analytics consent, vendor licenses, and provider attribution. Review privacy disclosures when external requests change.
 - Follow the current approved content and user decisions. Do not infer historical facts, dates, partner endorsements, sponsor benefits, or payment functionality. Held timeline and Notable Residents drafts remain outside this repository unless their release is part of the task.
-- Keep originals, private review notes, credentials, and source archives outside the publishing root. The preview gate does not secure site files.
+- Keep originals, private review notes, credentials, and source archives outside the publishing root. Every file in it is public.
 
 ## Local workspace context
 
@@ -31,4 +31,4 @@ Treat archived README/status snapshots as historical records. Check current file
 - Report checks actually run, results, and any limitations. Keep local implementation, content approval, commit/push status, and deployment status distinct.
 - Update README.md when architecture, setup, configuration, or file responsibilities change. Update CONTRIBUTING.md when the collaboration workflow changes. Keep this file's references aligned with both.
 - Record private handoff updates in the outer workspace when it exists. Avoid turning the public README back into a dated session log.
-- Push, merge, deploy, change `CNAME`, or remove the preview gate only when included in the user's authorized scope. Check the configured publishing source before an authorized push that could deploy the site.
+- Push, merge, deploy, or change `CNAME` only when included in the user's authorized scope. Check the configured publishing source before an authorized push that could deploy the site.

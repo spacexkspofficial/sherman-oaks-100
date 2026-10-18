@@ -423,12 +423,5 @@
     window.addEventListener("hashchange", openLinkedPlace);
     loadPlaces();
   }
-  // The existing preview gate hides the main page. Start after it opens so
-  // Leaflet gets real dimensions and does not request tiles behind the gate.
-  if (document.documentElement.classList.contains("auth-required")) {
-    const observer = new MutationObserver(function () {
-      if (!document.documentElement.classList.contains("auth-required")) { observer.disconnect(); start(); }
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-  } else start();
+  start();
 })();

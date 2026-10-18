@@ -7,9 +7,6 @@
 (function () {
   "use strict";
 
-  const SITE_PASSWORD = "SO100-earlyaccess";
-  const AUTH_STORAGE_KEY = "shermanOaks100PreviewAccess";
-
   // Keep shared/bookmarked homepage sponsorship hashes pointing to the full
   // details after those sections moved to dedicated static pages.
   function redirectSponsorshipHash() {
@@ -27,11 +24,11 @@
   }
 
   /* ---------------------------------------------------------------------
-   * Preview password gate
+   * Linked sections
    * ------------------------------------------------------------------- */
-  // The gate hides the page while it loads, so the browser's own jump to a
-  // linked section (e.g. index.html#then-now-la-reina) finds nothing. Redo it
-  // once the content is visible and the then-and-now tabs are ready.
+  // The browser jumps to a linked section (e.g. index.html#then-now-la-reina)
+  // before the then-and-now tabs hide all but one panel. Redo the jump once
+  // the tabs are ready, opening the linked panel first.
   function hashTarget(hash) {
     let id = "";
     try { id = decodeURIComponent((hash || "").slice(1)); } catch (_) { return null; }
@@ -46,99 +43,9 @@
     const target = hashTarget(location.hash);
     if (!target) return;
     revealTarget(target);
-    target.scrollIntoView({ block: "start" });
-  }
-
-  function initAuthGate() {
-    const root = document.documentElement;
-    if (!root.classList.contains("auth-required")) return;
-
-    let hasAccess = false;
-    try { hasAccess = localStorage.getItem(AUTH_STORAGE_KEY) === "granted"; } catch (_) { /* Storage may be disabled. */ }
-    if (hasAccess) {
-      root.classList.remove("auth-required");
-      return;
-    }
-
-    const gate = document.createElement("section");
-    gate.className = "auth-gate";
-    gate.setAttribute("aria-labelledby", "auth-gate-title");
-    gate.innerHTML =
-      "<div class=\"auth-gate__panel\">" +
-        "<a class=\"auth-gate__brand\" href=\"index.html\" aria-label=\"Sherman Oaks 100 home\">" +
-          "<img class=\"auth-gate__mark\" src=\"/assets/images/brand/sherman-oaks-centennial.webp\" width=\"637\" height=\"571\" alt=\"\" />" +
-          "<span>Sherman Oaks<small>Centennial · 1927-2027</small></span>" +
-        "</a>" +
-        "<span class=\"eyebrow\">Preview Access</span>" +
-        "<h1 id=\"auth-gate-title\">This website is currently being developed.</h1>" +
-        "<p>For questions about Sherman Oaks 100, contact <a href=\"mailto:info@shermanoaks100.com\" target=\"_blank\" rel=\"noopener noreferrer\">info@shermanoaks100.com</a>.</p>" +
-        "<form class=\"auth-gate__form\" autocomplete=\"off\">" +
-          "<label for=\"auth-password\">Password</label>" +
-          "<div class=\"auth-gate__row\">" +
-            "<div class=\"auth-gate__password\">" +
-              "<input id=\"auth-password\" name=\"password\" type=\"password\" required autocapitalize=\"none\" spellcheck=\"false\" />" +
-              "<button class=\"auth-gate__toggle\" type=\"button\" aria-label=\"Show password\" aria-pressed=\"false\">Show</button>" +
-            "</div>" +
-            "<button class=\"btn btn--accent\" type=\"submit\">Enter site</button>" +
-          "</div>" +
-          "<p class=\"auth-gate__caps\" aria-live=\"polite\"><span class=\"auth-gate__caps-icon\" aria-hidden=\"true\">!</span> Caps Lock is on</p>" +
-          "<p class=\"auth-gate__status\" aria-live=\"polite\"></p>" +
-        "</form>" +
-      "</div>";
-
-    document.body.prepend(gate);
-    document.body.style.overflow = "hidden";
-
-    const form = gate.querySelector(".auth-gate__form");
-    const input = gate.querySelector("#auth-password");
-    const toggle = gate.querySelector(".auth-gate__toggle");
-    const caps = gate.querySelector(".auth-gate__caps");
-    const status = gate.querySelector(".auth-gate__status");
-
-    window.setTimeout(function () {
-      input.focus();
-    }, 0);
-
-    toggle.addEventListener("click", function () {
-      const show = input.type === "password";
-      input.type = show ? "text" : "password";
-      toggle.textContent = show ? "Hide" : "Show";
-      toggle.setAttribute("aria-label", show ? "Hide password" : "Show password");
-      toggle.setAttribute("aria-pressed", String(show));
-      input.focus();
-    });
-
-    function updateCapsLock(e) {
-      if (!e.getModifierState) return;
-      caps.classList.toggle("is-visible", e.getModifierState("CapsLock"));
-    }
-
-    input.addEventListener("keydown", updateCapsLock);
-    input.addEventListener("keyup", updateCapsLock);
-    input.addEventListener("blur", function () {
-      caps.classList.remove("is-visible");
-    });
-    input.addEventListener("input", function () {
-      status.textContent = "";
-    });
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (input.value.trim() === SITE_PASSWORD) {
-        try { localStorage.setItem(AUTH_STORAGE_KEY, "granted"); } catch (_) { /* Access still works for this page. */ }
-        document.body.style.overflow = "";
-        root.classList.remove("auth-required");
-        gate.remove();
-        document.querySelectorAll(".reveal").forEach(function (el) {
-          el.classList.add("is-revealed");
-        });
-        scrollToLinkedSection();
-        return;
-      }
-
-      status.textContent = "That password did not work. Please try again.";
-      input.select();
-    });
+    // Jump like the browser does: a smooth scroll started while the page is
+    // still loading can stop short.
+    target.scrollIntoView({ block: "start", behavior: "instant" });
   }
 
   /* ---------------------------------------------------------------------
@@ -363,8 +270,6 @@
     window.addEventListener("scroll", queue, { passive: true });
     window.addEventListener("resize", queue);
     update();
-    // Recheck once the preview gate reveals the page.
-    new MutationObserver(queue).observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
   }
 
   /* ---------------------------------------------------------------------
@@ -459,7 +364,6 @@
   ready(function () {
     if (redirectSponsorshipHash()) return;
     window.addEventListener("hashchange", redirectSponsorshipHash);
-    initAuthGate();
     initHeaderScroll();
     initActiveNav();
     initYear();
@@ -469,6 +373,6 @@
     initLightbox();
     initAnchorLinks();
     initScrollSpy();
-    if (!document.documentElement.classList.contains("auth-required")) scrollToLinkedSection();
+    scrollToLinkedSection();
   });
 })();

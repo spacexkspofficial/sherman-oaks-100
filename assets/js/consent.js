@@ -191,19 +191,6 @@
     }
   }
 
-  /* ---------------------------------------------------------------------
-   * Start once the page is visible (after the preview gate, if present)
-   * ------------------------------------------------------------------- */
-  function whenPageVisible(fn) {
-    if (!root.classList.contains("auth-required")) { fn(); return; }
-    const watcher = new MutationObserver(function () {
-      if (root.classList.contains("auth-required")) return;
-      watcher.disconnect();
-      fn();
-    });
-    watcher.observe(root, { attributes: true, attributeFilter: ["class"] });
-  }
-
   function init() {
     updateStatus();
     if (!ID) return;
@@ -221,7 +208,7 @@
     // No current "Allow" (declined, never asked, or the 12-month choice expired):
     // clear any Google Analytics cookies left from an earlier visit.
     stopAnalytics();
-    if (choice === null) whenPageVisible(function () { showBanner(null); });
+    if (choice === null) showBanner(null);
   }
 
   if (document.readyState !== "loading") init();

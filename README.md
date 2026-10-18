@@ -20,7 +20,7 @@ python -m http.server 8012 --bind 127.0.0.1
 
 Open [the local preview](http://127.0.0.1:8012/index.html). On Windows, `py -3` can replace `python`. Stop the server with Ctrl+C. If you already have a checkout, run the server from the directory containing `index.html`.
 
-Serve the site over HTTP: opening HTML through `file://` will not reliably load the map's JSON. The preview screen uses the `SITE_PASSWORD` value in [main.js](assets/js/main.js) and remembers access in browser local storage. This is a client-side presentation gate; it does not protect published files. Without JavaScript, each full page shows a `<noscript>` preview notice instead of a blank screen. The notice hides itself on any page without the `auth-required` class, so removing that class (and the gate code) makes every page readable without JavaScript; delete the notices at the same time.
+Serve the site over HTTP: opening HTML through `file://` will not reliably load the map's JSON. Every page is public and readable without JavaScript; scripts enhance navigation, comparisons, the map, and the consent banner.
 
 Python is only needed for this preview command. Node.js is optional for the checks in [CONTRIBUTING.md](CONTRIBUTING.md#validation). External fonts, map tiles, and consented analytics require an internet connection.
 
@@ -37,7 +37,7 @@ Python is only needed for this preview command. Node.js is optional for the chec
 | [assets/css/styles.css](assets/css/styles.css) | Shared design tokens, components, and responsive styles. |
 | [assets/css/mobile.css](assets/css/mobile.css) | Phone overrides, loaded last with `media="(max-width: 699px)"`. |
 | [assets/css/community-map.css](assets/css/community-map.css) | Map, marker, popup, and place-list styles. |
-| [assets/js/main.js](assets/js/main.js) | Preview gate, navigation, section tracking, comparisons, photo lightbox, and other shared interactions. |
+| [assets/js/main.js](assets/js/main.js) | Navigation, section tracking, old sponsorship-hash forwarding, comparisons, photo lightbox, and other shared interactions. |
 | [assets/js/map-loader.js](assets/js/map-loader.js) | Lazy-loads map libraries and application scripts in dependency order. |
 | [assets/js/map-config.js](assets/js/map-config.js) | Map center, zoom limits, tile/font URLs, attribution, and vector style. |
 | [assets/js/map-data.js](assets/js/map-data.js) | Location validation, search/filter helpers, safe URLs, and directions links. Usable in the browser and through CommonJS in Node. |
@@ -62,7 +62,7 @@ The homepage sponsorship cards link directly to the three static detail pages. `
 
 ### Community map
 
-When the map approaches the viewport, `map-loader.js` loads Leaflet, MapLibre GL JS, the Leaflet adapter, then the configuration, data helpers, and map controller. A `#place=<id>` URL requests this immediately; map initialization waits for the preview gate to open.
+When the map approaches the viewport, `map-loader.js` loads Leaflet, MapLibre GL JS, the Leaflet adapter, then the configuration, data helpers, and map controller. A `#place=<id>` URL requests this immediately.
 
 `community-map.js` fetches `locations.json`, validates it through `map-data.js`, and renders the place list and pins. Leaflet handles interaction; MapLibre renders the simplified OpenStreetMap vector basemap. Raster tiles provide a fallback, and the place list remains available when the map layer cannot load. Search and category controls are revealed when the dataset grows beyond eight places or contains multiple categories.
 
@@ -99,7 +99,7 @@ Links to other websites and the sponsorship PDF open in a new tab and include a 
 
 The repository is organized for serving its root at `shermanoaks100.com`. Root-relative paths, especially on the 404 page, assume this arrangement; a deployment beneath a URL subdirectory needs path review.
 
-There is no build workflow or CI configuration checked into this repository. Confirm the repository's current GitHub Pages settings before publishing: updates to its configured publishing source can deploy the site. Keep `CNAME` and the preview behavior intact unless the task includes changing them. Treat all committed site files as public, including files hidden by the preview screen or unused by the page.
+There is no build workflow or CI configuration checked into this repository. Confirm the repository's current GitHub Pages settings before publishing: updates to its configured publishing source can deploy the site. Keep `CNAME` intact unless the task includes changing it. Treat all committed site files as public, including files unused by the page.
 
 ## Collaboration and credits
 
