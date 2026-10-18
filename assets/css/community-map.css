@@ -102,6 +102,7 @@
 .map-popup__toggle button[aria-pressed="true"] { background: #fffdf8; color: var(--primary-deep); }
 .map-popup__toggle button:disabled { opacity: .55; cursor: not-allowed; }
 .map-popup__toggle button:focus-visible { outline: 2px solid var(--gold-300); outline-offset: 1px; }
+.map-popup .map-popup__credit { margin-block: .5rem 0; font-size: .7rem; line-height: 1.4; color: var(--fg-muted); }
 
 /* Place list */
 .map-results { min-width: 0; min-height: 0; display: flex; flex-direction: column; border-left: 1px solid var(--border); background: #fffdf8; }
@@ -122,6 +123,7 @@
   position: absolute; left: 6px; bottom: 6px; padding: .1rem .45rem; border-radius: var(--r-full);
   background: rgba(17, 33, 27, .75); color: #fff; font-size: .68rem; font-weight: 700;
 }
+.map-place__credit { margin: -.35rem 0 .6rem; font-size: .7rem; line-height: 1.4; color: var(--fg-muted); }
 .map-place__head { display: flex; gap: .6rem; align-items: flex-start; }
 .map-place__number {
   flex: 0 0 auto; display: grid; place-items: center; width: 26px; height: 26px; margin-top: .1rem;

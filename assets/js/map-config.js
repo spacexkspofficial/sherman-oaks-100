@@ -9,7 +9,7 @@ window.COMMUNITY_MAP_CONFIG = Object.freeze({
   vectorUrl: "https://vector.openstreetmap.org/shortbread_v1/tilejson.json",
   glyphsUrl: "https://vector.openstreetmap.org/styles/shortbread/fonts/{fontstack}/{range}.pbf",
   // "© OpenStreetMap" linked to the licence page meets the OSMF attribution guidelines.
-  attribution: '<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap</a>',
+  attribution: '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">&copy; OpenStreetMap<span class="sr-only"> (opens in a new tab)</span></a>',
   maxZoom: 19
 });
 

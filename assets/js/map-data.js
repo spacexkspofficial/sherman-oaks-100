@@ -30,7 +30,7 @@
     const alt = text(entry[key + "Alt"]);
     const label = text(entry[key + "Label"]);
     if (!label) return null;
-    return src && alt ? { src, alt, label } : { src: "", alt: "", label };
+    return src && alt ? { src, alt, label, credit: text(entry[key + "Credit"]) } : { src: "", alt: "", label, credit: "" };
   }
   function read(document) {
     if (!document || document.version !== 1 || !Array.isArray(document.locations)) {

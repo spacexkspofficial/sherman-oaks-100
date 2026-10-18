@@ -1774,8 +1774,15 @@ html.auth-required body {
   overflow: hidden;
 }
 
-html.auth-required body > :not(.auth-gate) {
+html.auth-required body > :not(.auth-gate):not(noscript) {
   display: none !important;
+}
+
+/* Without JavaScript the gate cannot ask for the password, so each full
+   page's <noscript> notice explains instead. Once a page no longer has the
+   auth-required class, the notice hides and the page reads without JS. */
+html:not(.auth-required) .auth-gate--noscript {
+  display: none;
 }
 
 .auth-gate {
@@ -2561,6 +2568,7 @@ main [id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .package__benefits li + li { margin-top: .4rem; }
 .package__benefits li::marker { color: var(--accent-text); }
 .package .package__value { margin-top: .6rem; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-muted); }
+.package .package__note { margin-top: .6rem; font-size: .88rem; color: var(--fg-muted); }
 .package__link { display: inline-block; margin-top: .75rem; font-size: .92rem; font-weight: 600; color: var(--primary); text-underline-offset: 3px; }
 
 .event-sponsors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }

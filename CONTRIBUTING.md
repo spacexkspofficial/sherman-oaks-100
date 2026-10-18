@@ -14,11 +14,11 @@ Bug reports should include the affected URL or section, expected and actual beha
 
 ## Editing conventions
 
-- **Content:** Edit `index.html` for events, history, committee information, contact routes, and the short sponsorship overview. Keep full sponsorship details in `sponsorship-series.html`, `sponsorship-events.html`, and `sponsorship-centennial.html`; update the linked public flyer when its source changes. Retired page files such as `events.html` are redirect stubs; preserve their destination, incoming hash handling, and fallback link.
-- **Shared markup:** Update the header/footer consistently across `index.html`, the three sponsorship pages, `privacy.html`, `terms.html`, `copyright.html`, `accessibility.html`, and `404.html`. Preserve the 404 page's root-relative URLs.
+- **Content:** Edit `index.html` for events, history, committee information, contact routes, and the short sponsorship overview. Keep full sponsorship details in `sponsorship-series.html`, `sponsorship-events.html`, and `sponsorship-centennial.html`; update the linked public flyer when its source changes. Retired page files such as `events.html` are redirect stubs; preserve their destination, incoming query string and hash handling, and fallback link.
+- **Shared markup:** Update the header/footer consistently across `index.html`, the three sponsorship pages, `privacy.html`, `terms.html`, `copyright.html`, `accessibility.html`, and `404.html`. Preserve the 404 page's root-relative URLs. The contact panel, flyer note, and fine print at the end of the three sponsorship pages sit between `shared:sponsorship-footer` comments and must stay identical; edit all three and run the shared-block check under [Validation](#validation).
 - **Behavior:** Keep element IDs, `data-*` hooks, ARIA relationships, and deep links in sync. Do not rename a comparison panel without updating its tab controls and map story links.
 - **Styles:** Use existing CSS variables and component classes. Keep phone overrides in `mobile.css`, linked last with the matching 699 px media condition. Preserve content, credits, and reading order across viewports.
-- **Accessibility:** Use semantic elements, descriptive alt text, visible keyboard focus, labeled controls, and meaningful links. Retain reduced-motion handling, keyboard slider/tab operation, and popup/lightbox focus restoration.
+- **Accessibility:** Use semantic elements, descriptive alt text, visible keyboard focus, labeled controls, and meaningful links. Give links to other websites and to PDFs `target="_blank" rel="noopener noreferrer"` and end their text with `<span class="sr-only"> (opens in a new tab)</span>`; inside a horizontally scrolling row, give the card `position: relative` so that note cannot widen the page. Retain reduced-motion handling, keyboard slider/tab operation, and popup/lightbox focus restoration.
 - **JavaScript:** Follow the existing two-space indentation, scoped functions, and plain browser APIs. Keep `map-data.js` independent of the DOM so it remains usable from Node. Render location text as text, not executable markup.
 - **Vendor files:** Do not hand-edit minified dependencies. If updating a library, verify its source/version, retain its license, update provenance notes, and check the map and fallback behavior together.
 - **Analytics and providers:** Keep consent in front of analytics requests. Review the privacy page when changing a tracking service, map provider, or other external request. A measurement ID is public configuration; private credentials do not belong in client code.
@@ -36,7 +36,7 @@ Assets use explicit `?v=` query strings. When changing a referenced runtime file
 
 Use supplied or verified content. Preserve existing decisions and placeholders until the task or an approved source provides a replacement; do not invent event dates, sponsor benefits, endorsements, historical claims, or payment functionality. Sponsorship purchases and next steps currently begin by email.
 
-For photographs, retain the source, contributor permission, caption, and required credit. Keep original images and private approval records outside the publishing repository. Export appropriately sized web images without EXIF metadata, preserve watermarks where applicable, and update alt text, dimensions, `srcset`, captions, and thumbnails together. Existing history exports commonly use 1600 px full images, 800 px responsive images, and 480 × 360 map thumbnails; match the relevant component and preserve intentional crops.
+For photographs, retain the source, contributor permission, caption, and required credit. Keep original images and private approval records outside the publishing repository. Export appropriately sized web images without EXIF metadata, preserve watermarks where applicable, and update alt text, dimensions, `srcset`, captions, and thumbnails together. Existing history exports commonly use 1600 px full images, 800 px responsive images, and 480 × 360 map thumbnails; match the relevant component and preserve intentional crops. Map photos need the same credit as the History section, in `thenCredit`/`nowCredit`.
 
 To add a map place:
 
@@ -74,6 +74,12 @@ node --check assets/js/map-loader.js
 node --check assets/js/map-config.js
 node --check assets/js/map-data.js
 node --check assets/js/community-map.js
+```
+
+For a sponsorship-page change, confirm the shared footer block is still identical on all three pages:
+
+```sh
+python -c "import re; b={re.search(r'<!-- shared:sponsorship-footer.*?/shared:sponsorship-footer -->', open(f'sponsorship-{p}.html', encoding='utf-8').read(), re.S).group(0) for p in ('series', 'events', 'centennial')}; print('Shared sponsorship footer identical' if len(b) == 1 else 'Shared sponsorship footer differs')"
 ```
 
 For a map-data change, run this from the repository root in PowerShell or a POSIX shell:

@@ -144,8 +144,9 @@ body {
   padding: .5rem var(--m-gutter) .9rem; scroll-snap-type: x mandatory; scroll-padding-inline: var(--m-gutter);
   overscroll-behavior-x: contain; scrollbar-width: thin;
 }
-/* Each slide is narrower than the screen so the next photo peeks in. */
-.archive-photo { flex: 0 0 78%; scroll-snap-align: start; }
+/* Each slide is narrower than the screen so the next photo peeks in.
+   position: relative keeps screen-reader-only link notes inside the row. */
+.archive-photo { position: relative; flex: 0 0 78%; scroll-snap-align: start; }
 .archive-photo--wide { flex-basis: 88%; }
 .archive-photo .photo-caption { display: block; font-size: .85rem; }
 .archive-photo h4 { margin-top: .6rem; font-size: 1.05rem; }

@@ -51,21 +51,34 @@
     figure.append(element("figcaption", "", shot.label));
     return figure;
   }
-  // List cards show then and now side by side.
+  // "1930 photograph: …", worded like the credits in the History section.
+  function creditText(shot) {
+    return shot && shot.src && shot.credit ? shot.label + " photograph: " + shot.credit + "." : "";
+  }
+  // List cards show then and now side by side, credited below.
   function photoPair(place) {
     if (!place.then && !place.now) return null;
     const row = element("div", "map-place__photos");
     [place.then, place.now].forEach(shot => { if (shot) row.append(photo(shot, "map-place__photo")); });
     return row;
   }
-  // Popups show one photo with a then/now switch.
+  function photoCredits(place) {
+    const credits = [place.then, place.now].map(creditText).filter(Boolean).join(" ");
+    return credits ? element("p", "map-place__credit", credits) : null;
+  }
+  // Popups show one photo with a then/now switch, and that photo's credit.
   function photoSwitch(place) {
     const shots = [place.then, place.now].filter(shot => shot && shot.src);
-    if (!shots.length) return null;
+    if (!shots.length) return [];
     const box = element("div", "map-popup__photo");
     const img = element("img");
+    const credit = element("p", "map-popup__credit");
     img.width = 480; img.height = 360; img.decoding = "async";
-    const show = shot => { img.src = shot.src; img.alt = shot.alt; };
+    const show = function (shot) {
+      img.src = shot.src; img.alt = shot.alt;
+      credit.textContent = creditText(shot);
+      credit.hidden = !credit.textContent;
+    };
     show(shots[0]);
     box.append(img);
     const labels = [place.then, place.now].filter(Boolean);
@@ -87,7 +100,7 @@
       });
       box.append(toggle);
     }
-    return box;
+    return [box, credit];
   }
   function actions(place, popup) {
     const row = element("div", "map-place__actions");
@@ -115,6 +128,8 @@
     const box = element("div", "map-place");
     const shots = photoPair(place);
     if (shots) box.append(shots);
+    const credits = photoCredits(place);
+    if (credits) box.append(credits);
     const head = element("div", "map-place__head");
     head.append(element("span", "map-place__number", String(number)));
     const titles = element("div");
@@ -130,8 +145,7 @@
   }
   function popupContent(place) {
     const box = element("div", "map-popup");
-    const shots = photoSwitch(place);
-    if (shots) box.append(shots);
+    box.append(...photoSwitch(place));
     box.append(element("p", "map-place__category", data.categories[place.category]));
     box.append(element("h3", "map-place__title", place.name));
     box.append(element("p", "map-place__address", place.address));
@@ -374,8 +388,10 @@
   }
   let shownCredit = "";
   function setCredit(vector) {
-    const text = config.attribution + ' · <a href="https://leafletjs.com">Leaflet</a>' +
-      (vector ? ' · <a href="https://maplibre.org">MapLibre</a>' : "");
+    const credit = (url, name) => ' · <a href="' + url + '" target="_blank" rel="noopener noreferrer">' + name +
+      '<span class="sr-only"> (opens in a new tab)</span></a>';
+    const text = config.attribution + credit("https://leafletjs.com", "Leaflet") +
+      (vector ? credit("https://maplibre.org", "MapLibre") : "");
     if (shownCredit) map.attributionControl.removeAttribution(shownCredit);
     map.attributionControl.addAttribution(text);
     shownCredit = text;

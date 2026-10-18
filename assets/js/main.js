@@ -142,45 +142,6 @@
   }
 
   /* ---------------------------------------------------------------------
-   * Mobile navigation toggle
-   * ------------------------------------------------------------------- */
-  function initNavToggle() {
-    const nav = document.querySelector(".nav");
-    const toggle = document.querySelector(".nav__toggle");
-    if (!nav || !toggle) return;
-
-    function closeNav() {
-      nav.classList.remove("nav--open");
-      toggle.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
-    }
-
-    toggle.addEventListener("click", function () {
-      const isOpen = nav.classList.toggle("nav--open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
-      document.body.style.overflow = isOpen ? "hidden" : "";
-    });
-
-    // Close on link click (mobile)
-    nav.querySelectorAll(".nav__menu a").forEach(function (link) {
-      link.addEventListener("click", closeNav);
-    });
-
-    // Close on Escape
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && nav.classList.contains("nav--open")) {
-        closeNav();
-        toggle.focus();
-      }
-    });
-
-    // A menu opened on a phone must not leave desktop scrolling locked.
-    window.matchMedia("(max-width: 1200px)").addEventListener("change", function (event) {
-      if (!event.matches && nav.classList.contains("nav--open")) closeNav();
-    });
-  }
-
-  /* ---------------------------------------------------------------------
    * Header shadow on scroll
    * ------------------------------------------------------------------- */
   function initHeaderScroll() {
@@ -236,57 +197,6 @@
       });
     }, { rootMargin: "0px 0px -60px 0px", threshold: 0.05 });
     els.forEach(function (el) { io.observe(el); });
-  }
-
-  /* ---------------------------------------------------------------------
-   * Event category filtering
-   * Buttons with [data-filter] toggle .hidden on [data-category] items.
-   * ------------------------------------------------------------------- */
-  function initEventFilters() {
-    const bars = document.querySelectorAll("[data-filter-bar]");
-    bars.forEach(function (bar) {
-      const targetSel = bar.getAttribute("data-filter-bar");
-      const items = document.querySelectorAll(targetSel + " [data-category]");
-      const chips = bar.querySelectorAll(".filter-bar__chip");
-
-      function apply(value) {
-        items.forEach(function (item) {
-          const cats = (item.getAttribute("data-category") || "").split(/\s+/);
-          const show = value === "all" || cats.indexOf(value) !== -1;
-          item.classList.toggle("hidden", !show);
-        });
-        chips.forEach(function (c) {
-          c.setAttribute("aria-pressed",
-            String(c.getAttribute("data-filter") === value));
-        });
-      }
-
-      chips.forEach(function (chip) {
-        chip.addEventListener("click", function () {
-          apply(chip.getAttribute("data-filter") || "all");
-        });
-      });
-      apply("all");
-    });
-  }
-
-  /* ---------------------------------------------------------------------
-   * Map placeholder pin tooltips (preview behavior)
-   * ------------------------------------------------------------------- */
-  function initMapPins() {
-    document.querySelectorAll(".map-wrap__pin").forEach(function (pin) {
-      pin.addEventListener("click", function () {
-        const name = pin.getAttribute("data-name") || "Location";
-        const msg = document.querySelector(".map-wrap__msg");
-        if (msg) {
-          msg.innerHTML =
-            "<h3 style=\"margin:0 0 .5rem;font-family:var(--font-display);font-size:1.25rem;color:var(--primary-deep);\">" +
-            name + "</h3>" +
-            "<p style=\"margin:0;font-size:.9rem;color:var(--ink-700);\">" +
-            "Placeholder location. Connect to Google My Maps or replace with real coordinates.</p>";
-        }
-      });
-    });
   }
 
   /* ---------------------------------------------------------------------
@@ -350,6 +260,12 @@
     const img = dialog.querySelector("img");
     const caption = dialog.querySelector(".lightbox__caption");
     let opener = null;
+    // Caption text as shown, without screen-reader-only notes such as "(opens in a new tab)".
+    function visibleText(node) {
+      const copy = node.cloneNode(true);
+      copy.querySelectorAll(".sr-only").forEach(function (note) { note.remove(); });
+      return copy.textContent.replace(/\s+/g, " ").trim();
+    }
 
     dialog.querySelector(".lightbox__close").addEventListener("click", function () { dialog.close(); });
     dialog.addEventListener("click", function (e) { if (e.target === dialog) dialog.close(); });
@@ -368,7 +284,7 @@
         const figure = link.closest("figure");
         const text = figure && figure.querySelector("figcaption");
         const parts = text ? (text.children.length ? Array.from(text.children) : [text])
-          .map(function (node) { return node.textContent.replace(/\s+/g, " ").trim(); }).filter(Boolean) : [];
+          .map(visibleText).filter(Boolean) : [];
         caption.textContent = parts.join(" — ");
         dialog.showModal();
       });
@@ -544,13 +460,10 @@
     if (redirectSponsorshipHash()) return;
     window.addEventListener("hashchange", redirectSponsorshipHash);
     initAuthGate();
-    initNavToggle();
     initHeaderScroll();
     initActiveNav();
     initYear();
     initReveal();
-    initEventFilters();
-    initMapPins();
     initCompare();
     initThenNowTabs();
     initLightbox();

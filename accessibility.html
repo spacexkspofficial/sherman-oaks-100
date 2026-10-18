@@ -19,10 +19,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,30..100,0..1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261017c" />
-  <link rel="stylesheet" href="assets/css/mobile.css?v=20261017c" media="(max-width: 699px)" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261017d" />
+  <link rel="stylesheet" href="assets/css/mobile.css?v=20261017d" media="(max-width: 699px)" />
 </head>
 <body>
+<!-- Preview notice for visitors without JavaScript; it hides itself once the auth-required class is removed. -->
+<noscript><div class="auth-gate auth-gate--noscript"><div class="auth-gate__panel"><a class="auth-gate__brand" href="index.html" aria-label="Sherman Oaks 100 home"><img class="auth-gate__mark" src="assets/images/brand/sherman-oaks-centennial.webp" width="637" height="571" alt="" /><span>Sherman Oaks<small>Centennial · 1927–2027</small></span></a><span class="eyebrow">Preview Access</span><h1>This website is currently being developed.</h1><p>For questions about Sherman Oaks 100, contact <a href="mailto:info@shermanoaks100.com" target="_blank" rel="noopener noreferrer">info@shermanoaks100.com</a>.</p><p>Preview access needs JavaScript. Turn it on in your browser, then reload this page.</p></div></div></noscript>
 
 <a href="#main" class="skip-link">Skip to content</a>
 
@@ -60,8 +62,8 @@
   <div class="container container--narrow prose">
 
     <div class="legal-meta">
-      <strong>Last reviewed:</strong> October 16, 2026
-      <br/><strong>Last updated:</strong> October 16, 2026
+      <strong>Last reviewed:</strong> October 17, 2026
+      <br/><strong>Last updated:</strong> October 17, 2026
     </div>
 
     <h2 id="commitment">Our commitment</h2>
@@ -76,7 +78,7 @@
     <h2 id="standard">The standard we follow</h2>
     <p>
       We design and test this website to meet the
-      <a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines (WCAG) 2.1, Level AA</a>.
+      <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer">Web Content Accessibility Guidelines (WCAG) 2.1, Level AA<span class="sr-only"> (opens in a new tab)</span></a>.
       This is the technical standard that the U.S. Department of Justice adopted
       for the websites of state and local governments under Title II of the ADA
       (28 C.F.R. part 35, subpart H). Where we can, we also follow the newer
@@ -89,10 +91,16 @@
       its events, history, map, stories, support, get-involved, FAQ and
       contact sections, plus this statement and the privacy, terms, copyright
       and “page not found” pages) met WCAG 2.1 Level AA in the tests described
-      below, apart from the limitations listed on this page. We have not yet
-      tested the site with people who use assistive technology, so we treat
-      the site as <strong>partially conformant</strong> until that testing is
-      done and any problems it finds are fixed.
+      below, apart from the limitations listed on this page. On October 17,
+      2026 we added three sponsorship pages (Centennial Series packages,
+      single-event sponsorships and centennial opportunities) and the
+      downloadable sponsorship flyer. We repeated the automated checks and
+      screen-width checks on every page, and checked the new pages’ contrast,
+      text spacing and keyboard focus. The flyer itself is listed under known
+      limitations. We have not yet tested the site with people who use
+      assistive technology, so we treat the site as
+      <strong>partially conformant</strong> until that testing is done and any
+      problems it finds are fixed.
     </p>
 
     <h3 id="features">What we built in</h3>
@@ -105,7 +113,7 @@
       <li>The then-and-now photo comparisons work with a keyboard (arrow keys) and screen readers, and both photographs are described.</li>
       <li>Every place on the community map is also listed in text beside the map, with its address, description and visiting notes.</li>
       <li>Animations are reduced when your device asks for reduced motion.</li>
-      <li>Links that open a new tab say so. Information never depends on color alone.</li>
+      <li>Links to other websites and to the sponsorship flyer open in a new tab and say so to screen readers. Email links open a new message in your email app. Information never depends on color alone.</li>
     </ul>
 
     <h3 id="testing">How we tested</h3>
@@ -147,11 +155,19 @@
         the site with screen-reader, voice-control or switch users. Your
         feedback helps.
       </li>
+      <li>
+        <strong>Sponsorship flyer (PDF).</strong> The two-page flyer linked
+        from the sponsorship pages is a print design. It identifies English as
+        its language, but it is not tagged for screen readers, so assistive
+        technology may read it out of order. Every package, level, price, date
+        and contact in it is also on the three sponsorship pages, and we can
+        send it in another format on request.
+      </li>
     </ul>
     <p>
-      We do not currently publish videos, audio or downloadable documents
-      (such as PDFs). Any we add will have accurate captions or transcripts,
-      or will be accessible documents, before they go online. If you need any
+      Apart from that flyer, we do not publish videos, audio or downloadable
+      documents. Any we add will have accurate captions or transcripts, or
+      will be accessible documents, before they go online. If you need any
       information from this website in another format, such as large print
       or plain text, ask us and we will provide it.
     </p>
@@ -255,8 +271,8 @@
   </div>
 </footer>
 
-<script src="assets/js/site-config.js?v=20261014a" defer></script>
+<script src="assets/js/site-config.js?v=20261017a" defer></script>
 <script src="assets/js/consent.js?v=20261016a" defer></script>
-<script src="assets/js/main.js?v=20261017c" defer></script>
+<script src="assets/js/main.js?v=20261017d" defer></script>
 </body>
 </html>

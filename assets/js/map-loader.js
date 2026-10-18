@@ -5,7 +5,7 @@
   "use strict";
   const root = document.querySelector("[data-community-map]");
   if (!root) return;
-  const v = "20261017a";
+  const v = "20261017b";
   const styles = ["assets/vendor/leaflet/leaflet.css", "assets/vendor/maplibre/maplibre-gl.css"];
   const scripts = ["assets/vendor/leaflet/leaflet.js", "assets/vendor/maplibre/maplibre-gl.js",
     "assets/vendor/maplibre/leaflet-maplibre-gl.js", "assets/js/map-config.js?v=" + v,
