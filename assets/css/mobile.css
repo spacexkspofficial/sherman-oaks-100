@@ -183,7 +183,7 @@ body {
 .sponsor-cta .btn, .sponsor-contact .btn { width: 100%; min-height: 48px; }
 .sponsor-block { margin-top: 2rem; }
 .sponsor-block__head { padding: .7rem 1rem; margin-bottom: .9rem; }
-.sponsor-block__head h3 { font-size: .95rem; letter-spacing: .1em; }
+.sponsor-block__head h2, .sponsor-block__head h3 { font-size: .95rem; letter-spacing: .1em; }
 .sponsor-block__head p { font-size: .85rem; }
 .packages, .event-sponsors { gap: .75rem; }
 .package, .event-sponsor { padding: 1rem; }
@@ -191,7 +191,7 @@ body {
 .package__head .package__price { font-size: 1.6rem; }
 .package p { font-size: .95rem; line-height: 1.55; }
 .package__link { display: inline-flex; align-items: center; min-height: 44px; margin-top: .25rem; }
-.event-sponsor h4 { font-size: 1.3rem; }
+.event-sponsor h3, .event-sponsor h4 { font-size: 1.3rem; }
 .levels li { grid-template-columns: minmax(0, 1fr) auto; column-gap: .75rem; }
 .level__name { grid-column: 1; grid-row: 1; }
 .level__desc { grid-column: 1; grid-row: 2; }
@@ -200,6 +200,14 @@ body {
 .sponsor-contact { gap: 1.25rem; margin-top: 1.75rem; padding: 1.5rem 1.25rem; border-radius: var(--r-md); }
 .sponsor-contact p { margin-bottom: 1.1rem; }
 .sponsor-contact__list a { font-size: .9rem; }
+.sponsor-contact h2 { font-size: 1.45rem; }
+.sponsor-page-nav { gap: .5rem; margin-top: 1.25rem; }
+.sponsor-page-nav a { flex: 1 1 100%; }
+.sponsorship-page .levels li { grid-template-columns: minmax(0, 1fr) auto; }
+.sponsorship-page .event-sponsor { padding: 1rem; }
+.sponsor-source, .sponsor-circle { padding: 1.1rem; }
+.sponsor-comparison h2 { font-size: 1.5rem; }
+.sponsor-option__more { width: 100%; }
 
 /* Legacy ideas and partner types are information, not actions: a divided
    list instead of stacked boxes. */

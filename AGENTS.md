@@ -11,8 +11,8 @@ Use the implementation and the current user request to resolve stale documentati
 ## Working rules
 
 - Keep changes focused and preserve unrelated edits. This is a static HTML/CSS/vanilla JavaScript site with no build step; preserve that structure unless the task calls for a change.
-- Edit public section content in `index.html`. Retired pages such as `events.html` and `map.html` are redirects, not alternate content sources.
-- Preserve IDs, hash/deep links, redirect behavior, accessibility hooks, photo credits, and metadata-free image exports. Keep shared markup consistent across the six full pages listed in CONTRIBUTING.md.
+- Edit public section content in `index.html`; keep its sponsorship overview concise and put full details on the three `sponsorship-*.html` pages. Retired pages such as `events.html` and `map.html` are redirects, not alternate content sources.
+- Preserve IDs, hash/deep links, redirect behavior, accessibility hooks, photo credits, and metadata-free image exports. Keep shared markup consistent across the nine full pages listed in CONTRIBUTING.md.
 - Keep mobile styling within the existing 699 px boundary and preserve visible content and reading order. Update asset cache versions when changing runtime files.
 - Treat `map-data.js` as the location schema authority. Keep drafts and test fixtures out of the public JSON. Preserve plain-text rendering, local photo/story path validation, and fallback states.
 - Preserve analytics consent, vendor licenses, and provider attribution. Review privacy disclosures when external requests change.
