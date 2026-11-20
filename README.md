@@ -31,7 +31,7 @@ Python is only needed for this preview command. Node.js is optional for the chec
 | --- | --- |
 | [index.html](index.html) | Main scrolling page: About, Events, History, Map, Stories, Support, Get involved, FAQ, and Contact. Sponsorship is a short overview with two links and one contact panel. |
 | `sponsorship-series.html`, `sponsorship-events.html` | Full sponsorship prices, benefits, comparison table, event levels, and organizer contacts. Keep detailed sponsorship content on these pages. |
-| [assets/docs/sherman-oaks-100-sponsorship.pdf](assets/docs/sherman-oaks-100-sponsorship.pdf) | Public two-page sponsorship flyer, linked from all two sponsorship pages. Its page-1 service-day date matches page 2 (Saturday, April 24). It declares English but has no screen-reader tags, so the HTML pages carry all of its content. |
+| [assets/docs/sherman-oaks-100-sponsorship.pdf](assets/docs/sherman-oaks-100-sponsorship.pdf) | Public two-page sponsorship flyer, linked from both sponsorship pages. Page 1's dates match the website: the mural label reads Sunday, January 24, and the service-day date matches page 2 (Saturday, April 24). It declares English but has no screen-reader tags, so the HTML pages carry all of its content. |
 | `about.html`, `events.html`, `gallery.html`, `map.html`, `get-involved.html`, `contact.html`, `faq.html`, `news.html`, `steering-committee.html`, `civic-partners.html` | Compatibility redirects to sections of `index.html`. They preserve incoming query strings and URL fragments. |
 | `privacy.html`, `terms.html`, `copyright.html`, `accessibility.html` | Standalone policy and accessibility pages. |
 | [404.html](404.html) | Custom missing-page screen with root-relative asset and navigation URLs. |

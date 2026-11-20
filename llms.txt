@@ -5,7 +5,7 @@
 ## Main sources
 
 - [Centennial overview](https://shermanoaks100.com/): The public source for current plans, committee information and participation.
-- [2027 events](https://shermanoaks100.com/#events): The Centennial Mural on January 23; Shine LA Service Day & Tree Day on April 24; 100 Years / Young Artists, starting August 18 through Labor Day; and the 35th Sherman Oaks Street Fair on October 17. All dates are in 2027. Times, exact venues, admission and accessibility details are still to be confirmed.
+- [2027 events](https://shermanoaks100.com/#events): The Centennial Mural on January 24; Shine LA Service Day & Tree Day on April 24; 100 Years / Young Artists, starting August 18 through Labor Day; and the 35th Sherman Oaks Street Fair on October 17. All dates are in 2027. Times, exact venues, admission and accessibility details are still to be confirmed.
 - [History and photographs](https://shermanoaks100.com/#history): Credited archival images and seven then-and-now comparisons. Photo labels describe the pictured years; they are not event dates.
 - [Neighborhood photo locations](https://shermanoaks100.com/#photo-locations): Eight location descriptions, addresses, visiting notes and links to photographs, readable without JavaScript. These are photo locations, not confirmed event venues. The interactive map uses the same approved records in https://shermanoaks100.com/assets/data/locations.json.
 - [Centennial Series sponsorships](https://shermanoaks100.com/sponsorship-series.html): Five packages covering all four events, with prices, benefits and limits.
